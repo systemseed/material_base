@@ -1,8 +1,0 @@
-custom:
-  css:
-    theme:
-      css/custom.css: {}
-  js:
-    js/custom.js: {}
-  dependencies:
-    - core/jquery

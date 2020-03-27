@@ -1,0 +1,15 @@
+// MDC COLOR THEME ///
+
+// Styles for each MDC Web component.
+@use "@material/button/mdc-button";
+@use "@material/card/mdc-card";
+@use "@material/elevation/mdc-elevation";
+@use "@material/layout-grid/mdc-layout-grid";
+@use "@material/textfield/mdc-text-field";
+@use "@material/textfield/helper-text/mdc-text-field-helper-text";
+@use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/typography/mdc-typography";
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,700');

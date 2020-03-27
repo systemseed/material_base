@@ -1,53 +1,7 @@
-flexboxgrid:
+global:
+  version: VERSION
   css:
     theme:
-      css/flexboxgrid.css: {}
-
-color-themes:
-  css:
-    theme:
-      css/color-themes.css: {}
-
-theme-dark:
-  css:
-    theme:
-      css/theme-dark.css: {}
-
-icons:
-  css:
-    theme:
-      css/icons.css: {}
-
-services-icons:
-  css:
-    theme:
-      css/services-icons.css: {}
-
-filetypes-icons:
-  css:
-    theme:
-      css/filetypes-icons.css: {}      
-
-helpers:
-  css:
-    theme:
-      css/helpers.css: {}
-
-code-highlight:
-  css:
-    theme:
-      css/code-highlight.css: {}
+      css/theme.css: {}
   js:
-    js/prism.js: {}
-
-styles:
-  css:
-    theme:
-      css/styles.css: {}
-      css/fonts.css: {}
-  js:
-    js/jquery.ripple.js: {}
-    js/jquery.mobile-events.min.js: {}
-    js/misc.js: {}
-  dependencies:
-    - core/jquery
+    js/theme.js: {}
