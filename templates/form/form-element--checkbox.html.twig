@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation for a form element.
+ * Theme override for a form element.
  *
  * Available variables:
  * - attributes: HTML attributes for the containing element.
@@ -42,17 +42,8 @@
  * - title_display: Title display setting.
  *
  * @see template_preprocess_form_element()
- *
- * @ingroup themeable
  */
 #}
-{%
-  set outlined = false
-%}
-{% 
-  set full_width = false
-%}
-
 {%
   set classes = [
     'js-form-item',
@@ -63,26 +54,23 @@
     title_display not in ['after', 'before'] ? 'form-no-label',
     disabled == 'disabled' ? 'form-disabled',
     errors ? 'form-item--error',
+    'mdc-form-field',
   ]
 %}
-
 {%
   set description_classes = [
     'description',
-    'mdc-text-field-helper-text',
+    description_display == 'invisible' ? 'visually-hidden',
   ]
 %}
 
 {%
-  set mdc_attributes = create_attribute()
+  set label_attributes = create_attribute()
 %}
 {%
-  set mdc_classes = [
-    'mdc-text-field',
-    outlined ? 'mdc-text-field--outlined',
-    full_width ? 'mdc-text-field--fullwidth',
-    disabled == 'disabled' ? 'mdc-text-field--disabled',
-    label_display == 'invisible' ? 'mdc-text-field--no-label',
+  set label_classes = [
+    'option',
+    label_display == 'invisible' ? 'visually-hidden',
     required ? 'js-form-required',
     required ? 'form-required',
   ]
@@ -95,52 +83,32 @@
   {% endif %}
 
   {% if description_display == 'before' and description.content %}
-    <div class="mdc-text-field-helper-line">
-      <div{{ description.attributes.addClass(description_classes).setAttribute('aria-hidden', 'true') }}>
-        {{ description.content }}
-      </div>
+    <div{{ description.attributes.addClasses('description') }}>
+      {{ description.content }}
     </div>
   {% endif %}
 
-  <label{{ mdc_attributes.addClass(mdc_classes).setAttribute('data-mdc-auto-init', 'MDCTextField') }}>
-    <div class="mdc-text-field__ripple"></div>
+  <div class="mdc-form-field{{ disabled == 'disabled' ? ' mdc-checkbox--disabled' }}" data-mdc-auto-init="MDCFormField">
 
-    {% if description.content %}
-      <input{{ input_attributes
-          .setAttribute('aria-labelledby', input_attributes.id ~ '-label')
-          .setAttribute('aria-controls', description.attributes.id)
-          .setAttribute('aria-describedby', description.attributes.id)
-          .addClass('mdc-text-field__input')
-      }}>
-    {% else %}
-      <input{{ input_attributes
-        .setAttribute('aria-labelledby', input_attributes.id ~ '-label')
-        .addClass('mdc-text-field__input')
-      }}>
-    {% endif %}
+    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
+      <input{{ input_attributes.addClass('mdc-checkbox__native-control') }}>
 
-    {% if outlined %}
-      <div class="mdc-notched-outline">
-        <div class="mdc-notched-outline__leading"></div>
-        <div class="mdc-notched-outline__notch">
-          {% if label_display != 'invisible' %}
-            <span class="mdc-floating-label{{ label_display == 'invisible' ? ' visually-hidden' }}" id="{{ input_attributes.id ~ '-label' }}">{{ label['#title'] }}</span>
-          {% endif %}
-        </div>
-        <div class="mdc-notched-outline__trailing"></div>
+      <div class="mdc-checkbox__background">
+        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+          <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+        </svg>
+        <div class="mdc-checkbox__mixedmark"></div>
       </div>
-    {% elseif label_display != 'invisible' %}
-      <span class="mdc-floating-label{{ label_display == 'invisible' ? ' visually-hidden' }}" id="{{ input_attributes.id ~ '-label' }}">{{ label['#title'] }}</span>
-    {% endif %}
 
-    <div class="mdc-line-ripple"></div>
-  </label>
+      <div class="mdc-checkbox__ripple"></div>
+    </div>
+
+    <label{{ label_attributes.addClass(label_classes).setAttribute('for', input_attributes.id) }}>{{ label['#title'] }}</label>
+
+  </div>
 
   {% if suffix is not empty %}
     <span class="field-suffix">{{ suffix }}</span>
-  {% endif %}
-  {% if label_display == 'after' %}
-    {{ label }}
   {% endif %}
 
   {% if errors %}
@@ -150,11 +118,8 @@
   {% endif %}
 
   {% if description_display in ['after', 'invisible'] and description.content %}
-    <div class="mdc-text-field-helper-line{{ description_display == 'invisible' ? ' visually-hidden' }}">
-      <div{{ description.attributes.addClass(description_classes).setAttribute('aria-hidden', 'true') }}>
-        {{ description.content }}
-      </div>
+    <div{{ description.attributes.addClass(description_classes) }}>
+      {{ description.content }}
     </div>
   {% endif %}
-
 </div>

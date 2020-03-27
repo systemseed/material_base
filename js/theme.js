@@ -90,10 +90,22 @@
 /*!*************************!*\
   !*** ./js/src/index.js ***!
   \*************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mdc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mdc */ \"./js/src/mdc.js\");\n/* harmony import */ var _mdc__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_mdc__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack:///./js/src/index.js?");
+
+/***/ }),
+
+/***/ "./js/src/mdc.js":
+/*!***********************!*\
+  !*** ./js/src/mdc.js ***!
+  \***********************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./js/src/index.js?");
+eval("window.mdc.autoInit();\n\n//# sourceURL=webpack:///./js/src/mdc.js?");
 
 /***/ }),
 

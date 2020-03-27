@@ -1,6 +1,6 @@
-// MDC COLOR THEME ///
+@charset "UTF-8";
 
-// Styles for each MDC Web component.
+// MDC
 @use "@material/button/mdc-button";
 @use "@material/card/mdc-card";
 @use "@material/elevation/mdc-elevation";
@@ -9,7 +9,10 @@
 @use "@material/textfield/helper-text/mdc-text-field-helper-text";
 @use "@material/top-app-bar/mdc-top-app-bar";
 @use "@material/typography/mdc-typography";
+@use "@material/form-field/mdc-form-field";
+@use "@material/checkbox/mdc-checkbox";
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,700');
+// Base
+@import "base/variables";
+@import "base/fonts";
+@import "base/typography";

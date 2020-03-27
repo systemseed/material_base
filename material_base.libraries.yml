@@ -1,7 +1,7 @@
-global:
-  version: VERSION
+global-styling:
   css:
     theme:
       css/theme.css: {}
   js:
+    https://unpkg.com/material-components-web@5.1.0/dist/material-components-web.min.js: { type: external, minified: true, weight: -1 }
     js/theme.js: {}
