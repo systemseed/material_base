@@ -1,17 +1,12 @@
 // box-sizing
 
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
-.layout-container {
-  * {
-    box-sizing: border-box;
-  }
-
-  .cke * {
-    box-sizing: content-box;
-  }
+.cke *,
+.toolbar * {
+  box-sizing: content-box;
 }
 
 // container

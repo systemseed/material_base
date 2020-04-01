@@ -5,7 +5,9 @@
  */
 function material_base_preprocess_form_element(&$variables) {
   //$variables['element']['#description'] = t('test');
-  $variables['input_attributes'] = new \Drupal\Core\Template\Attribute($variables['element']['#attributes']);
+  if(isset($variables['element']['#attributes'])) {
+    $variables['input_attributes'] = new \Drupal\Core\Template\Attribute($variables['element']['#attributes']);
+  }
   //$variables['input_label'] = $variables['element']['#title'];
 }
 
