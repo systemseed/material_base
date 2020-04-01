@@ -1,3 +1,35 @@
 $font-family-base: 'Roboto', sans-serif !default;
 $font-size-base: 16px !default;
-$line-height-base: 1.5;
+$line-height-base: 1.5 !default;
+
+// Breakpoints (Bootstrap 3 flavour)
+
+$ss: 360px !default;
+$ms: 480px !default;
+$xs: 576px !default;
+$sm: 768px !default;
+$md: 992px !default;
+$lg: 1200px !default;
+$xl: 1520px !default;
+
+$gutter: 16px;
+
+// Grid
+// Flexbox Grid http://flexboxgrid.com/
+// used as Flexbox Grid Sass https://github.com/hugeinc/flexboxgrid-sass
+
+// master namespace
+$flexboxgrid-grid-columns: 12;
+$flexboxgrid-gutter-width: $gutter;
+$flexboxgrid-outer-margin: $gutter;
+$flexboxgrid-breakpoints:
+  sm $sm auto,
+  md $md auto,
+  lg $lg $lg;
+$flexboxgrid-max-width: $lg;
+
+// 8.0.5 namespace
+$grid-columns: $flexboxgrid-grid-columns;
+$gutter-width: $flexboxgrid-gutter-width;
+$outer-margin: $flexboxgrid-outer-margin;
+$breakpoints: $flexboxgrid-breakpoints;
