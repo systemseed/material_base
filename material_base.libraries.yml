@@ -1,7 +1,24 @@
 global-styling:
   css:
+    base:
+      dist/css/theme.css: {}
+  js:
+    dist/js/theme.js: {}
+
+grid:
+  css:
+    layout:
+      dist/css/grid.css: {}
+
+mdc:
+  css:
     theme:
-      css/theme.css: {}
+      dist/css/mdc.css: {}
   js:
     https://unpkg.com/material-components-web@5.1.0/dist/material-components-web.min.js: { type: external, minified: true, weight: -1 }
-    js/theme.js: {}
+    dist/js/mdc.js: {}
+
+fonts:
+  css:
+    component:
+      dist/css/fonts.css: {}

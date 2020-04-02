@@ -32,10 +32,13 @@ const mode = process.env.NODE_ENV || 'development';
 
 module.exports = [{
   mode,
-  entry: ['./scss/theme.scss', './js/src/index.js'],
+  entry: {
+    theme: ['./js/theme.js', './scss/theme.scss', './scss/grid.scss', './scss/mdc.scss', './scss/fonts.scss'],
+    mdc: './js/mdc.js',
+  },
   output: {
-    path: path.resolve(__dirname, "css"),
-    filename: './../js/theme.js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'js/[name].js',
   },
   module: {
     rules: [
@@ -45,15 +48,22 @@ module.exports = [{
           {
             loader: 'file-loader',
             options: {
-              name: 'theme.css',
+              name: 'css/[name].css',
+            }
+          },
+          {
+            loader: 'extract-loader'
+          },
+          { loader: 'css-loader',
+            options: {
+              sourceMap: true,
             },
           },
-          { loader: 'extract-loader' },
-          { loader: 'css-loader' },
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [autoprefixer()]
+              plugins: () => [autoprefixer()],
+              sourceMap: true,
             }
           },
           {
@@ -65,6 +75,7 @@ module.exports = [{
                 includePaths: ['./node_modules'],
                 importer: materialImporter
               },
+              sourceMap: true,
             }
           },
         ]
@@ -78,4 +89,5 @@ module.exports = [{
       },
     ]
   },
+  devtool: 'source-map',
 }];

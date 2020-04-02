@@ -6,3 +6,6 @@ base theme: stable
 
 libraries:
   - material_base/global-styling
+  - material_base/grid
+  - material_base/mdc
+  - material_base/fonts
