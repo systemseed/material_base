@@ -1,9 +1,9 @@
-global-styling:
+base:
   css:
     base:
-      dist/css/theme.css: {}
+      dist/css/base.css: {}
   js:
-    dist/js/theme.js: {}
+    dist/js/base.js: {}
 
 grid:
   css:

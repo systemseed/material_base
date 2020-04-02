@@ -6,7 +6,7 @@ base theme: stable
 
 libraries:
   - core/normalize
-  - material_base/global-styling
+  - material_base/base
   - material_base/grid
   - material_base/mdc
   - material_base/fonts

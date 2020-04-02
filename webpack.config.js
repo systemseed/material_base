@@ -33,7 +33,7 @@ const mode = process.env.NODE_ENV || 'development';
 module.exports = [{
   mode,
   entry: {
-    theme: ['./js/theme.js', './scss/theme.scss', './scss/grid.scss', './scss/mdc.scss', './scss/fonts.scss'],
+    base: ['./js/base.js', './scss/base.scss', './scss/grid.scss', './scss/mdc.scss', './scss/fonts.scss'],
     mdc: './js/mdc.js',
   },
   output: {
