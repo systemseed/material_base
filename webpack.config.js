@@ -1,5 +1,7 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const SuppressChunksPlugin = require('suppress-chunks-webpack-plugin').default;
 
 function tryResolve_(url, sourceFilename) {
   // Put require.resolve in a try/catch to avoid node-sass failing with cryptic libsass errors
@@ -33,12 +35,16 @@ const mode = process.env.NODE_ENV || 'development';
 module.exports = [{
   mode,
   entry: {
-    base: ['./js/base.js', './scss/base.scss', './scss/grid.scss', './scss/mdc.scss', './scss/fonts.scss'],
-    mdc: './js/mdc.js',
+    base: ['./js/base.js', './scss/base.scss'],
+    mdc: ['./js/mdc.js', './scss/mdc.scss'],
+    // CSS witout JS needs to add to 'SuppressChunksPlugin' config
+    grid: './scss/grid.scss',
+    fonts: './scss/fonts.scss',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].js',
+    sourceMapFilename: '[file].map',
   },
   module: {
     rules: [
@@ -46,13 +52,7 @@ module.exports = [{
         test: /\.scss$/,
         use: [
           {
-            loader: 'file-loader',
-            options: {
-              name: 'css/[name].css',
-            }
-          },
-          {
-            loader: 'extract-loader'
+            loader: MiniCssExtractPlugin.loader
           },
           { loader: 'css-loader',
             options: {
@@ -87,7 +87,28 @@ module.exports = [{
           presets: ['@babel/preset-env'],
         },
       },
+      {
+      test: /\.(png|jpg|jpeg|webp|svg)$/,
+        loader: 'file-loader',
+        options: {
+          emitFile: false,
+          name: '../../images/[name].[ext]'
+        }
+      },
     ]
   },
   devtool: 'source-map',
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[id].css',
+    }),
+    new SuppressChunksPlugin([
+      { name: 'fonts', match: /\.js$|\.js\.map$/ },
+      { name: 'grid', match: /\.js$|\.js\.map$/ },
+    ]),
+  ],
+  stats: {
+    children: false
+  },
 }];
