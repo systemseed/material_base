@@ -22,3 +22,8 @@ fonts:
   css:
     component:
       dist/css/fonts.css: {}
+
+icons-font:
+  css:
+    component:
+      dist/css/icons-font.css: {}

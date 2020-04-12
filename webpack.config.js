@@ -40,6 +40,7 @@ module.exports = [{
     // CSS witout JS needs to add to 'SuppressChunksPlugin' config
     grid: './scss/grid.scss',
     fonts: './scss/fonts.scss',
+    'icons-font': './scss/icons-font.scss',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -106,6 +107,7 @@ module.exports = [{
     new SuppressChunksPlugin([
       { name: 'fonts', match: /\.js$|\.js\.map$/ },
       { name: 'grid', match: /\.js$|\.js\.map$/ },
+      { name: 'icons-font', match: /\.js$|\.js\.map$/ },
     ]),
   ],
   stats: {

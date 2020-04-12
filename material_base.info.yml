@@ -10,3 +10,4 @@ libraries:
   - material_base/grid
   - material_base/mdc
   - material_base/fonts
+  - material_base/icons-font
