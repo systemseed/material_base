@@ -2,6 +2,7 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SuppressChunksPlugin = require('suppress-chunks-webpack-plugin').default;
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 function tryResolve_(url, sourceFilename) {
   // Put require.resolve in a try/catch to avoid node-sass failing with cryptic libsass errors
@@ -96,6 +97,15 @@ module.exports = [{
           name: '../../images/[name].[ext]'
         }
       },
+      {
+        test: /icons\/.*\.svg$/,
+        loader: 'svg-sprite-loader',
+        options: {
+          extract: true,
+          spriteFilename: './images/icons.svg',
+          runtimeCompat: true
+        }
+      },
     ]
   },
   devtool: 'source-map',
@@ -109,6 +119,9 @@ module.exports = [{
       { name: 'grid', match: /\.js$|\.js\.map$/ },
       { name: 'icons-font', match: /\.js$|\.js\.map$/ },
     ]),
+    new SpriteLoaderPlugin({
+      plainSprite: true
+    }),
   ],
   stats: {
     children: false

@@ -1,11 +1,25 @@
 <?php
 
+function material_base_preprocess_html(&$variables) {
+  // Get the contents of the SVG sprite.
+  $icons = file_get_contents(\Drupal::theme()->getActiveTheme()->getPath() . '/dist/images/icons.svg');
+
+  if ($icons) {
+    // Add SVG sprite to page_bottom
+    $variables['page_bottom']['icons'] = array(
+      '#type' => 'inline_template',
+      '#template' => '<span class="hidden">' . $icons . '</span>',
+    );
+  }
+}
+
+
 /**
  * Implements hook_preprocess_HOOK().
  */
 function material_base_preprocess_form_element(&$variables) {
   //$variables['element']['#description'] = t('test');
-  if(isset($variables['element']['#attributes'])) {
+  if (isset($variables['element']['#attributes'])) {
     $variables['input_attributes'] = new \Drupal\Core\Template\Attribute($variables['element']['#attributes']);
   }
   //$variables['input_label'] = $variables['element']['#title'];
