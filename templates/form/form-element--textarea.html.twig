@@ -46,7 +46,6 @@
  * @ingroup themeable
  */
 #}
-{% set outlined = false %}
 {% set full_width = false %}
 
 {% set classes = [
@@ -65,11 +64,10 @@
   'mdc-text-field-helper-text',
 ] %}
 
-{% set mdc_attributes = create_attribute() %}
-
 {% set mdc_classes = [
   'mdc-text-field',
-  outlined ? 'mdc-text-field--outlined',
+  'mdc-text-field--textarea',
+  'mdc-text-field--outlined',
   full_width ? 'mdc-text-field--fullwidth',
   disabled == 'disabled' ? 'mdc-text-field--disabled',
   label_display == 'invisible' ? 'mdc-text-field--no-label',
@@ -91,40 +89,32 @@
     </div>
   {% endif %}
 
-  <label{{ mdc_attributes.addClass(mdc_classes).setAttribute('data-mdc-auto-init', 'MDCTextField') }}>
+  <label{{ textarea_wrapper_attributes.addClass(mdc_classes).setAttribute('data-mdc-auto-init', 'MDCTextField') }}>
     <div class="mdc-text-field__ripple"></div>
 
     {% if description.content %}
-      <input{{ input_attributes
-          .setAttribute('aria-labelledby', input_attributes.id ~ '-label')
-          .setAttribute('aria-controls', description.attributes.id)
-          .setAttribute('aria-describedby', description.attributes.id)
-          .addClass('mdc-text-field__input')
-      }}>
-    {% else %}
-      <input{{ input_attributes
-        .setAttribute('aria-labelledby', input_attributes.id ~ '-label')
+      <textarea{{ textarea_attributes
+        .setAttribute('aria-labelledby', textarea_attributes.id ~ '-label')
+        .setAttribute('aria-controls', description.attributes.id)
+        .setAttribute('aria-describedby', description.attributes.id)
         .addClass('mdc-text-field__input')
-      }}>
+      }}>{{ textarea_value }}</textarea>
+    {% else %}
+      <textarea{{ textarea_attributes
+        .setAttribute('aria-labelledby', textarea_attributes.id ~ '-label')
+        .addClass('mdc-text-field__input')
+      }}>{{ textarea_value }}</textarea>
     {% endif %}
 
-    {% if outlined %}
-      <div class="mdc-notched-outline">
-        <div class="mdc-notched-outline__leading"></div>
-        {% if label_display != 'after' %}
-          <div class="mdc-notched-outline__notch{{ label_display == 'invisible' ? ' visually-hidden' }}">
-            <span class="mdc-floating-label" id="{{ input_attributes.id ~ '-label' }}">{{ label['#title'] }}</span>
-          </div>
-        {% endif %}
-        <div class="mdc-notched-outline__trailing"></div>
-      </div>
-    {% elseif label_display != 'after' %}
-      <span class="mdc-floating-label{{ label_display == 'invisible' ? ' visually-hidden' }}" id="{{ input_attributes.id ~ '-label' }}">{{ label['#title'] }}</span>
-    {% endif %}
-
-    {% if not outlined %}
-      <div class="mdc-line-ripple"></div>
-    {% endif %}
+    <div class="mdc-notched-outline">
+      <div class="mdc-notched-outline__leading"></div>
+      {% if label_display != 'after' %}
+        <div class="mdc-notched-outline__notch{{ label_display == 'invisible' ? ' visually-hidden' }}">
+          <span class="mdc-floating-label" id="{{ textarea_attributes.id ~ '-label' }}">{{ label['#title'] }}</span>
+        </div>
+      {% endif %}
+      <div class="mdc-notched-outline__trailing"></div>
+    </div>
   </label>
 
   {% if suffix is not empty %}
@@ -148,5 +138,4 @@
       </div>
     </div>
   {% endif %}
-
 </div>

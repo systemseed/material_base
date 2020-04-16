@@ -90,8 +90,9 @@ module.exports = [{
         },
       },
       {
-      test: /\.(png|jpg|jpeg|webp|svg)$/,
+        test: /\.(png|jpg|jpeg|webp|svg)$/,
         loader: 'file-loader',
+        exclude: /icons\/.*\.svg$/,
         options: {
           emitFile: false,
           name: '../../images/[name].[ext]'
