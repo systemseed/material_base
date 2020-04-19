@@ -1,0 +1,109 @@
+@use "@material/typography" with (
+  $font-family: $font-family-text,
+  $styles-headline1: (
+    font-family: $font-family-heading,
+    font-size: $font-size-h1,
+    font-weight: $font-weight-h1
+  ),
+  $styles-headline2: (
+    font-family: $font-family-heading,
+    font-size: $font-size-h2,
+    font-weight: $font-weight-h2
+  ),
+  $styles-headline3: (
+    font-family: $font-family-heading,
+    font-size: $font-size-h3,
+    font-weight: $font-weight-h3
+  ),
+  $styles-headline4: (
+    font-family: $font-family-heading,
+    font-size: $font-size-h4,
+    font-weight: $font-weight-h4
+  ),
+  $styles-headline5: (
+    font-family: $font-family-heading,
+    font-size: $font-size-h5,
+    font-weight: $font-weight-h5
+  ),
+  $styles-headline6: (
+    font-family: $font-family-heading,
+    font-size: $font-size-h6,
+    font-weight: $font-weight-h6
+  ),
+  $styles-subtitle1: (
+    font-size: $font-size-st1,
+    font-weight: $font-weight-st1
+  ),
+  $styles-subtitle2: (
+    font-size: $font-size-st2,
+    font-weight: $font-weight-st2
+  ),
+  $styles-body1: (
+    font-size: $font-size-text,
+    font-weight: $font-weight-text
+  ),
+  $styles-body2: (
+    font-size: $font-size-text-small,
+    font-weight: $font-weight-text-small
+  ),
+  $styles-caption: (
+    font-size: $font-size-caption,
+    font-weight: $font-weight-caption
+  ),
+  $styles-button: (
+    font-size: $font-size-button,
+    font-weight: $font-weight-button
+  ),
+  $styles-overline: (
+    font-size: $font-size-overline,
+    font-weight: $font-weight-overline
+  ),
+);
+
+body {
+  @include typography.typography(body1);
+}
+
+h1, .h1 {
+  @include typography.typography(headline1);
+}
+
+h2, .h2 {
+  @include typography.typography(headline2);
+}
+
+h3, .h3 {
+  @include typography.typography(headline3);
+}
+
+h4, .h4 {
+  @include typography.typography(headline4);
+}
+
+h5, .h5 {
+  @include typography.typography(headline5);
+}
+
+h6, .h6 {
+  @include typography.typography(headline6);
+}
+
+.st1 {
+  @include typography.typography(subtitle1);
+}
+
+.st2 {
+  @include typography.typography(subtitle2);
+}
+
+.text-small {
+  @include typography.typography(body2);
+}
+
+.caption {
+  @include typography.typography(caption);
+}
+
+.overline {
+  @include typography.typography(overline);
+}

@@ -1,0 +1,5 @@
+@use "@material/theme" with (
+  $primary: $theme-primary,
+  $secondary: $theme-secondary,
+  $background: $theme-background,
+);

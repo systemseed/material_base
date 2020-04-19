@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+
+{% set button_attributes = create_attribute() %}
+
+{% set button_classes = [
+  'mdc-button',
+  'button-submit',
+] %}
+
+{% if attributes.class %}
+  {% set button_classes = button_classes|merge(attributes.class) %}
+{% endif %}
+
+{% set button_attributes = button_attributes.setAttribute('data-mdc-auto-init', 'MDCRipple') %}
+
+{% if disabled %}
+  {% set button_attributes = button_attributes.setAttribute('disabled', 1) %}
+{% endif %}
+
+<button{{ button_attributes.addClass(button_classes) }}>
+  <div class="mdc-button__ripple"></div>
+  <span class="mdc-button__label">{{ attributes.value|render }}</span>
+  <input{{ attributes|without('class').addClass('button-submit__input', 'visually-hidden') }} />
+</button>

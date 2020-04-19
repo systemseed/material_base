@@ -1,13 +1,23 @@
 name: Material Base
 type: theme
+description: Base theme inspirited by Material Design concept.
 core: 8.x
 core_version_requirement: ^8 || ^9
+version: '8.x-2.x-dev'
+
 base theme: stable
+
+dependencies:
+  - components
 
 libraries:
   - core/normalize
   - material_base/base
   - material_base/grid
-  - material_base/mdc
   - material_base/fonts
   - material_base/icons-font
+
+component-libraries:
+  material_base:
+    paths:
+      - ./components

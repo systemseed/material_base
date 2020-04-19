@@ -1,6 +1,85 @@
+// Colors
+
+$color-primary-base: #546e7a !default;
+$color-secondary-base: #00c9f8 !default;
+$color-accent-base: $color-secondary-base !default;
+$color-bg-body: #FFF !default;
+
+$theme-primary: $color-primary-base !default;
+$theme-secondary: $color-secondary-base !default;
+$theme-background: $color-bg-body !default;
+
+$color-text-base: #000 !default;
+$color-text: rgba($color-text-base, .87) !default;
+$color-heading: darken($theme-primary, 20) !default;
+
+// Fonts & typography
+
 $font-family-base: 'Roboto', sans-serif !default;
+$font-family-additional: $font-family-base !default;
+
+$font-family-text: $font-family-base !default;
+$font-family-heading: $font-family-additional !default;
+
 $font-size-base: 16px !default;
 $line-height-base: 1.5 !default;
+
+$font-size-h1: 6rem !default; // 96sp
+$line-height-h1: 6rem !default;
+$font-weight-h1: 300 !default;
+
+$font-size-h2: 3.75rem !default; // 60sp
+$line-height-h2: 3.75rem !default;
+$font-weight-h2: 300 !default;
+
+$font-size-h3: 3rem !default; // 48sp
+$line-height-h3: 3.125rem !default; // 50sp
+$font-weight-h3: 400 !default;
+
+$font-size-h4: 2.125rem !default; // 34sp
+$line-height-h4: 2.5rem !default; // 40sp
+$font-weight-h4: 400 !default;
+
+$font-size-h5: 1.5rem !default; // 24sp
+$line-height-h5: 2rem !default; // 32sp
+$font-weight-h5: 400 !default;
+
+$font-size-h6: 1.25rem !default; // 20sp
+$line-height-h6: 2rem !default; // 32sp
+$font-weight-h6: 500 !default;
+
+$font-size-st1: 1rem !default; // 16sp
+$line-height-st1: 1.75rem !default; // 28sp
+$font-weight-st1: 400 !default;
+
+$font-size-st2: .875rem !default; // 14sp
+$line-height-st2: 1.375rem !default; // 22sp
+$font-weight-st2: 500 !default;
+ 
+// body 
+$font-size-text: 1rem !default; // 16sp
+$line-height-text: 1.5rem !default; // 24sp
+$font-weight-text: 400 !default;
+
+$font-size-text-small: .875rem !default; // 14sp
+$line-height-text-small: 1.25rem !default; // 20sp
+$font-weight-text-small: 400 !default;
+
+$font-size-caption: .75rem !default; // 12sp
+$line-height-caption: 1.25rem !default; // 20sp
+$font-weight-caption: 400 !default;
+
+$font-size-button: .875rem !default; // 14sp
+$line-height-button: 2.25rem !default; // 36sp
+$font-weight-button: 500 !default;
+
+$font-size-overline: .75rem !default; // 12sp
+$line-height-overline: 2rem !default; // 32sp
+$font-weight-overline: 500 !default;
+
+// Spacing
+
+$spacing: 8px !default;
 
 // Breakpoints (Bootstrap 3 flavour)
 
@@ -12,21 +91,22 @@ $md: 992px !default;
 $lg: 1200px !default;
 $xl: 1520px !default;
 
-$gutter: 16px;
-
 // Grid
+
+$gutter: $spacing * 2 !default;
+
 // Flexbox Grid http://flexboxgrid.com/
 // used as Flexbox Grid Sass https://github.com/hugeinc/flexboxgrid-sass
 
-// master namespace
-$flexboxgrid-grid-columns: 12;
-$flexboxgrid-gutter-width: $gutter;
-$flexboxgrid-outer-margin: $gutter;
+// Master namespace
+$flexboxgrid-grid-columns: 12 !default;
+$flexboxgrid-gutter-width: $gutter !default;
+$flexboxgrid-outer-margin: $gutter !default;
 $flexboxgrid-breakpoints:
   sm $sm auto,
   md $md auto,
   lg $lg $lg;
-$flexboxgrid-max-width: $lg;
+$flexboxgrid-max-width: $lg !default;
 
 // 8.0.5 namespace
 $grid-columns: $flexboxgrid-grid-columns;

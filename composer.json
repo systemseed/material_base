@@ -1,0 +1,22 @@
+{
+    "name": "drupal/material_base",
+    "description": "Base theme inspirited by Material Design concept.",
+    "type": "drupal-theme",
+    "homepage": "https://www.drupal.org/project/material_base",
+    "authors": [
+        {
+            "name": "Andrey Yurtaev (iamdroid)",
+            "homepage": "https://www.drupal.org/u/iamdroid",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/material_base",
+        "source": "https://git.drupalcode.org/project/material_base"
+    },
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/components": "^2.0",
+    }
+}

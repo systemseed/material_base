@@ -89,14 +89,45 @@ module.exports = [{
           presets: ['@babel/preset-env'],
         },
       },
-      {
+     {
         test: /\.(png|jpg|jpeg|webp|svg)$/,
-        loader: 'file-loader',
         exclude: /icons\/.*\.svg$/,
-        options: {
-          emitFile: false,
-          name: '../../images/[name].[ext]'
-        }
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              emitFile: true,
+              name: '[path][name].[ext]',
+              publicPath: '../',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              emitFile: false,
+              mozjpeg: {
+                progressive: true,
+                quality: 90
+              },
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.85, 0.90],
+                speed: 4
+              },
+              svgo: {
+                enabled: true,
+              },
+              gifsicle: {
+                enabled: false,
+              },
+              webp: {
+                quality: 90
+              }
+            }
+          },
+        ]
       },
       {
         test: /icons\/.*\.svg$/,
