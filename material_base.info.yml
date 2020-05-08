@@ -7,8 +7,8 @@ version: '8.x-2.x-dev'
 
 base theme: stable
 
-dependencies:
-  - components
+# dependencies:
+#   - components
 
 libraries:
   - core/normalize
