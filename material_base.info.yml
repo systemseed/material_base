@@ -21,3 +21,26 @@ component-libraries:
   material_base:
     paths:
       - ./components
+
+regions:
+  navbar: 'Navbar'
+  header: 'Header'
+  actions: 'Actions'
+  highlighted: Highlighted
+  main_top: 'Main top'
+  breadcrumb: 'Breadcrumb'
+  help: 'Help'
+  content: 'Content'
+  content_secondary: 'Content secondary'
+  content_above: 'Content above'
+  content_below: 'Content below'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  main_bottom: 'Main bottom'
+  footer: 'Footer'
+  drawer: 'Drawer'
+  overlay: 'Overlay'
+  
+regions_hidden:
+  page_bottom: 'Page bottom'
+  page_top: 'Page top'
