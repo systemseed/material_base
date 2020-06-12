@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Render\Element;
+use Drupal\Core\Render\Element\RenderElement;
 /**
  * @file
  * Functions to support theming in the Material Base MDC theme.
@@ -27,8 +29,8 @@ function material_base_mdc_preprocess_form_element(&$variables) {
       'maxlength',
       'placeholder',
     ];
-    \Drupal\Core\Render\Element::setAttributes($element, $attributes);
-    \Drupal\Core\Render\Element\RenderElement::setAttributes($element, [
+    Element::setAttributes($element, $attributes);
+    RenderElement::setAttributes($element, [
       'form-textarea',
     ]);
     $variables['textarea_wrapper_attributes'] = new Attribute();
