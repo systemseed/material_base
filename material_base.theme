@@ -7,19 +7,33 @@
 
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Form\FormStateInterface;
+use \Drupal\block_content\BlockContentInterface;
 
 /**
  * Implements hook_preprocess_HOOK().
  */
 function material_base_preprocess_html(&$variables) {
-  // Check for SVG sprite file
+
+  // Add body class for front and not front pages.
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $variables['attributes']['class'][] = 'front';
+  } else {
+    $variables['attributes']['class'][] = 'not-front';
+  }
+
+  // Add page alias as body class.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  $variables['attributes']['class'][] = 'page-' . \Drupal\Component\Utility\Html::cleanCssIdentifier(ltrim($current_alias, '/'));
+
+  // Check for SVG sprite file.
   $icons_file = \Drupal::theme()->getActiveTheme()->getPath() . '/dist/images/icons.svg';
 
   if (file_exists($icons_file)) {
     // Get the contents of the SVG sprite.
     $icons = file_get_contents($icons_file);
   } else {
-    // Use base theme SVG sprite file
+    // Use base theme SVG sprite file.
     $icons_file = drupal_get_path('theme', 'material_base') . '/dist/images/icons.svg';
     if (file_exists($icons_file)) {
       // Get the contents of the SVG sprite.
@@ -28,10 +42,58 @@ function material_base_preprocess_html(&$variables) {
   }
 
   if ($icons) {
-    // Add SVG sprite to page_bottom
+    // Add SVG sprite to page_bottom.
     $variables['page_bottom']['icons'] = array(
       '#type' => 'inline_template',
       '#template' => '<span class="hidden">' . $icons . '</span>',
     );
   }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function material_base_preprocess_block(&$variables) {
+
+  if (isset($variables['elements']['content']['#block_content'])) {
+    // Pass block type to template.
+    $variables['block_bundle'] = $variables['elements']['content']['#block_content']->bundle();
+
+    // Pass block object shortcut to template.
+    $variables['block_content'] = $variables['elements']['content']['#block_content'];
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function material_base_theme_suggestions_page_alter(&$suggestions, &$variables) {
+
+  $request = \Drupal::routeMatch()->getRouteObject();
+
+  // Suggestion for page manager.
+  // Source https://drupal.stackexchange.com/questions/211145/page-manager-panels-and-theme-suggestions
+  if ($request->getDefault('_entity_view') === 'page_manager_page_variant') {
+    $page_name = $request->getDefault('page_manager_page');
+    $page_variant = $request->getDefault('page_manager_page_variant');
+    $suggestions[] = 'page__page_manager';
+    $suggestions[] = 'page__page_manager__' . $page_name;
+    $suggestions[] = 'page__page_manager__' . $page_name . '__' . $page_variant;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function material_base_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+
+  $content = $variables['elements']['content'];
+
+  if (isset($content['#block_content']) and $content['#block_content'] instanceof BlockContentInterface) {
+    // Block title suggetion, default do not work in page manager blocks.
+    $block_description = preg_replace('/\W+/','_',strtolower($content['#block_content']->label()));
+    $suggestions[] = 'block__' . $block_description;
+  }
+
 }
