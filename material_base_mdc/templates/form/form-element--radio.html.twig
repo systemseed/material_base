@@ -87,19 +87,16 @@
     </div>
   {% endif %}
 
-  <div class="mdc-form-field{{ disabled == 'disabled' ? ' mdc-checkbox--disabled' }}" data-mdc-auto-init="MDCFormField">
+  <div class="mdc-form-field{{ disabled == 'disabled' ? ' mdc-radio--disabled' }}" data-mdc-auto-init="MDCFormField">
 
-    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
-      <input{{ input_attributes.addClass('mdc-checkbox__native-control') }}>
+    <div class="mdc-radio" data-mdc-auto-init="MDCRadio">
+      <input{{ input_attributes.addClass('mdc-radio__native-control') }}>
 
-      <div class="mdc-checkbox__background">
-        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-          <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-        </svg>
-        <div class="mdc-checkbox__mixedmark"></div>
+      <div class="mdc-radio__background">
+        <div class="mdc-radio__outer-circle"></div>
+        <div class="mdc-radio__inner-circle"></div>
       </div>
-
-      <div class="mdc-checkbox__ripple"></div>
+      <div class="mdc-radio__ripple"></div>
     </div>
 
     <label{{ label_attributes.addClass(label_classes).setAttribute('for', input_attributes.id) }}>{{ label['#title'] }}</label>

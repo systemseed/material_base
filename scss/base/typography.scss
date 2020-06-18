@@ -72,9 +72,3 @@ h6, .h6 {
   // font-family: $font-family-heading;
   // color: $color-heading;
 }
-
-article {
-  * + * {
-    margin-top: 1em;
-  }
-}

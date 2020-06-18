@@ -60,7 +60,7 @@
   ),
 );
 
-body {
+.page {
   @include typography.typography(body1);
 }
 
