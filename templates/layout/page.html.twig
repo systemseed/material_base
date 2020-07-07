@@ -92,6 +92,7 @@
       {% if page_layout %}
 
         {# layout controlled by confuguration #}
+        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
         {{ page.content }}
 
       {% else %}
