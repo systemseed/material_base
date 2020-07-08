@@ -1,0 +1,7 @@
+Material Base development changes
+=================================
+
+08.07.2020
+----------
+
+* Added documentation about theme basics, features and structure.

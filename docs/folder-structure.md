@@ -13,6 +13,7 @@ Files and folders of Material Base:
 * `📁 material_base_subtheme` - example kit for creating your custom subtheme
 * `📁 scss` - source folder for Sass files
 * `📁 templates` - contains Twig templates for Drupal elements and theme components
+* `📄 CHANGELOG.txt` - contains development changes log
 * `📄 composer.json` - contains technical information about theme
 * `📄 material_base.breakpoints.yml` - contains Drupal breakpoints definitions
 * `📄 material_base.info.yml` - contains technical information about theme, used libraries, regions and other options
