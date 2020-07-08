@@ -1,7 +1,8 @@
 Mixins
 ======
 
-### Breakpoint mixin
+Breakpoint mixin
+----------------
 
 Breakpoint mixin uses Bootstrap syntax but also allow to use custom size values.
 
