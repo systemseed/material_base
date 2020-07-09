@@ -2,15 +2,11 @@ html {
   font-size: $font-size-base;
 }
 
-body {
+.page {
   font-family: $font-family-text;
   font-size: $font-size-text;
   line-height: $line-height-text;
   color: $color-text;
-}
-
-a {
-  color: darken($theme-secondary, 10);
 }
 
 h1, .h1,
@@ -71,4 +67,8 @@ h6, .h6 {
   font-weight: $font-weight-h6;
   // font-family: $font-family-heading;
   // color: $color-heading;
+}
+
+a {
+  color: darken($theme-secondary, 10);
 }

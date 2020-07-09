@@ -1,0 +1,19 @@
+theme:
+  css:
+    theme:
+      dist/css/theme.css: {}
+  js:
+    dist/js/theme.js: {}
+
+mdc:
+  css:
+    theme:
+      dist/css/mdc.css: {}
+  js:
+    https://unpkg.com/material-components-web@5.1.0/dist/material-components-web.min.js: { type: external, minified: true, weight: -1 }
+    dist/js/mdc.js: {}
+
+fonts:
+  css:
+    component:
+      dist/css/fonts.css: {}

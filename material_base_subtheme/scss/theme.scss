@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// Variables
+@import "theme/variables";
+@import "../../contrib/material_base/scss/base/variables";
+
+// Base
+@import "mdc/theme";
+@import "mdc/typography";
+@import "../../contrib/material_base/scss/base/mixins";
+@import "theme/mixins";
+@import "theme/extends";
+
+// Default styles
+@import "theme/typography";
+@import "theme/layout";
+
+// Components

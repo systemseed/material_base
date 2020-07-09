@@ -1,0 +1,47 @@
+# !!! Remove `hidden: true` for making your theme visible in theme list
+hidden: true
+
+name: Theme name
+type: theme
+description: Custom theme based on Material Base theme.
+core: 8.x
+core_version_requirement: ^8 || ^9
+version: '8.x-1.x-dev'
+
+base theme: material_base_mdc                     # Default. Subtheme of Material Base with MDC library related stuff
+# base theme: material_base                       # Pure base theme without MDC library related stuff
+
+screenshot: screenshot.svg
+
+libraries:
+  - THEMENAME/theme                               # Main project styling library
+
+libraries-override:
+#  material_base/base: false                      # Contains default variables, basic styles and layouts
+#  material_base/grid: false                      # Contains Flexbox Grid defenition
+#  material_base/icons-font: false                # Contains Material icons fonts definitions
+  material_base/fonts: THEMENAME/fonts            # Contains default font defenition, replaced by project fonts defenitions
+  material_base_mdc/mdc: THEMENAME/mdc            # Contains default MDC defenition, replaced by project MDC defenition
+
+regions:
+  navbar: 'Navbar'
+  header: 'Header'
+  actions: 'Actions'
+  highlighted: Highlighted
+  main_top: 'Main top'
+  breadcrumb: 'Breadcrumb'
+  help: 'Help'
+  content: 'Content'
+  content_secondary: 'Content secondary'
+  content_above: 'Content above'
+  content_below: 'Content below'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  main_bottom: 'Main bottom'
+  footer: 'Footer'
+  drawer: 'Drawer'
+  overlay: 'Overlay'
+  
+regions_hidden:
+  page_bottom: 'Page bottom'
+  page_top: 'Page top'

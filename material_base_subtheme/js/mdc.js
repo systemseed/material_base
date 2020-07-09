@@ -1,7 +1,7 @@
 (function ($, Drupal) {
   'use strict';
 
-  Drupal.behaviors.materialBaseMDC = {
+  Drupal.behaviors.THEMENAME_MDCFunctions = {
     attach: function(context, settings) {
 
       // Using MDC auto init feature.

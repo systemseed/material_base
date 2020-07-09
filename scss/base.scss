@@ -4,7 +4,6 @@
 @import "base/variables";
 @import "base/mixins";
 @import "base/layout";
-@import "base/icons";
 
 // Default styles
 @import "base/typography";
@@ -12,3 +11,4 @@
 
 // Components
 @import "components/style-guide";
+@import "components/icon";

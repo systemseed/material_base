@@ -1,0 +1,46 @@
+{#
+/**
+ * Accepted variables:
+ * - value
+ * - settings
+ *   - type: `font`, `svg-sprite`, FALSE
+ *   - classes (array): `material-icons`, `material-icons-outlined`, `fas`, etc.
+ * 
+ * Examples:
+ * @code
+ * {% include "@material_base/components/01_atoms/icon.twig" with {
+ *   value: 'face',
+ *   settings: {
+ *     type: 'font',
+ *     classes: ['material-icons'],
+ *   }
+ * } %}
+ *
+ * {% include "@material_base/components/01_atoms/icon.twig" with {
+ *   value: 'chevron_right',
+ *   settings: {
+ *     type: 'svg-sprite',
+ *   }
+ * } %}
+ * @endcode
+ */
+#}
+
+{% set attributes = create_attribute() %}
+
+{% set classes = [
+    'icon',
+  ]
+%}
+
+{% if settings.classes %}
+  {% set classes = classes|merge(settings.classes) %}
+{% endif %}
+
+{% if settings.type == 'font' %}
+  <i{{ attributes.addClass(classes).setAttribute('aria-hidden', 'true') }}>{{ value }}</i>
+{% elseif settings.type == 'svg-sprite' %}
+  <svg{{ attributes.addClass(classes) }}><use xlink:href="#{{ value }}"></use></svg>
+{% else %}
+  {{ value|raw }}
+{% endif %}

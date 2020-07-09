@@ -15,8 +15,5 @@
         "source": "https://git.drupalcode.org/project/material_base"
     },
     "license": "GPL-2.0-or-later",
-    "minimum-stability": "dev",
-    "require": {
-        "drupal/components": "^2.0",
-    }
+    "minimum-stability": "dev"
 }

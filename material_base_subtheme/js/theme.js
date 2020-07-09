@@ -21,7 +21,7 @@ requireAll(require.context('../images/', true, /\.(png|jpg|jpeg|webp|svg)$/));
 (function ($) {
   $(document).ready(function () {
 
-    // Placeholder
+    // Place your code here
 
   });
 }(jQuery));
@@ -30,10 +30,10 @@ requireAll(require.context('../images/', true, /\.(png|jpg|jpeg|webp|svg)$/));
 (function ($, Drupal, drupalSettings) {
   'use strict';
 
-  Drupal.behaviors.materialBaseFunctions = {
+  Drupal.behaviors.THEMENAME_Functions = {
     attach: function(context, settings) {
 
-      // Placeholder
+      // Place your code here
 
     }
   };

@@ -7,6 +7,8 @@ version: '8.x-2.x-dev'
 
 base theme: stable
 
+screenshot: screenshot.svg
+
 # dependencies:
 #   - components
 

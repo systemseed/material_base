@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+@import "theme/variables";
+
+// Define your fonts here
+
+// Google Fonts example:
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+// Self hosted fonts example (source folder is `fonts`):
+/*
+@font-face {
+  font-family: 'FONTNAME';
+  src: url('../fonts/FONTNAME-bold.woff2') format('woff2'),
+       url('../fonts/FONTNAME-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FONTNAME';
+  src: url('../fonts/FONTNAME-medium.woff2') format('woff2'),
+       url('../fonts/FONTNAME-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FONTNAME';
+  src: url('../fonts/FONTNAME-regular.woff2') format('woff2'),
+       url('../fonts/FONTNAME-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*/

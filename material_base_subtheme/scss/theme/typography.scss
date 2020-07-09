@@ -1,0 +1,68 @@
+@use "@material/typography";
+
+html {
+  font-size: $font-size-base;
+}
+
+.page {
+  @include typography.typography(body1);
+  font-family: $font-family-text;
+  color: $color-text;
+}
+
+h1, .h1 {
+  @include typography.typography(headline1);
+}
+
+h2, .h2 {
+  @include typography.typography(headline2);
+}
+
+h3, .h3 {
+  @include typography.typography(headline3);
+}
+
+h4, .h4 {
+  @include typography.typography(headline4);
+}
+
+h5, .h5 {
+  @include typography.typography(headline5);
+}
+
+h6, .h6 {
+  @include typography.typography(headline6);
+}
+
+.st1 {
+  @include typography.typography(subtitle1);
+}
+
+.st2 {
+  @include typography.typography(subtitle2);
+}
+
+.text-small {
+  @include typography.typography(body2);
+}
+
+.caption {
+  @include typography.typography(caption);
+}
+
+.overline {
+  @include typography.typography(overline);
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: $color-heading;
+}
+
+a {
+  color: darken($theme-secondary, 10);
+}

@@ -1,0 +1,217 @@
+# layout
+THEMENAME.layout.min-xs:
+  label: "min-xs, min-mobiles"
+  mediaQuery: ''
+  weight: 0
+  multipliers:
+    - 1x
+  group: THEMENAME.layout
+THEMENAME.layout.ss:
+  label: "ss, min-mobiles-small"
+  mediaQuery: 'all and (min-width: 360px)'
+  weight: 1
+  multipliers:
+    - 1x
+  group: THEMENAME.layout
+THEMENAME.layout.ms:
+  label: "ms, min-mobiles-medium"
+  mediaQuery: 'all and (min-width: 480px)'
+  weight: 2
+  multipliers:
+    - 1x
+  group: THEMENAME.layout
+THEMENAME.layout.xs:
+  label: "xs, min-mobiles-large"
+  mediaQuery: 'all and (min-width: 576px)'
+  weight: 3
+  multipliers:
+    - 1x 
+  group: THEMENAME.layout
+THEMENAME.layout.max-sm:
+  label: "max-sm, mobiles-only, max-mobiles"
+  mediaQuery: 'all and (max-width: 767px)'
+  weight: 4
+  multipliers:
+    - 1x
+  group: THEMENAME.layout
+THEMENAME.layout.sm:
+  label: "sm, min-tablets, min-tablets-modern"
+  mediaQuery: 'all and (min-width: 768px)'
+  weight: 5
+  multipliers:
+    - 1x
+  group: THEMENAME.layout
+THEMENAME.layout.only-sm:
+  label: "only-sm, tablets-only"
+  mediaQuery: 'all and (min-width: 768px) and (max-width: 991px)'
+  weight: 6
+  multipliers:
+    - 1x
+  group: THEMENAME.layout
+THEMENAME.layout.max-md:
+  label: "max-md, max-tablets"
+  mediaQuery: 'all and (max-width: 991px)'
+  weight: 7
+  multipliers:
+    - 1x
+  group: THEMENAME.layout
+THEMENAME.layout.md:
+  label: "md, min-desktops, desktops-only"
+  mediaQuery: 'all and (min-width: 992px)'
+  weight: 8
+  multipliers:
+    - 1x
+  group: THEMENAME.layout
+THEMENAME.layout.only-smx:
+  label: "only-smx, tablets-modern-only"
+  mediaQuery: 'all and (min-width: 768px) and (max-width: 1199px)'
+  weight: 9
+  multipliers:
+    - 1x
+  group: THEMENAME.layout
+THEMENAME.layout.max-lg:
+  label: "max-lg, max-tablets-modern"
+  mediaQuery: 'all and (max-width: 1199px)'
+  weight: 10
+  multipliers:
+    - 1x
+  group: THEMENAME.layout
+THEMENAME.layout.lg:
+  label: "lg, min-desktops-modern, desktops-modern-only"
+  mediaQuery: 'all and (min-width: 1200px)'
+  weight: 11
+  multipliers:
+    - 1x
+  group: THEMENAME.layout
+THEMENAME.layout.xl:
+  label: "xl, min-desktops-medium"
+  mediaQuery: 'all and (min-width: 1520px)'
+  weight: 12
+  multipliers:
+    - 1x  
+  group: THEMENAME.layout
+THEMENAME.layout.ll:
+  label: "ll, min-desktops-large"
+  mediaQuery: 'all and (min-width: 1920px)'
+  weight: 13
+  multipliers:
+    - 1x
+  group: THEMENAME.layout  
+# images
+THEMENAME.image.min-xs:
+  label: "min-xs, min-mobiles"
+  mediaQuery: ''
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+    - 3x
+  group: THEMENAME.image
+THEMENAME.image.ss:
+  label: "ss, min-mobiles-small"
+  mediaQuery: 'all and (min-width: 360px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+    - 3x
+  group: THEMENAME.image
+THEMENAME.image.ms:
+  label: "ms, min-mobiles-medium"
+  mediaQuery: 'all and (min-width: 480px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+    - 3x
+  group: THEMENAME.image
+THEMENAME.image.xs:
+  label: "xs, min-mobiles-large"
+  mediaQuery: 'all and (min-width: 576px)'
+  weight: 3
+  multipliers:
+    - 1x
+    - 2x
+    - 3x   
+  group: THEMENAME.image
+THEMENAME.image.max-sm:
+  label: "max-sm, mobiles-only, max-mobiles"
+  mediaQuery: 'all and (max-width: 767px)'
+  weight: 4
+  multipliers:
+    - 1x
+    - 2x
+    - 3x
+  group: THEMENAME.image
+THEMENAME.image.sm:
+  label: "sm, min-tablets, min-tablets-modern"
+  mediaQuery: 'all and (min-width: 768px)'
+  weight: 5
+  multipliers:
+    - 1x
+    - 2x
+  group: THEMENAME.image
+THEMENAME.image.only-sm:
+  label: "only-sm, tablets-only"
+  mediaQuery: 'all and (min-width: 768px) and (max-width: 991px)'
+  weight: 6
+  multipliers:
+    - 1x
+    - 2x
+  group: THEMENAME.image
+THEMENAME.image.max-md:
+  label: "max-md, max-tablets"
+  mediaQuery: 'all and (max-width: 991px)'
+  weight: 7
+  multipliers:
+    - 1x
+    - 2x
+  group: THEMENAME.image
+THEMENAME.image.md:
+  label: "md, min-desktops, desktops-only"
+  mediaQuery: 'all and (min-width: 992px)'
+  weight: 8
+  multipliers:
+    - 1x
+    - 2x
+  group: THEMENAME.image
+THEMENAME.image.only-smx:
+  label: "only-smx, tablets-modern-only"
+  mediaQuery: 'all and (min-width: 768px) and (max-width: 1199px)'
+  weight: 9
+  multipliers:
+    - 1x
+    - 2x
+  group: THEMENAME.image
+THEMENAME.image.max-lg:
+  label: "max-lg, max-tablets-modern"
+  mediaQuery: 'all and (max-width: 1199px)'
+  weight: 10
+  multipliers:
+    - 1x
+    - 2x
+  group: THEMENAME.image
+THEMENAME.image.lg:
+  label: "lg, min-desktops-modern, desktops-modern-only"
+  mediaQuery: 'all and (min-width: 1200px)'
+  weight: 11
+  multipliers:
+    - 1x
+    - 2x
+  group: THEMENAME.image
+THEMENAME.image.xl:
+  label: "xl, min-desktops-medium"
+  mediaQuery: 'all and (min-width: 1520px)'
+  weight: 12
+  multipliers:
+    - 1x
+    - 2x    
+  group: THEMENAME.image
+THEMENAME.image.ll:
+  label: "ll, min-desktops-large"
+  mediaQuery: 'all and (min-width: 1920px)'
+  weight: 13
+  multipliers:
+    - 1x
+    - 2x 
+  group: THEMENAME.image

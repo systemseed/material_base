@@ -35,7 +35,7 @@ Source files will not be changed.
 Building theme assets could be performed by running command from your custom theme folder:
 
 ~~~
-yarn run build
+yarn build
 ~~~
 
 Watching files and rebuilding theme on changes
@@ -44,7 +44,7 @@ Watching files and rebuilding theme on changes
 Building theme assets continuously by watching files for changes could be performed by running command from your custom theme folder:
 
 ~~~
-yarn run develop
+yarn develop
 ~~~
 
 Adding CSS and JS files to build process

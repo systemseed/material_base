@@ -1,6 +1,0 @@
-global-styling:
-  css:
-    theme:
-      dist/css/theme.css: {}
-  js:
-    dist/js/theme.js: {}
