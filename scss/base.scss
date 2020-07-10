@@ -3,12 +3,9 @@
 // Base
 @import "base/variables";
 @import "base/mixins";
+@import "base/extends";
 @import "base/layout";
-
-// Default styles
 @import "base/typography";
-@import "base/forms";
 
 // Components
-@import "components/style-guide";
-@import "components/icon";
+@import "components";

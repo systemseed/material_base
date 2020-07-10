@@ -1,13 +1,7 @@
 @use "@material/typography";
 
-html {
-  font-size: $font-size-base;
-}
-
 .page {
   @include typography.typography(body1);
-  font-family: $font-family-text;
-  color: $color-text;
 }
 
 h1, .h1 {
@@ -52,17 +46,4 @@ h6, .h6 {
 
 .overline {
   @include typography.typography(overline);
-}
-
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  color: $color-heading;
-}
-
-a {
-  color: darken($theme-secondary, 10);
 }

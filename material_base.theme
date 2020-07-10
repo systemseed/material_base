@@ -27,6 +27,7 @@ function material_base_preprocess_html(&$variables) {
   $variables['attributes']['class'][] = 'page-' . \Drupal\Component\Utility\Html::cleanCssIdentifier(ltrim($current_alias, '/'));
 
   // Check for SVG sprite file.
+  $icons = '';
   $icons_file = \Drupal::theme()->getActiveTheme()->getPath() . '/dist/images/icons.svg';
 
   if (file_exists($icons_file)) {
