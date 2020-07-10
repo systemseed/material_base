@@ -9,9 +9,6 @@ base theme: stable
 
 screenshot: screenshot.svg
 
-# dependencies:
-#   - components
-
 libraries:
   - core/normalize
   - material_base/base

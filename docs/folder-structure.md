@@ -13,13 +13,19 @@ Files and folders of Material Base:
 * `📁 material_base_subtheme` - example kit for creating your custom subtheme
 * `📁 scss` - source folder for Sass files
 * `📁 templates` - contains Twig templates for Drupal elements and theme components
+* `📄 .gitignore` - contains exclusions for Git repository
 * `📄 CHANGELOG.txt` - contains development changes log
 * `📄 composer.json` - contains technical information about theme
+* `📄 favicon.ico` - theme favicon
+* `📄 logo.svg` - theme logo
 * `📄 material_base.breakpoints.yml` - contains Drupal breakpoints definitions
 * `📄 material_base.info.yml` - contains technical information about theme, used libraries, regions and other options
 * `📄 material_base.libraries.yml` - contains Drupal libraries definitions
 * `📄 material_base.theme` - contains functions used in theme
 * `📄 package.json` - contains technical information about building tools
 * `📄 README.md` - contains theme description
+* `📄 screenshot.svg` - theme screenshot
 * `📄 webpack.config.js` - contains build tasks configuration
 * `📄 yarn.lock` - contains technical information about installed versions of build tools
+
+Pretty much the same structure could be used for your custom theme but not including `docs`, `material_base_mdc` and `material_base_subtheme` folders.
