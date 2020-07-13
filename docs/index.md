@@ -59,8 +59,8 @@ Full documentation
   * [Icon fonts](icon-fonts.md)
   * [SVG icons sprite](svg-icons.md)
 * Components
-  * [Icons](components/icons.md)
-  * [Buttons](components/buttons.md)
-  * [Icon buttons](components/icon-buttons.md)
-  * [Cards](components/cards.md)
+  * [Icon](components/icon.md)
+  * [Button](components/button.md)
+  * [Icon button](components/icon-button.md)
+  * [Card](components/card.md)
   

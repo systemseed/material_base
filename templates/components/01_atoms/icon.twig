@@ -1,15 +1,19 @@
 {#
 /**
  * Accepted variables:
- * - value
- * - settings
- *   - type: `font`, `svg-sprite`, FALSE
- *   - classes (array): `material-icons`, `material-icons-outlined`, `fas`, etc.
+ * - data:
+ *   - value: Icon machine name (for 'font' and 'svg-sprite' types) or markup.
+ * - settings:
+ *   - type: Icon source type: 'font', 'svg-sprite', FALSE.
+ *   - classes: (array) classes for adding to the element.
+ *     For example, 'material-icons', 'material-icons-outlined', 'fas', etc.
  * 
  * Examples:
  * @code
  * {% include "@material_base/components/01_atoms/icon.twig" with {
- *   value: 'face',
+ *   data: {
+ *     value: 'face',
+ *   }, 
  *   settings: {
  *     type: 'font',
  *     classes: ['material-icons'],
@@ -17,7 +21,9 @@
  * } %}
  *
  * {% include "@material_base/components/01_atoms/icon.twig" with {
- *   value: 'chevron_right',
+ *   data: {
+ *     value: 'chevron_right',
+ *   },
  *   settings: {
  *     type: 'svg-sprite',
  *   }
@@ -38,9 +44,9 @@
 {% endif %}
 
 {% if settings.type == 'font' %}
-  <i{{ attributes.addClass(classes).setAttribute('aria-hidden', 'true') }}>{{ value }}</i>
+  <i{{ attributes.addClass(classes).setAttribute('aria-hidden', 'true') }}>{{ data.value }}</i>
 {% elseif settings.type == 'svg-sprite' %}
-  <svg{{ attributes.addClass(classes) }}><use xlink:href="#{{ value }}"></use></svg>
+  <svg{{ attributes.addClass(classes) }}><use xlink:href="#{{ data.value }}"></use></svg>
 {% else %}
-  {{ value|raw }}
+  {{ data.value|raw }}
 {% endif %}

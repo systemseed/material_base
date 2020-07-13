@@ -50,7 +50,7 @@
  */
 #}
 <div class="page">
-  <div class="page-container layout-container">
+  <div class="page-container layout-container{{ page_layout ? ' layout-container--node' : ' layout-container--page' }}">
 
     {% if page.navbar %}
       <div class="navbar">

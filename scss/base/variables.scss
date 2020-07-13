@@ -4,6 +4,7 @@ $color-primary-base: #546e7a !default;
 $color-secondary-base: #00c9f8 !default;
 $color-accent-base: $color-secondary-base !default;
 $color-bg-body: #FFF !default;
+$color-bg-body-dark: #121212 !default;
 
 $theme-primary: $color-primary-base !default;
 $theme-secondary: $color-secondary-base !default;
@@ -12,6 +13,12 @@ $theme-background: $color-bg-body !default;
 $color-text-base: #000 !default;
 $color-text: rgba($color-text-base, .87) !default;
 $color-heading: darken($theme-primary, 20) !default;
+
+$color-text-light-base: #FFF !default;
+$color-text-light: $color-text-light-base !default;
+
+$color-on-primary: $color-text-light !default;
+$color-on-secondary: $color-text-light !default;
 
 // Fonts & typography
 

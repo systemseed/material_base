@@ -21,6 +21,12 @@ $color-text-base: #000;
 $color-text: rgba($color-text-base, .87);
 $color-heading: darken($theme-primary, 20);
 
+$color-text-light-base: #FFF;
+$color-text-light: $color-text-light-base;
+
+$color-on-primary: $color-text-light;
+$color-on-secondary: $color-text-light;
+
 // Fonts & typography
 
 $font-family-base: 'Roboto', sans-serif;
