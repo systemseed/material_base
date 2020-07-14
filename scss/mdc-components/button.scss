@@ -1,6 +1,6 @@
 @use "@material/button";
 
-.mdc-button {
+.button {
 
   &.mdc-button--outlined {
     @include button.outline-color($theme-primary);

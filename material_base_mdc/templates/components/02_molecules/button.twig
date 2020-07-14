@@ -6,9 +6,10 @@
  *   - url: The value for 'href' attribute if using 'a' tag or 'data-url' attribute in other cases.
  *   - icon: (icon component) icon for showing beside the button text.
  * - settings:
+ *   - attributes: (object) element attributes.
  *   - classes: (array) classes for adding to the element.
- *   - disabled: (bool) Makes button looks and behave as inactive.
  *   - id: HTML 'id' attribute.
+ *   - disabled: (bool) makes button looks and behave as inactive.
  *   - tag: HTML tag for the element: 'button' (default), 'a', 'span'.
  *   - target: HTML 'target' attribute, for example '_blank'.
  *   - icon_trailing: (bool) allows to display the icon at the right of button text. By default icon displayed at the left.
@@ -52,43 +53,48 @@
  */
 #}
 
-{% set button_attributes = create_attribute() %}
+{% if settings.attributes %}
+  {% set attributes = settings.attributes %}
+{% else %}
+  {% set attributes = create_attribute() %}
+{% endif %}
 
-{% set button_attributes = button_attributes.setAttribute('data-mdc-auto-init', 'MDCRipple') %}
+{% set attributes = attributes.setAttribute('data-mdc-auto-init', 'MDCRipple') %}
 
 {% if settings.id %}
   {% set attributes = attributes.setAttribute('id', settings.id) %}
 {% endif %}
 
 {% if settings.target %}
-  {% set button_attributes = button_attributes.setAttribute('target', settings.target) %}
+  {% set attributes = attributes.setAttribute('target', settings.target) %}
 {% endif %}
 
 {% if settings.disabled %}
-  {% set button_attributes = button_attributes.setAttribute('disabled', true) %}
+  {% set attributes = attributes.setAttribute('disabled', true) %}
 {% endif %}
 
-{% set button_classes = [
+{% set classes = [
+  'button',
   'mdc-button',
 ] %}
 
 {% if settings.classes %}
-  {% set button_classes = button_classes|merge(settings.classes) %}
+  {% set classes = classes|merge(settings.classes) %}
 {% endif %}
 
 {% if settings.tag %}
   {% set tag = settings.tag %}
   {% if settings.tag == 'a' %}
-    {% set button_attributes = button_attributes.setAttribute('href', data.url) %}
+    {% set attributes = attributes.setAttribute('href', data.url) %}
   {% else %}
-    {% set button_attributes = button_attributes.setAttribute('data-url', data.url) %}
+    {% set attributes = attributes.setAttribute('data-url', data.url) %}
   {% endif %}
 {% else %}
   {% set tag = 'button' %}
-  {% set button_attributes = button_attributes.setAttribute('data-url', data.url) %}
+  {% set attributes = attributes.setAttribute('data-url', data.url) %}
 {% endif %}
 
-<{{ tag }}{{ button_attributes.addClass(button_classes) }}>
+<{{ tag }}{{ attributes.addClass(classes) }}>
   <span class="mdc-button__ripple"></span>
 
   {% if data.icon and settings.icon_trailing and data.label %}

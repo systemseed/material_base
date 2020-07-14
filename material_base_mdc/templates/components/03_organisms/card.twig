@@ -1,0 +1,159 @@
+{#
+/**
+ * Accepted variables:
+ * - data:
+ *   - url: The value for 'href' attribute if using 'a' tag or 'data-url' attribute in other cases, for the whole card.
+ *   - media: (render array) image or media. 
+ *   - label: Tag or label.
+ *   - title: Card title text.
+ *   - subtitle: Card subtitle text.
+ *   - text:  Card text.
+ *   - button: (button component) card action button.
+ * - settings:
+ *   - attributes: (object) element attributes.
+ *   - classes: (array) classes for adding to the element.
+ *   - id: HTML 'id' attribute.
+ *   - tag: HTML tag for the element: 'div' (default), 'a'.
+ *   - disabled: (bool) makes card looks and behave as inactive.
+ *   - target: HTML 'target' attribute, for example '_blank'.
+ *
+ * Examples:
+ * @code
+ * {% include "@material_base_mdc/components/03_organisms/card.twig" with {
+ *   data: {
+ *     title: 'Card title',
+ *     text: 'Card text which contains detailed object description.',
+ *     button: {
+ *       data: {
+ *         label: 'Action',
+ *         url: '/',
+ *       },
+ *       settings: {
+ *         tag: 'a',
+ *       },
+ *     },
+ *   },
+ * } %}
+ *
+ * {% include "@material_base_mdc/components/03_organisms/card.twig" with {
+ *   data: {
+ *     url: '/',
+ *     title: 'Card title',
+ *     text: 'Card text which contains detailed object description.',
+ *     button: {
+ *       data: {
+ *         label: 'Action',
+ *       },
+ *     },
+ *   },
+ *   settings: {
+ *     tag: 'a',
+ *   },
+ * } %}
+ * @endcode 
+ */
+#}
+
+{% if settings.attributes %}
+  {% set attributes = settings.attributes %}
+{% else %}
+  {% set attributes = create_attribute() %}
+{% endif %}
+
+{% if settings.id %}
+  {% set attributes = attributes.setAttribute('id', settings.id) %}
+{% endif %}
+
+{% if settings.target %}
+  {% set attributes = attributes.setAttribute('target', settings.target) %}
+{% endif %}
+
+{% set classes = [
+    'card',
+    'mdc-card',
+    settings.disabled ? 'card--disabled',
+] %}
+
+{% if settings.classes %}
+  {% set classes = classes|merge(settings.classes) %}
+{% endif %}
+
+{% if settings.tag %}
+  {% set tag = settings.tag %}
+  {% if settings.tag == 'a' %}
+    {% set attributes = attributes.setAttribute('href', data.url) %}
+  {% else %}
+    {% set attributes = attributes.setAttribute('data-url', data.url) %}
+  {% endif %}
+{% else %}
+  {% set tag = 'div' %}
+  {% set attributes = attributes.setAttribute('data-url', data.url) %}
+{% endif %}
+
+<{{ tag }}{{ attributes.addClass(classes) }}>
+  {% block content %}
+
+    {% block primary %}
+      <div class="mdc-card__primary-action" tabindex="0" data-mdc-auto-init="MDCRipple">
+        {% if data.media %}
+          <div class="mdc-card__media">
+            {{ data.media }}
+          </div>
+        {% endif %}
+
+        {% if data.label %}
+          <div class="card__section card__label">{{ data.label }}</div>
+        {% endif %}
+
+        <div class="card__section card__primary">
+          {% if data.title %}
+            <div class="card__title">{{ data.title }}</div>
+          {% endif %}
+
+          {% if data.subtitle %}
+            <div class="card__subtitle">{{ data.subtitle }}</div>
+          {% endif %}
+        </div>
+
+        {% if data.text %}
+          <div class="card__section card__secondary">{{ data.text }}</div>
+        {% endif %}
+      </div>
+    {% endblock primary %}
+
+    {% block actions %}
+      {% if data.button %}
+        <div class="mdc-card__actions">
+          {% if settings.tag == 'a' %}
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: data.button.data,
+              settings: {
+                classes: data.button.settings.classes|default([])|merge(['mdc-card__action', 'mdc-card__action--button']),
+                tag: 'span',
+                attributes: data.button.settings.attributes,
+                disabled: data.button.settings.disabled,
+                id: data.button.settings.id,
+                target: data.button.settings.target,
+                icon_trailing: data.button.settings.icon_trailing,
+              },
+            } %}
+          {% else %}
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: data.button.data,
+              settings: {
+                classes: data.button.settings.classes|default([])|merge(['mdc-card__action', 'mdc-card__action--button']),
+                attributes: data.button.settings.attributes,
+                disabled: data.button.settings.disabled,
+                id: data.button.settings.id,
+                tag: data.button.settings.tag,
+                target: data.button.settings.target,
+                icon_trailing: data.button.settings.icon_trailing,
+              },
+            } %}
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endblock actions %}
+
+  {% endblock content %}
+</{{ tag }}>

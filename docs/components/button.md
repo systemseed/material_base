@@ -1,7 +1,7 @@
 Button
 ======
 
-Button component allows to display buttons with with several options and styles.
+Button component allows to display buttons with several options and styles.
 
 Accepted variables
 ------------------
@@ -11,12 +11,20 @@ Accepted variables
     - `url`: The value for `href` attribute if using `a` tag or `data-url` attribute in other cases.
     - `icon`: ([icon component](components/icon.md)) icon for showing beside the button text.
 - `settings`:
+    - `attributes`: (object) element attributes.
     - `classes`: (array) classes for adding to the element.
-    - `disabled`: (bool) Makes button looks and behave as inactive.
+    - `disabled`: (bool) makes button looks and behave as inactive.
     - `id`: HTML `id` attribute.
     - `tag`: HTML tag for the element: `'button'` (default), `'a'`, `'span'`.
     - `target`: HTML `target` attribute, for example `'_blank'`.
     - `icon_trailing`: (bool) allows to display the icon at the right of button text. By default icon displayed at the left.
+
+Component options
+-----------------
+
+Button component implements Button component from MDC library and support all it's features.
+
+For more info see https://material.io/develop/web/components/buttons  
 
 Supported MDC library `classes`:
 
@@ -27,8 +35,8 @@ Supported MDC library `classes`:
 
 Extended MB `classes`:
 
-* `mdc-button--secondary` - secondary color button
-* `mdc-button--light` -  light color button
+* `button--secondary` - secondary color button
+* `button--light` -  light color button
 
 Default button color is primary.
 

@@ -53,4 +53,8 @@
       background: $theme-primary;
     }
   }
+
+  &__card-container {
+    max-width: 480px;
+  }
 }

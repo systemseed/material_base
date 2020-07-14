@@ -2,7 +2,7 @@
 /**
  * Accepted variables:
  * - data:
- *   - value: Icon machine name (for 'font' and 'svg-sprite' types) or markup.
+ *   - value: Icon machine name (for 'font' and 'svg-sprite' types) or markup (render array).
  * - settings:
  *   - type: Icon source type: 'font', 'svg-sprite', FALSE.
  *   - classes: (array) classes for adding to the element.
@@ -48,5 +48,5 @@
 {% elseif settings.type == 'svg-sprite' %}
   <svg{{ attributes.addClass(classes) }}><use xlink:href="#{{ data.value }}"></use></svg>
 {% else %}
-  {{ data.value|raw }}
+  {{ data.value }}
 {% endif %}

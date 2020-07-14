@@ -5,7 +5,7 @@ Icon component allows to display different types of icons:
 
 * Icons from iconic fonts
 * Icons from SVG sprite
-* Raw icon markup, for example by `img` or `svg` tags.
+* Icon from markup or render array
 
 Accepted variables
 ------------------
@@ -69,17 +69,19 @@ Output:
 <svg class="icon"><use xlink:href="#chevron_right"></use></svg>
 ~~~
 
-### Raw icon markup
+### Icon from markup or render array
 
 In Twig template file:
 
 ~~~
 {% include "@material_base/components/01_atoms/icon.twig" with {
   data: {
-    value: '<img class="icon" src="chevron_right.svg" />',
+    value: [{'#markup': '<img class="icon" src="chevron_right.svg" />'}],
   },
 } %}
 ~~~
+
+Drupal render arrays could be passed as a value.
 
 Output:
 

@@ -5,12 +5,13 @@
  *   - url: The value for 'href' attribute if using 'a' tag or 'data-url' attribute in other cases.
  *   - icon: (icon component) icon for display.
  * - settings:
- *   - label: The value for 'aria-label' attribute.
- *   - target: The value for 'data-target' attribute. 
+ *   - attributes: (object) element attributes.
  *   - classes: (array) classes for adding to the element.
- *   - disabled: (bool) Makes button looks and behave as inactive.
  *   - id: HTML 'id' attribute.
+ *   - disabled: (bool) makes button looks and behave as inactive.
  *   - tag: HTML tag for the element: 'button' (default), 'a', 'span'.
+ *   - label: The value for 'aria-label' attribute.
+ *   - target: The value for 'data-target' attribute.
  *
  * Examples:
  * @code
@@ -30,7 +31,11 @@
  */
 #}
 
-{% set attributes = create_attribute() %}
+{% if settings.attributes %}
+  {% set attributes = settings.attributes %}
+{% else %}
+  {% set attributes = create_attribute() %}
+{% endif %}
 
 {# Not work properly, TODO: fix #}
 {# set attributes = attributes.setAttribute('data-mdc-auto-init', 'MDCRipple') #}

@@ -10,14 +10,22 @@ Accepted variables
     - `url`: The value for `href` attribute if using `a` tag or `data-url` attribute in other cases.
     - `icon`: ([icon component](components/icon.md)) icon for display.
 - `settings`:
+    - `attributes`: (object) element attributes.
+    - `classes`: (array) classes for adding to the element.
+    - `id`: HTML `id` attribute.
+    - `disabled`: (bool) makes button looks and behave as inactive.
+    - `tag`: HTML tag for the element: `'button'` (default), `'a'`, `'span'`.
     - `label`: The value for `aria-label` attribute.
     - `target`: The value for `data-target` attribute. 
-    - `classes`: (array) classes for adding to the element.
-    - `disabled`: (bool) Makes button looks and behave as inactive.
-    - `id`: HTML `id` attribute.
-    - `tag`: HTML tag for the element: `'button'` (default), `'a'`, `'span'`.
 
-Toggle icon from MDC library currently not supported.
+Component options
+-----------------
+
+Icon button component implements Icon button component from MDC library and support most of it's features.
+
+Toggle icon currently not supported.
+
+For more info see https://material.io/develop/web/components/buttons/icon-buttons
 
 Examples of usage
 -----------------
