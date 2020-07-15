@@ -1,37 +1,37 @@
 .style-guide {
   &__example-block {
-    background: #EEE;
-    margin-bottom: 16px;
-    padding: 12px 16px;
+    background: darken($color-bg-body, 8);
+    margin-bottom: $spacing * 2;
+    padding: $spacing * 1.5 $spacing * 2;
   }
 
   &__section {
-    margin-bottom: 64px;
+    margin-bottom: $spacing * 8;
   }
 
   &__section + &__section {
-    padding-top: 64px;
-    border-top: 1px solid #ccc;
+    padding-top: $spacing * 8;
+    border-top: 1px solid darken($color-bg-body, 20);
   }
 
   &__section-title {
-    margin-bottom: 32px;
-    font-size: 24px;
+    margin-bottom: $spacing * 4;
+    font-size: 1.5rem;
     font-weight: 500;
   }
 
   &__section-subtitle {
-    margin-top: 32px;
-    margin-bottom: 24px;
-    font-size: 20px;
+    margin-top: $spacing * 4;
+    margin-bottom: $spacing * 3;
+    font-size: 1.25rem;
     font-weight: 500;
   }
 
   &__items {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -8px;
-    margin-right: -8px;
+    margin-left: $spacing * -1;
+    margin-right: $spacing * -1;
 
     &--stacked {
       flex-direction: column;
@@ -39,7 +39,7 @@
   }
 
   &__item {
-    margin: 6px 8px;
+    margin: $spacing * 0.75 $spacing;
 
     .icon {
       display: block;
@@ -55,6 +55,6 @@
   }
 
   &__card-container {
-    max-width: 480px;
+    max-width: $ms;
   }
 }

@@ -4,6 +4,10 @@ base:
       dist/css/base.css: {}
   js:
     dist/js/base.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupalSettings    
 
 grid:
   css:

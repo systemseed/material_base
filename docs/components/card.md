@@ -13,7 +13,7 @@ Accepted variables
     - `title`: Card title text.
     - `subtitle`: Card subtitle text.
     - `text`:  Card text.
-    - `button`: ([button component](components/button.md)) card action button.
+    - `button`: ([button component](/components/button.md)) card action button.
 - `settings`:
     - `attributes`: (object) element attributes.
     - `classes`: (array) classes for adding to the element.

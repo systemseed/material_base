@@ -33,7 +33,12 @@ requireAll(require.context('../images/', true, /\.(png|jpg|jpeg|webp|svg)$/));
   Drupal.behaviors.materialBaseFunctions = {
     attach: function(context, settings) {
 
-      // Placeholder
+      // Handling clear button for text fields
+      $(context).find('.input-clear').click(function() {
+        var input = $(this).closest('.form-item').find('input');
+        input.val('');
+        input.focus();
+      });
 
     }
   };

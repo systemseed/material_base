@@ -1,3 +1,16 @@
+@use "@material/typography";
+
+.form-item {
+  legend,
+  label:not(.mdc-text-field):not(.option) {
+    @include typography.typography(body2);
+  }
+
+  .description {
+    @include typography.typography(caption);
+  }
+}
+
 .button-submit {
   position: relative;
 

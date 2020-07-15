@@ -8,7 +8,7 @@ Accepted variables
 
 - `data`:
     - `url`: The value for `href` attribute if using `a` tag or `data-url` attribute in other cases.
-    - `icon`: ([icon component](components/icon.md)) icon for display.
+    - `icon`: ([icon component](/components/icon.md)) icon for display.
 - `settings`:
     - `attributes`: (object) element attributes.
     - `classes`: (array) classes for adding to the element.

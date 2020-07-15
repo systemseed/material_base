@@ -68,4 +68,4 @@ If you don't need JS for your library you could exclude it from building in `Sup
 { name: 'LIBRARY-NAME', match: /\.js$|\.js\.map$/ },
 ~~~
 
-Builded assets will be available in `dist` folder and could be used in [libraries](libraries.md).
+Builded assets will be available in `dist` folder and could be used in [libraries](/libraries.md).

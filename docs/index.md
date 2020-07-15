@@ -43,24 +43,25 @@ Full documentation
 ------------------
 
 * Getting started
-  * [Installing](install.md)
-  * [Setup](setup.md)
-  * [Building](build.md)
+  * [Installing](/install.md)
+  * [Setup](/setup.md)
+  * [Building](/build.md)
 * Theme achitecture
-  * [Folder structure](folder-structure.md)
-  * [MDC subtheme](mdc.md)
-  * [Custom subtheme template](subtheme-template.md)
-  * [Variables](variables.md)
+  * [Folder structure](/folder-structure.md)
+  * [MDC subtheme](/mdc.md)
+  * [Custom subtheme template](/subtheme-template.md)
+  * [Variables](/variables.md)
 * Theme features
-  * [Using libraries](libraries.md)
-  * [Grid](grid.md)
-  * [Breakpoints](breakpoints.md)
-  * [Mixins](mixins.md)
-  * [Icon fonts](icon-fonts.md)
-  * [SVG icons sprite](svg-icons.md)
-* Components
-  * [Icon](components/icon.md)
-  * [Button](components/button.md)
-  * [Icon button](components/icon-button.md)
-  * [Card](components/card.md)
+  * [Using libraries](/libraries.md)
+  * [Grid](/grid.md)
+  * [Breakpoints](/breakpoints.md)
+  * [Mixins](/mixins.md)
+  * [Icon fonts](/icon-fonts.md)
+  * [SVG icons sprite](/svg-icons.md)
+* [Components](/components.md)
+  * [Icon](/components/icon.md)
+  * [Button](/components/button.md)
+  * [Icon button](/components/icon-button.md)
+  * [Card](/components/card.md)
+  * [Form](/components/form.md)
   

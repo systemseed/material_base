@@ -9,7 +9,7 @@ Accepted variables
 - `data`:
     - `label`: Button text.
     - `url`: The value for `href` attribute if using `a` tag or `data-url` attribute in other cases.
-    - `icon`: ([icon component](components/icon.md)) icon for showing beside the button text.
+    - `icon`: ([icon component](/components/icon.md)) icon for showing beside the button text.
 - `settings`:
     - `attributes`: (object) element attributes.
     - `classes`: (array) classes for adding to the element.

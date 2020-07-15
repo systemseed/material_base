@@ -7,18 +7,18 @@
   }
 
   &__section {
-    padding: 0 16px;
+    padding: 0 $spacing * 2;
 
     &:first-child {
-      padding-top: 16px;
+      padding-top: $spacing * 2;
     }
 
     &:last-child {
-      padding-bottom: 12px;
+      padding-bottom: $spacing * 1.5;
     }
 
     & + & {
-      padding-top: 16px;
+      padding-top: $spacing * 2;
     }
   }
 
@@ -28,12 +28,12 @@
   }
 
   .mdc-card__media + &__section {
-    padding-top: 16px;
+    padding-top: $spacing * 2;
   }
 
   .mdc-card__primary-action:last-child {
     .card__section:last-child {
-      padding-bottom: 16px;
+      padding-bottom: $spacing * 2;
     }
   }
 

@@ -98,3 +98,12 @@ function material_base_theme_suggestions_block_alter(array &$suggestions, array 
   }
 
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function material_base_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  $form['actions']['submit']['#attributes']['class'][] = 'mdc-button--raised';
+
+}

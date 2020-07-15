@@ -92,7 +92,7 @@ $line-height-overline: 2rem;
 $font-weight-overline: 500;
 ~~~
 
-Main colors and typography variables reflects [MDC library](mdc.md) variables structure. 
+Main colors and typography variables reflects [MDC library](/mdc.md) variables structure. 
 
 Layouts and styles of Material Base theme components are built depending on variables values. 
 

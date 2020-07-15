@@ -1,5 +1,75 @@
-.form-item,
-.form-actions {
+.form-item {
   margin-top: $spacing * 2;
   margin-bottom: $spacing * 2;
+  max-width: $ms;
+
+  .form-item {
+    margin-top: $spacing;
+    margin-bottom: $spacing;
+  }
+
+  legend,
+  label:not(.mdc-text-field):not(.option) {
+    font-size: $font-size-text-small;
+    line-height: $line-height-text-small;
+  }
+
+  label:not(.mdc-text-field):not(.option) {
+    display: block;
+    margin-bottom: $spacing;
+  }
+
+  .description {
+    font-size: $font-size-caption;
+    line-height: $line-height-caption;
+  }
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  margin: $spacing * 1.5 $spacing * -0.5;
+  max-width: $ms + $spacing;
+
+  & > .form-submit {
+    margin: $spacing * 0.5;
+  }
+}
+
+details {
+  padding: ($spacing * 2) - 1;
+  border: 1px solid darken($color-bg-body, 10);
+  border-radius: 4px;
+
+  & > summary + .form-item {
+    margin-top: $spacing;
+  }
+
+  & > .form-item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Styles for clear button for text fields
+.input-clear {
+  outline: none;
+  padding: $spacing;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    color: lighten($color-text-base, 40);
+    fill: lighten($color-text-base, 40);
+    transition: fill .15s;
+  }
+
+  &:hover {
+    .input-clear__icon {
+      color: $color-text-base;
+      fill: $color-text-base;
+    }
+  }
 }
