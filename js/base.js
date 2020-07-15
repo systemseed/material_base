@@ -33,11 +33,42 @@ requireAll(require.context('../images/', true, /\.(png|jpg|jpeg|webp|svg)$/));
   Drupal.behaviors.materialBaseFunctions = {
     attach: function(context, settings) {
 
-      // Handling clear button for text fields
+      // Handling clear button for text fields.
       $(context).find('.input-clear').click(function() {
         var input = $(this).closest('.form-item').find('input');
         input.val('');
         input.focus();
+      });
+
+      // Handling search stuff.
+      $(context).find('.search-toggle__button').click(function() {
+        $('body').toggleClass('search-open');
+        if ($('body').hasClass('search-open')) {
+          var fieldInput = $('.search-field input').first();
+          var fldLength= fieldInput.val().length;
+          fieldInput.focus();
+          fieldInput[0].setSelectionRange(fldLength, fldLength);
+        }
+      });
+
+      $(context).find('.search-open__button').click(function() {
+        $('body').addClass('search-open');
+        var fieldInput = $('.search-field input').first();
+        var fldLength= fieldInput.val().length;
+        fieldInput.focus();
+        fieldInput[0].setSelectionRange(fldLength, fldLength);
+      });
+
+      $(context).find('.search-close__button').click(function() {
+        $('body').removeClass('search-open');
+      });
+
+      $(context).find('.search-field input.form-autocomplete').on('autocompleteopen', function() {
+        $('body').addClass('search-autocomplete-open');
+      });
+      
+      $(context).find('.search-field input.form-autocomplete').on('autocompleteclose', function() {
+        $('body').removeClass('search-autocomplete-open');
       });
 
     }

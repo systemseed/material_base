@@ -11,6 +11,10 @@
   }
 }
 
+details > summary {
+  @include typography.typography(body2);
+}
+
 .button-submit {
   position: relative;
 

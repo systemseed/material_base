@@ -20,6 +20,8 @@ $color-text-light: $color-text-light-base !default;
 $color-on-primary: $color-text-light !default;
 $color-on-secondary: $color-text-light !default;
 
+$color-text-placeholer: rgba($color-text-base, .6) !default;
+
 // Fonts & typography
 
 $font-family-base: 'Roboto', sans-serif !default;

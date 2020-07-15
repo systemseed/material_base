@@ -64,4 +64,5 @@ Full documentation
   * [Icon button](/components/icon-button.md)
   * [Card](/components/card.md)
   * [Form](/components/form.md)
+  * [Search](/components/search.md)
   

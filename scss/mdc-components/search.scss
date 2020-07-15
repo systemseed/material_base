@@ -1,0 +1,12 @@
+@use "@material/typography";
+
+.search-results-list__item {
+  .item-title {
+    @include typography.typography(headline6);
+  }
+
+  .item-content,
+  .item-footer {
+    @include typography.typography(body2);
+  }
+}

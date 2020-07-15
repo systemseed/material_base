@@ -27,6 +27,8 @@ $color-text-light: $color-text-light-base;
 $color-on-primary: $color-text-light;
 $color-on-secondary: $color-text-light;
 
+$color-text-placeholer: rgba($color-text-base, .6);
+
 // Fonts & typography
 
 $font-family-base: 'Roboto', sans-serif;

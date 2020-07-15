@@ -1,0 +1,195 @@
+.search-toggle {
+  .search-toggle__button {
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    padding: $spacing;
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    color: $theme-primary;
+    fill: $theme-primary;
+  }
+}
+
+.search-close {
+  .search-close__button {
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    padding: $spacing;
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    color: $theme-primary;
+    fill: $theme-primary;
+  }
+}
+
+.search-field {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 48px;
+
+  input {
+    appearance: none;
+    border: none;
+    color: $color-heading; 
+    height: 48px;
+    line-height: 30px;
+    padding: 7px 16px 7px 40px;
+    outline: none;
+    border-radius: 4px;
+    width: 100%;
+    background: darken($color-bg-body, 4);
+
+    &::placeholder {
+      color: $color-text-placeholer;
+    }
+
+    &:focus {
+      box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12); // MDC z2
+      background: #FFF;
+    }
+  }
+
+  input.form-autocomplete {
+    background: darken($color-bg-body, 4) !important;
+
+    &:focus {
+      box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12); // MDC z2
+      background: #FFF !important;
+    }
+  }
+
+  .search-autocomplete-open & {
+    input.form-autocomplete:focus {
+      box-shadow: none;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &__group {
+    position: relative;
+    max-width: $ms;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 11px;
+    top: 12px;
+    color: $color-text-placeholer;
+    fill: $color-text-placeholer;
+  }
+  
+  /* Clear input button
+  input {
+    padding-right: 48px;
+  }
+
+  .search-field__clear {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 101;
+  }
+  */
+}
+
+.search-api-autocomplete-search {
+  padding-top: 0;
+  padding-bottom: 8px;
+  z-index: 100;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    top: -48px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12); // MDC z2
+    border-radius: 4px; 
+  }
+ 
+  &.ui-widget {
+    border: 0;
+  }
+
+  .ui-menu-item {
+    display: block;
+    background: none;
+  }
+
+  .ui-menu-item-wrapper {
+    display: block;
+    font-size: $font-size-text;
+    line-height: $line-height-text;
+    position: relative;
+    background: none;
+
+    &:hover,
+    &.ui-state-active {
+      .search-api-autocomplete-suggestion {
+        background: darken($color-bg-body, 4);
+        color: $color-heading;
+      }
+    }
+  }
+
+  .search-api-autocomplete-suggestion {
+    position: relative;
+    padding: 8px 40px;
+  }
+}
+
+.search-results-list__item {
+  .item-title {
+    font-size: $font-size-h6;
+    line-height: $line-height-h6;
+    margin-bottom: $spacing;
+
+    a {
+      text-decoration: none;
+      color: $color-heading;
+
+      &:hover {
+        color: $theme-primary;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .item-content {
+    font-size: $font-size-text-small;
+    line-height: $line-height-text-small;
+    word-break: break-word;
+  }
+
+  .item-footer {
+    font-size: $font-size-text-small;
+    line-height: $line-height-text-small;
+    margin-top: $spacing;
+
+    a {
+      color: $theme-primary;
+      word-break: break-word;
+    }
+  }
+}
