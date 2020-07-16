@@ -10,3 +10,6 @@ List of components
 * [Card](/components/card.md)
 * [Form](/components/form.md)
 * [Search](/components/search.md)
+* [Text list](/components/text-list.md)
+* [Accordion](/components/accordion.md)
+* [Dropdown](/components/dropdown.md)

@@ -1,0 +1,9 @@
+.mb-accordion {
+  &__section-toggle {
+    cursor: pointer;
+  }
+
+  &__section-panel {
+    display: none;
+  }
+}

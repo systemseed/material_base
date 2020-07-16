@@ -21,7 +21,54 @@ requireAll(require.context('../images/', true, /\.(png|jpg|jpeg|webp|svg)$/));
 (function ($) {
   $(document).ready(function () {
 
-    // Placeholder
+    // Accordion
+    $('.mb-accordion .mb-accordion__section-toggle').click(function(e) {
+      e.preventDefault();
+
+      var currentSection = $(this).closest('.mb-accordion__section');
+      var otherSections = $(this).closest('.mb-accordion').find('.mb-accordion__section').not(currentSection);
+
+      currentSection.find('.mb-accordion__section-panel').slideToggle('fast');
+      currentSection.toggleClass('mb-accordion__section--expanded');
+
+      otherSections.find('.mb-accordion__section-panel').slideUp('fast');
+      otherSections.removeClass('mb-accordion__section--expanded');
+    });
+
+    // Dropdown
+    $('.mb-dropdown .mb-dropdown__toggle').click(function(e) {
+      e.preventDefault();
+      var currentDropDown = $(this).closest('.mb-dropdown');
+      var isExpanded = currentDropDown.hasClass('mb-dropdown--expanded');
+
+      if (currentDropDown.closest('.mb-dropdown__group').length) {
+        var otherDropDowns = currentDropDown.closest('.mb-dropdown__group').find('.mb-dropdown').not(currentDropDown);
+      }
+
+      if (isExpanded) {
+        currentDropDown.find('.mb-dropdown__panel').slideUp('fast');
+        currentDropDown.removeClass('mb-dropdown--expanded');
+      } else {
+        currentDropDown.find('.mb-dropdown__panel').slideDown('fast');
+        currentDropDown.addClass('mb-dropdown--expanded');
+        if (otherDropDowns) {
+          otherDropDowns.find('.mb-dropdown__panel').slideUp('fast');
+          otherDropDowns.removeClass('mb-dropdown--expanded');
+        }
+      }
+    });
+
+    $('body').click(function(e) {
+      if (!e.target.closest('.mb-dropdown')) {
+        $('.mb-dropdown').find('.mb-dropdown__panel').slideUp('fast');
+        $('.mb-dropdown').removeClass('mb-dropdown--expanded');
+      }
+    });
+
+    $('.mb-dropdown__panel a').click(function() {
+      $('.mb-dropdown').find('.mb-dropdown__panel').slideUp('fast');
+      $('.mb-dropdown').removeClass('mb-dropdown--expanded');
+    });
 
   });
 }(jQuery));

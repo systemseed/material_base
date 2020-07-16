@@ -57,4 +57,32 @@
   &__card-container {
     max-width: $ms;
   }
+
+  &__accordion {
+    .mb-accordion__section {
+      border: 1px solid darken($color-bg-body, 10);
+    }
+
+    .mb-accordion__section + .mb-accordion__section {
+      border-top: 0;
+    }
+
+    .mb-accordion__section-toggle {
+      padding: ($spacing * 2) - 1;
+    }
+
+    .mb-accordion__section-panel {
+      padding: ($spacing * 2) - 1;
+      background: darken($color-bg-body, 8);
+      border-top: 1px solid darken($color-bg-body, 10);
+    }
+  }
+
+  &__dropdown {
+    .mb-dropdown__panel {
+      padding: $spacing * 2;
+      border-radius: 4px;
+      box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12); // MDC z2
+    }
+  }
 }

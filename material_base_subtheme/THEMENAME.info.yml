@@ -13,11 +13,15 @@ base theme: material_base_mdc                     # Default. Subtheme of Materia
 
 screenshot: screenshot.svg
 
-# libraries:
-#   - THEMENAME/YOURLIBRARY                    
+libraries:
+  - THEMENAME/theme                               # Contains project theme defaults and components (extends whole base)
+#  - THEMENAME/YOURLIBRARY                    
 
 libraries-override:
-  material_base/base: THEMENAME/theme             # Contains base theme defaults and components, replaced by project theme which extends whole base
+  material_base/base:                             # Contains base theme defaults and components, replaced by project theme except base.js
+    css:
+      base:
+        dist/css/base.css: false
 #  material_base/grid: false                      # Contains Flexbox Grid defenition
 #  material_base/icons-font: false                # Contains Material icons fonts definitions
   material_base/fonts: THEMENAME/fonts            # Contains default font defenition, replaced by project fonts defenitions
