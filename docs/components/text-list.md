@@ -5,12 +5,15 @@ Material Base provides several styles for HTML lists elements (`ul`, `ol`).
 
 Do not be confused with List component from MDC library, text list intended to be used in texts, without selecting option.
 
-Component options
+Component implemented as CSS classes for using in markup.
+
+Component classes
 -----------------
 
-Material Base `classes`:
+`text-list` - list wrapper, provides default list styles.
 
-* `text-list` - default list style
+Additional `classes`:
+
 * `text-list text-list--unstyled` -  list without markers
 * `text-list text-list--bulleted` -  list with brand colored bullets
 * `text-list text-list--iconed` -  list with icons

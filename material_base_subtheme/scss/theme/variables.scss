@@ -23,6 +23,22 @@ $font-family-heading: $font-family-additional;
 
 // Default values, inherited from base.
 /*
+
+// Colors
+
+$color-bg-highlighted: darken($color-bg-body, 12);
+$color-border: darken($color-bg-body, 20);
+
+$color-text-light-base: #FFF;
+$color-text-light: $color-text-light-base;
+
+$color-on-primary: $color-text-light;
+$color-on-secondary: $color-text-light;
+
+$color-text-placeholer: rgba($color-text-base, .6);
+
+// Fonts & typography
+
 $font-size-base: 16px;
 $line-height-base: 1.5;
 

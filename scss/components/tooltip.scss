@@ -1,0 +1,19 @@
+.tooltip {
+  display: inline-block;
+  background: lighten(#000, 42);
+  color: $color-text-light;
+  font-family: $font-family-text;
+  font-size: $font-size-text-small;
+  line-height: $line-height-text-small;
+  padding: $spacing * 0.75 $spacing * 2;
+  border-radius: 4px;
+  text-align: center;
+
+  @include media-breakpoint-up($lg) {
+    & {
+      font-size: $font-size-caption;
+      line-height: $line-height-caption;
+      padding: $spacing * 0.25 $spacing;
+    }
+  }
+}

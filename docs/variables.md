@@ -13,6 +13,9 @@ $color-secondary-base: #00c9f8;
 $color-accent-base: $color-secondary-base;
 $color-bg-body: #FFF;
 
+$color-bg-highlighted: darken($color-bg-body, 12);
+$color-border: darken($color-bg-body, 20);
+
 $theme-primary: $color-primary-base;
 $theme-secondary: $color-secondary-base;
 $theme-background: $color-bg-body;

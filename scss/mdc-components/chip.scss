@@ -1,0 +1,49 @@
+@use "@material/ripple";
+
+.mb-chip {
+  @include ripple.surface;
+  @include ripple.radius-bounded;
+  @include ripple.states;
+  position: relative;
+  overflow: hidden;
+  background: $color-bg-highlighted;
+  border: 1px solid $color-bg-highlighted;
+  border-radius: 17px;
+  display: inline-flex;
+  
+  label {
+    display: inline-flex;
+    align-items: center;
+    line-height: 24px;
+    padding: 4px 20px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  &.mb-chip--outlined {
+    background: $color-bg-body;
+    border-color: $color-border;
+  }
+
+  &__icon-background {
+    margin-right: 8px;
+    margin-left: -8px;
+  }
+
+  &__icon {
+    display: block;
+  }
+
+  &.mb-chip--checked,
+  .input-checked > & {
+    background: lighten($theme-primary, 44);
+    border-color: lighten($theme-primary, 44);
+    color: $theme-primary;
+
+    &.mb-chip--outlined {
+      background: lighten($theme-primary, 44);
+      border-color: lighten($theme-primary, 36);
+    }
+  }
+}
+

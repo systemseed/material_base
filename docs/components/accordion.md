@@ -3,6 +3,16 @@ Accordion
 
 Material Base provides JS and minimal styles for creating accordions.
 
+Component implemented as CSS classes for using in markup.
+
+Component classes
+-----------------
+
+* `mb-accordion` - accordion root element
+* `mb-accordion__section` - accordion section
+* `mb-accordion__section-toggle` - accordion section toggle
+* `mb-accordion__section-panel` - accordion section content panel
+
 Examples of usage
 -----------------
 

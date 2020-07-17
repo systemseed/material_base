@@ -88,7 +88,7 @@
     },
     settings: {
       type: data.icon.settings.type,
-      classes: data.icon.settings.classes|default(['mdc-icon-button__icon']),
+      classes: data.icon.settings.classes|default([])|merge(['mdc-icon-button__icon']),
     }
   } %}
 </{{ tag }}>

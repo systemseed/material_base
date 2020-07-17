@@ -3,10 +3,10 @@ Search
 
 Material Base provides styles and JS for supporting searches created with [Search API](https://www.drupal.org/project/search_api) module. Also supported input autocomplete provided by [Search API Autocomplete](https://www.drupal.org/project/search_api_autocomplete) module. Search module from Drupal core may also be used, but it is not officially supported.
 
+Component implemented as CSS classes for using in markup.
+
 Component options
 -----------------
-
-Search component includes only styles and JS functions but not provides search functionality or markup for elements.
 
 Implemented elements:
 
@@ -16,6 +16,34 @@ Implemented elements:
 * Search result snippet
 
 Click on Search toggle or Search close buttons will add/remove `search-open` class to the `body` tag.
+
+Component classes
+-----------------
+
+### Search field
+
+* `search-field` - search field root element
+* `search-field__group` - group containing icon and input field
+* `search-field__icon` - search icon
+
+### Search toggle button
+
+* `search-toggle` - search toggle root element
+* `search-toggle__button` - toggle button
+* `search-toggle__icon` - search toggle icon
+
+### Search close button
+
+* `search-close` - search close root element
+* `search-close__button` - close button
+* `search-close__icon` - close icon
+
+### Search result snippet
+
+* `search-results-list__item` - search result wrapper
+* `item-title` - search result title
+* `item-content` - search result excerpt
+* `item-footer` - link to the result page
 
 Elements markup examples
 ------------------------

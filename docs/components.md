@@ -13,3 +13,5 @@ List of components
 * [Text list](/components/text-list.md)
 * [Accordion](/components/accordion.md)
 * [Dropdown](/components/dropdown.md)
+* [Tooltip](/components/tooltip.md)
+* [Chip](/components/chip.md)

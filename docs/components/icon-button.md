@@ -3,6 +3,8 @@ Icon button
 
 Icon button component allows to display buttons which contains only icon.
 
+Component implemented as Twig template for including.
+
 Accepted variables
 ------------------
 

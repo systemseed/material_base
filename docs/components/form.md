@@ -1,7 +1,10 @@
 Form
 ====
 
-Material Base provides default styles and additional options for Drupal form elements. For displaying and handling forms, Drupal modules or Drupal Form API could be used. Material Base form elements not intended to be used directly (via template calling).
+Material Base provides default styles and additional options for Drupal form elements.
+
+For displaying and handling forms, Drupal modules or Drupal Form API could be used.
+Form elements not intended to be used directly (via template including).
 
 Component options
 -----------------
@@ -16,11 +19,11 @@ Implemented MDC components:
 
 Rest of form elements uses default appearance provided by Drupal.
 
-Some options provided by MDC library can not be configured via Drupal interface or Drupal Form API.
+Some options provided by MDC library can not be configured via Drupal interface.
 
-Outlined and Full width MDC options for text field could be achieved by setting corresponding values in `form-element--textfield.html.twig` from `material_base_mdc/templates/form` folder, overridden in your custom theme.
+Outlined and Full width MDC options for text field could be achieved by passing corresponding values to `form-element--textfield.html.twig` template, by preprocess function, or overridding/including the template in your custom theme.
 
-Full width MDC option for textarea could be achieved by setting `full_width = true` in `form-element--textarea.html.twig` from `material_base_mdc/templates/form` folder, overridden in your custom theme.
+Full width MDC option for textarea could be achieved by passing `full_width = true` to `form-element--textarea.html.twig` template, by preprocess function, or overridding/including the template in your custom theme.
 
 Character counter, prefix and suffix text, leading and trailing icons weren't implemented, however they could be easily added on template level.
 

@@ -6,6 +6,9 @@ $color-accent-base: $color-secondary-base !default;
 $color-bg-body: #FFF !default;
 $color-bg-body-dark: #121212 !default;
 
+$color-bg-highlighted: darken($color-bg-body, 12) !default;
+$color-border: darken($color-bg-body, 20) !default;
+
 $theme-primary: $color-primary-base !default;
 $theme-secondary: $color-secondary-base !default;
 $theme-background: $color-bg-body !default;

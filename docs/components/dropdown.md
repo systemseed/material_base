@@ -1,9 +1,18 @@
 Dropdown
-=========
+========
 
 Material Base provides JS and minimal styles for creating dropdowns.
 
 [Button component](/components/button.md) could be used as Dropdown toggle as well.
+
+Component implemented as CSS classes for using in markup.
+
+Component classes
+-----------------
+
+* `mb-dropdown` - dropdown root element
+* `mb-dropdown__toggle` - dropdown toggle
+* `mb-dropdown__panel` - dropdown content panel
 
 Examples of usage
 -----------------

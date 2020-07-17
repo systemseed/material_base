@@ -7,6 +7,8 @@ Icon component allows to display different types of icons:
 * Icons from SVG sprite
 * Icon from markup or render array
 
+Component implemented as Twig template for including.
+
 Accepted variables
 ------------------
 

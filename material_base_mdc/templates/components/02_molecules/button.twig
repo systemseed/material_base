@@ -108,7 +108,7 @@
       },
       settings: {
         type: data.icon.settings.type,
-        classes: data.icon.settings.classes|default(['mdc-button__icon']),
+        classes: data.icon.settings.classes|default([])|merge(['mdc-button__icon']),
       }
     } %}
   {% endif %}

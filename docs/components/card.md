@@ -3,6 +3,8 @@ Card
 
 Card component allows to display cards with several options and styles.
 
+Component implemented as Twig template for including.
+
 Accepted variables
 ------------------
 

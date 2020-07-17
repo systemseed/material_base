@@ -3,6 +3,8 @@ Button
 
 Button component allows to display buttons with several options and styles.
 
+Component implemented as Twig template for including.
+
 Accepted variables
 ------------------
 
