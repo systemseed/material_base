@@ -1,0 +1,62 @@
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing * 0.5 $spacing; 
+
+  &__icon + &__label,
+  &__label + &__icon {
+    margin-left: $spacing;
+  }
+
+  .icon {
+    fill: $color-text;
+    color: $color-text;
+  }
+
+  &--branded {
+    &.share-button--twitter {
+      background: #1DA1F2;
+      border: 0;
+      color: #FFF;
+
+      .icon {
+        fill: #FFF;
+        color: #FFF;
+      }
+
+      &:hover {
+        background: darken(#1DA1F2, 4);
+      }
+    }
+
+    &.share-button--facebook {
+      background: #1877f2;
+      border: 0;
+      color: #FFF;
+
+      .icon {
+        fill: #FFF;
+        color: #FFF;
+      }
+
+      &:hover {
+        background: darken(#1877f2, 4);
+      }
+    }
+
+    &.share-button--linkedin {
+      background: #0073b1;
+      border: 0;
+      color: #FFF;
+
+      .icon {
+        fill: #FFF;
+        color: #FFF;
+      }
+
+      &:hover {
+        background: darken(#0073b1, 4);
+      }
+    }
+  }
+}

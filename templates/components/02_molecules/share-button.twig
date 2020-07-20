@@ -1,0 +1,134 @@
+{#
+/**
+ * Accepted variables:
+ * - data:
+ *   - label: Button text.
+ *   - url: URL of page for sharing.
+ *   - title: Title of page for sharing.
+ *   - icon: icon for showing beside the button text: 'TRUE' (default), 'FALSE' or icon component.
+ * - settings:
+ *   - network: 'facebook', 'twitter', 'linkedin'. 
+ *   - attributes: (object) element attributes.
+ *   - classes: (array) classes for adding to the element.
+ *   - id: HTML 'id' attribute.
+ *   - disabled: (bool) makes button looks and behave as inactive.
+ *   - icon_trailing: (bool) allows to display the icon at the right of button text. By default icon displayed at the left.
+ *
+ * Examples:
+ * @code
+ * {% include "@material_base/components/02_molecules/share-button.twig" with {
+ *   data: {
+ *     label: 'Button text',
+ *     url: 'https://example.com',
+ *     title: 'Page title',
+ *   },
+ *   settings: {
+ *     network: 'facebook',
+ *   }
+ * } %}
+ *
+ * {% include "@material_base/components/02_molecules/share-button.twig" with {
+ *   data: {
+ *     label: 'Button text',
+ *     url: 'https://example.com',
+ *     title: 'Page title',
+ *     icon: {
+ *       data: {
+ *         value: 'thumb_up',
+ *       },
+ *       settings: {
+ *         type: 'font',
+ *         classes: ['material-icons'],
+ *       },
+ *     },
+ *   },
+ *   settings: {
+ *     network: 'facebook',
+ *   }
+ * } %}
+ * @endcode  
+ */
+#}
+
+{% if settings.attributes %}
+  {% set attributes = settings.attributes %}
+{% else %}
+  {% set attributes = create_attribute() %}
+{% endif %}
+
+{% if settings.id %}
+  {% set attributes = attributes.setAttribute('id', settings.id) %}
+{% endif %}
+
+{% if settings.disabled %}
+  {% set attributes = attributes.setAttribute('disabled', true) %}
+{% endif %}
+
+{% set classes = [
+  'share-button',
+  'share-button--' ~ settings.network,
+] %}
+
+{% if settings.classes %}
+  {% set classes = classes|merge(settings.classes) %}
+{% endif %}
+
+{% if settings.network == 'twitter' %}
+  {% set url = 'https://twitter.com/intent/tweet?url=' ~ data.url %}
+  {% if data.title  %}
+    {% set url = url ~ '&text=' ~ data.title|url_encode %}
+  {% endif %}
+{% elseif settings.network == 'facebook' %}
+  {% set url = 'https://www.facebook.com/sharer/sharer.php?u=' ~ data.url %}
+{% elseif settings.network == 'linkedin' %}
+   {% set url = 'http://www.linkedin.com/shareArticle?mini=true&url=' ~ data.url %}
+   {% if data.title %}
+     {% set url = url ~ '&title=' ~ data.title|url_encode %}
+   {% endif %}
+{% endif %}
+
+{% if not data.icon is defined %}
+  {% set data = data|merge({ icon: TRUE }) %}
+{% endif %}
+
+{% set attributes = attributes.setAttribute('onclick', "window.open('" ~ url ~ "', 'popup', 'width=600, height=600, scrollbars=no, resizable=no'); return false;") %}
+
+
+<button{{ attributes.addClass(classes) }}>
+
+  {% if data.icon and settings.icon_trailing and data.label %}
+    <span class="share-button__label">{{ data.label }}</span>
+  {% endif %}
+
+  {% if data.icon %}
+    {% if data.icon.data.value %}
+      {# Icon component provided #}
+      {% include "@material_base/components/01_atoms/icon.twig" with {
+        data: {
+          value: data.icon.data.value,
+        },
+        settings: {
+          type: data.icon.settings.type,
+          classes: data.icon.settings.classes|default([])|merge(['share-button__icon']),
+        }
+      } %}
+    {% else %}
+      {# Default icon #}
+      {% include "@material_base/components/01_atoms/icon.twig" with {
+        data: {
+          value: settings.network,
+        },
+        settings: {
+          type: 'svg-sprite',
+          classes: ['share-button__icon'],
+        }
+      } %}
+    {% endif %}
+  {% endif %}
+
+  {% if not settings.icon_trailing and data.label %}
+    <span class="share-button__label">{{ data.label }}</span>
+  {% endif %}
+
+</button>
+

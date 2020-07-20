@@ -1,0 +1,98 @@
+{#
+/**
+ * Accepted variables:
+ * - data:
+ *   - label: Button text.
+ *   - url: URL of page for sharing.
+ *   - title: Title of page for sharing.
+ *   - icon: icon for showing beside the button text: 'TRUE' (default), 'FALSE' or icon component.
+ * - settings:
+ *   - network: 'facebook', 'twitter', 'linkedin'. 
+ *   - attributes: (object) element attributes.
+ *   - classes: (array) classes for adding to the element.
+ *   - id: HTML 'id' attribute.
+ *   - disabled: (bool) makes button looks and behave as inactive.
+ *   - icon_trailing: (bool) allows to display the icon at the right of button text. By default icon displayed at the left.
+ *
+ * Example:
+ * @code
+ * {% include "@material_base_mdc/components/02_molecules/share-button.twig" with {
+ *   data: {
+ *     label: 'Button text',
+ *     url: 'https://example.com',
+ *     title: 'Page title',
+ *   },
+ *   settings: {
+ *     network: 'facebook',
+ *     classes: ['mdc-button--raised'],
+ *   }
+ * } %}
+ * @endcode  
+ */
+#}
+
+{% if settings.attributes %}
+  {% set attributes = settings.attributes %}
+{% else %}
+  {% set attributes = create_attribute() %}
+{% endif %}
+
+{% set classes = [
+  'button--' ~ settings.network,
+] %}
+
+{% if settings.classes %}
+  {% set classes = classes|merge(settings.classes) %}
+{% endif %}
+
+{% if settings.network == 'twitter' %}
+  {% set url = 'https://twitter.com/intent/tweet?url=' ~ data.url %}
+  {% if data.title  %}
+    {% set url = url ~ '&text=' ~ data.title|url_encode %}
+  {% endif %}
+{% elseif settings.network == 'facebook' %}
+  {% set url = 'https://www.facebook.com/sharer/sharer.php?u=' ~ data.url %}
+{% elseif settings.network == 'linkedin' %}
+   {% set url = 'http://www.linkedin.com/shareArticle?mini=true&url=' ~ data.url %}
+   {% if data.title %}
+     {% set url = url ~ '&title=' ~ data.title|url_encode %}
+   {% endif %}
+{% endif %}
+
+{% set default_icon = {
+  data: {
+    value: settings.network,
+  },
+  settings: {
+    type: 'svg-sprite',
+  },
+} %}
+
+{# Handling TRUE icon value, but not icon component #}
+{% if data.icon %}
+  {% if not data.icon.data.value %}
+    {% set data = data|merge({ icon: default_icon }) %}
+  {% endif %}
+{% endif %}
+
+{# Handling undefined icon, default icon value should be TRUE () #}
+{% if not data.icon is defined %}
+  {% set data = data|merge({ icon: default_icon }) %}
+{% endif %}
+
+{% set attributes = attributes.setAttribute('onclick', "window.open('" ~ url ~ "', 'popup', 'width=600, height=600, scrollbars=no, resizable=no'); return false;") %}
+
+{# Logicaly it is not icluding, it is extending #}
+{% include "@material_base_mdc/components/02_molecules/button.twig" with {
+  data: {
+    label: data.label,
+    icon: data.icon,
+  },
+  settings: {
+    classes: classes,
+    attributes: attributes,
+    disabled: settings.disabled,
+    id: settings.id,
+    icon_trailing: settings.icon_trailing,
+  },
+} %}
