@@ -7,7 +7,8 @@ base:
   dependencies:
     - core/drupal
     - core/jquery
-    - core/drupalSettings    
+    - core/drupalSettings
+    - material_base/clipboard-js 
 
 grid:
   css:
@@ -23,3 +24,7 @@ icons-font:
   css:
     component:
       dist/css/icons-font.css: {}
+
+clipboard-js:
+  js:
+    js/clipboard.min.js: { minified: true }

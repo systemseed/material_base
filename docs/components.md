@@ -15,3 +15,5 @@ List of components
 * [Dropdown](/components/dropdown.md)
 * [Tooltip](/components/tooltip.md)
 * [Chip](/components/chip.md)
+* [Copy target](/components/copy-target.md)
+* [Slick](/components/slick.md)

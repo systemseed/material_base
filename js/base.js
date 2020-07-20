@@ -70,6 +70,23 @@ requireAll(require.context('../images/', true, /\.(png|jpg|jpeg|webp|svg)$/));
       $('.mb-dropdown').removeClass('mb-dropdown--expanded');
     });
 
+    // Copy target text to clipboard
+    var copyTarget = new ClipboardJS('.copy-target__button', {
+      text: function(trigger) {
+        return trigger.getAttribute('data-target');
+      }
+    });
+
+    copyTarget.on('success', function(e) {
+      $(e.trigger).closest('.copy-target').addClass('just-clicked');
+
+      setTimeout(function() {
+        $(e.trigger).closest('.copy-target').removeClass('just-clicked');
+      }, 3000);
+
+      e.clearSelection();
+    });
+
   });
 }(jQuery));
 
