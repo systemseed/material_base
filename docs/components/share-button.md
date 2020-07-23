@@ -35,7 +35,7 @@ Component classes:
 
 * `share-button--branded` - set network brand color for button background
 
-Alternatively Share button could be used with [Button component](/components/button.md) with support all of it's options.
+Alternatively Share button could be used with MDC button styles with all of it's options.
 
 Examples of usage
 -----------------
@@ -165,7 +165,7 @@ In Twig template file:
 
 Output: Button with brand background color.
 
-### Button using Button component
+### Button using MDC Button style
 
 In Twig template file:
 
@@ -183,4 +183,4 @@ In Twig template file:
 } %}
 ~~~
 
-Output: Button using Button component.
+Output: Button using MDC Button style.

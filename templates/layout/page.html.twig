@@ -49,137 +49,139 @@
  * @see html.html.twig
  */
 #}
+
 <div class="page">
   <div class="page-container layout-container{{ page_layout ? ' layout-container--node' : ' layout-container--page' }}">
 
     {% if page.navbar %}
-      <div class="navbar">
-        <div class="navbar-container">
-          {{ page.navbar }}
-        </div>
-      </div>
+      {{ page.navbar }}
     {% endif %}
 
     {% if page.drawer %}
-      <div class="drawer-overlay"></div>
+      <div class="drawer__overlay"></div>
       <div class="drawer">
         {{ page.drawer }}
       </div>
     {% endif %}
 
-    {% if page.header %}
-      <header class="page-header" role="banner">
-        <div class="page-header-bg">
-          <div class="page-header-container">
-            <div class="page-header-content">
-              {{ page.header }}
+    {% block navbar_adjust %}
+      <div class="page-navbar-adjust{{ navbar_style ? ' page-navbar-adjust--' ~ navbar_style }}{{ navbar_fixed ? ' page-navbar-adjust--fixed' }}">
+    {% endblock %}  
+
+      {% if page.header %}
+        <header class="page-header" role="banner">
+          <div class="page-header__bg">
+            <div class="page-header__container">
+              <div class="page-header__content">
+                {{ page.header }}
+              </div>
             </div>
           </div>
-        </div>
-      </header>
-    {% endif %}
+        </header>
+      {% endif %}
 
-    {% if page.actions %}
-      <div class="page-actions">
-        <div class="page-continer">
-          {{ page.actions }}
-        </div>
-      </div>
-    {% endif %}
-
-    <main class="page-main" role="main">
-      
-      {% if page_layout %}
-
-        {# layout controlled by confuguration #}
-        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-        {{ page.content }}
-
-      {% else %}
-
-        {# layout controlled by template #}
-        {% if page.main_top %}
-          <div class="main-top">
-            {{ page.main_top }}
+      {% if page.actions %}
+        <div class="page-actions">
+          <div class="page-actions__container">
+            {{ page.actions }}
           </div>
-        {% endif %}
+        </div>
+      {% endif %}
 
-        <div class="main-content">
-          <div class="main-content-container">
+      <main class="page-main" role="main">
 
-            {% if page.content_above %}
-              <div class="page-content-above">
-                {{ page.content_above }}
-              </div>
-            {% endif %}
+        {% if page_layout %}
 
-            <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-            <div class="main-content-content">
+          {# layout controlled by confuguration #}
+          <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+          {{ page.content }}
 
-              <div class="page-content-wrapper">
-                <div class="page-content-primary">
-                  {{ page.breadcrumb }}
-                  {{ page.highlighted }}
-                  {{ page.help }}
+        {% else %}
 
-                  <div class="page-content layout-content">
-                    {{ page.content }}
+          {# layout controlled by template #}
+          {% if page.main_top %}
+            <div class="main-top">
+              {{ page.main_top }}
+            </div>
+          {% endif %}
+
+          <div class="main-content">
+            <div class="main-content__container">
+
+              {% if page.content_above %}
+                <div class="page-content-above">
+                  {{ page.content_above }}
+                </div>
+              {% endif %}
+
+              <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+              <div class="main-content__content">
+
+                <div class="page-content__wrapper">
+                  <div class="page-content-primary">
+                    {{ page.breadcrumb }}
+                    {{ page.highlighted }}
+                    {{ page.help }}
+
+                    <div class="page-content layout-content">
+                      {{ page.content }}
+                    </div>
                   </div>
+
+                  {% if page.content_secondary %}
+                    <div class="page-content-secondary">
+                      {{ page.content_secondary }}
+                    </div>
+                  {% endif %}
                 </div>
 
-                {% if page.content_secondary %}
-                  <div class="page-content-secondary">
-                    {{ page.content_secondary }}
-                  </div>
+                {% if page.sidebar_first %}
+                  <aside class="page-sidebar page-sidebar--first layout-sidebar-first" role="complementary">
+                    {{ page.sidebar_first }}
+                  </aside>
+                {% endif %}
+
+                {% if page.sidebar_second %}
+                  <aside class="page-sidebar page-sidebar--second layout-sidebar-second" role="complementary">
+                    {{ page.sidebar_second }}
+                  </aside>
                 {% endif %}
               </div>
 
-              {% if page.sidebar_first %}
-                <aside class="page-sidebar sidebar-first layout-sidebar-first" role="complementary">
-                  {{ page.sidebar_first }}
-                </aside>
+              {% if page.content_below %}
+                <div class="page-content-below">
+                  {{ page.content_below }}
+                </div>
               {% endif %}
 
-              {% if page.sidebar_second %}
-                <aside class="page-sidebar sidebar-second layout-sidebar-second" role="complementary">
-                  {{ page.sidebar_second }}
-                </aside>
-              {% endif %}
             </div>
-
-            {% if page.content_below %}
-              <div class="page-content-below">
-                {{ page.content_below }}
-              </div>
-            {% endif %}
-
           </div>
-        </div>
 
-        {% if page.main_bottom %}
-          <div class="main-bottom">
-            {{ page.main_bottom }}
-          </div>
+          {% if page.main_bottom %}
+            <div class="main-bottom">
+              {{ page.main_bottom }}
+            </div>
+          {% endif %}
+
         {% endif %}
+      </main>
 
+      {% if page.footer %}
+        <footer class="page-footer" role="contentinfo">
+          <div class="page-footer__container">
+            {{ page.footer }}
+          </div>
+        </footer>
       {% endif %}
-    </main>
 
-    {% if page.footer %}
-      <footer class="page-footer" role="contentinfo">
-        <div class="page-footer-container">
-          {{ page.footer }}
-        </div>
-      </footer>
-    {% endif %}
-
+    </div>
   </div>
 
   {% if page.overlay %}
     <div class="page-overlay">
-      <div class="page-overay-bg"></div>
-      <div class="page-overay-container">
-        <div class="page-overlay-content">{{ page.overlay }}</div>
+      <div class="page-overay__bg"></div>
+      <div class="page-overay__container">
+        <div class="page-overlay__content">{{ page.overlay }}</div>
       </div>
     </div>
   {% endif %}

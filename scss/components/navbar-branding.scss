@@ -1,0 +1,26 @@
+.navbar-branding {
+  &__logo {
+    padding: 4px 12px;
+    display: block;
+
+    img,
+    svg,
+    .navbar-branding__logo-image {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin-left: 12px;
+    margin-right: 12px;
+    font-size: $font-size-h6;
+    font-weight: $font-weight-h6;
+    font-family: $font-family-heading;
+  }
+
+  &__slogan {
+    margin-left: 12px;
+    margin-right: 12px;
+    font-size: $font-size-text-small;
+  }
+}

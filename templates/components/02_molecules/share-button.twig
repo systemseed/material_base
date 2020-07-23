@@ -56,14 +56,6 @@
   {% set attributes = create_attribute() %}
 {% endif %}
 
-{% if settings.id %}
-  {% set attributes = attributes.setAttribute('id', settings.id) %}
-{% endif %}
-
-{% if settings.disabled %}
-  {% set attributes = attributes.setAttribute('disabled', true) %}
-{% endif %}
-
 {% set classes = [
   'share-button',
   'share-button--' ~ settings.network,
@@ -87,48 +79,40 @@
    {% endif %}
 {% endif %}
 
+{% set default_icon = {
+  data: {
+    value: settings.network,
+  },
+  settings: {
+    type: 'svg-sprite',
+  },
+} %}
+
+{# Handling TRUE icon value, but not icon component #}
+{% if data.icon %}
+  {% if not data.icon.data.value %}
+    {% set data = data|merge({ icon: default_icon }) %}
+  {% endif %}
+{% endif %}
+
+{# Handling undefined icon, default icon value should be TRUE () #}
 {% if not data.icon is defined %}
-  {% set data = data|merge({ icon: TRUE }) %}
+  {% set data = data|merge({ icon: default_icon }) %}
 {% endif %}
 
 {% set attributes = attributes.setAttribute('onclick', "window.open('" ~ url ~ "', 'popup', 'width=600, height=600, scrollbars=no, resizable=no'); return false;") %}
 
-
-<button{{ attributes.addClass(classes) }}>
-
-  {% if data.icon and settings.icon_trailing and data.label %}
-    <span class="share-button__label">{{ data.label }}</span>
-  {% endif %}
-
-  {% if data.icon %}
-    {% if data.icon.data.value %}
-      {# Icon component provided #}
-      {% include "@material_base/components/01_atoms/icon.twig" with {
-        data: {
-          value: data.icon.data.value,
-        },
-        settings: {
-          type: data.icon.settings.type,
-          classes: data.icon.settings.classes|default([])|merge(['share-button__icon']),
-        }
-      } %}
-    {% else %}
-      {# Default icon #}
-      {% include "@material_base/components/01_atoms/icon.twig" with {
-        data: {
-          value: settings.network,
-        },
-        settings: {
-          type: 'svg-sprite',
-          classes: ['share-button__icon'],
-        }
-      } %}
-    {% endif %}
-  {% endif %}
-
-  {% if not settings.icon_trailing and data.label %}
-    <span class="share-button__label">{{ data.label }}</span>
-  {% endif %}
-
-</button>
-
+{# Logicaly it is not icluding, it is extending #}
+{% include "@material_base/components/02_molecules/button.twig" with {
+  data: {
+    label: data.label,
+    icon: data.icon,
+  },
+  settings: {
+    classes: classes,
+    attributes: attributes,
+    disabled: settings.disabled,
+    id: settings.id,
+    icon_trailing: settings.icon_trailing,
+  },
+} %}

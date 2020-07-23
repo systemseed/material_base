@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+
+{# Example of template usage with demo content #}
+{% extends "region--navbar--example.html.twig" %}
+
+{# Actual template code #}
+{#
+{% set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+    'navbar',
+    'mdc-top-app-bar',
+    navbar_fixed ? 'mdc-top-app-bar--fixed' : 'mdc-top-app-bar--not-fixed',
+    navbar_style ? 'mdc-top-app-bar--' ~ navbar_style,
+] %}
+
+{% if content %}
+  <div{{ attributes.addClass(classes).setAttribute('data-mdc-auto-init', 'MDCTopAppBar') }}>
+    <div class="navbar__container mdc-top-app-bar__row">
+      <div class="navbar__section mdc-top-app-bar__section">
+
+        {{ content }}
+
+      </div>
+    </div>
+  </div>
+{% endif %}
+#}

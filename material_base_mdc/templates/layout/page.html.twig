@@ -1,0 +1,13 @@
+{% extends "@material_base/layout/page.html.twig" %}
+
+{% if navbar_style == 'standard' %}
+  {% set navbar_style_adjust = 'mdc-top-app-bar--fixed-adjust' %}
+{% elseif navbar_style == 'dense' %}
+  {% set navbar_style_adjust = 'mdc-top-app-bar--dense-fixed-adjust' %}
+{% elseif navbar_style == 'prominent' %}
+  {% set navbar_style_adjust = 'mdc-top-app-bar--prominent-fixed-adjust' %}  
+{% endif %}
+
+{% block navbar_adjust %}
+  <div class="page-navbar-adjust{{ navbar_style_adjust ? ' ' ~ navbar_style_adjust }}">
+{% endblock %}

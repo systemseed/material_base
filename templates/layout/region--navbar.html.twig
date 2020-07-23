@@ -15,10 +15,17 @@
 {% set classes = [
     'region',
     'region-' ~ region|clean_class,
+    'navbar',
+    navbar_fixed ? 'navbar--fixed',
+    navbar_style ? 'navbar--' ~ navbar_style,
 ] %}
 
 {% if content %}
   <div{{ attributes.addClass(classes) }}>
-    {{ content }}
+    <div class="navbar__container">
+      <div class="navbar__section">
+        {{ content }}
+      </div>
+    </div>
   </div>
 {% endif %}

@@ -1,61 +1,29 @@
+// Networks array: title, background color, text and icon color
+$networks:
+  facebook #1877f2 #FFF,
+  twitter #1DA1F2 #FFF,
+  linkedin #0073b1 #FFF !default;
+
 .share-button {
-  display: inline-flex;
-  align-items: center;
-  padding: $spacing * 0.5 $spacing; 
-
-  &__icon + &__label,
-  &__label + &__icon {
-    margin-left: $spacing;
-  }
-
-  .icon {
-    fill: $color-text;
-    color: $color-text;
-  }
-
   &--branded {
-    &.share-button--twitter {
-      background: #1DA1F2;
-      border: 0;
-      color: #FFF;
+    @each $network in $networks {
+      $network-name: nth($network, 1);
+      $network-bg: nth($network, 2);
+      $network-color: nth($network, 3);
 
-      .icon {
-        fill: #FFF;
-        color: #FFF;
-      }
+      &.share-button--#{$network-name} {
+        background: $network-bg;
+        border: 0;
+        color: $network-color;
 
-      &:hover {
-        background: darken(#1DA1F2, 4);
-      }
-    }
+        .icon {
+          fill: $network-color;
+          color: $network-color;
+        }
 
-    &.share-button--facebook {
-      background: #1877f2;
-      border: 0;
-      color: #FFF;
-
-      .icon {
-        fill: #FFF;
-        color: #FFF;
-      }
-
-      &:hover {
-        background: darken(#1877f2, 4);
-      }
-    }
-
-    &.share-button--linkedin {
-      background: #0073b1;
-      border: 0;
-      color: #FFF;
-
-      .icon {
-        fill: #FFF;
-        color: #FFF;
-      }
-
-      &:hover {
-        background: darken(#0073b1, 4);
+        &:hover {
+          background: darken($network-bg, 4);
+        }
       }
     }
   }

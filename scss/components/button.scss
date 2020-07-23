@@ -1,0 +1,22 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing * 0.5 $spacing;
+
+  &__label {
+    font-size: $font-size-button;
+    line-height: 24px;
+    font-weight: $font-weight-button;
+    text-transform: uppercase;
+  }
+
+  &__icon + &__label,
+  &__label + &__icon {
+    margin-left: $spacing;
+  }
+
+  &__icon {
+    fill: $color-text;
+    color: $color-text;
+  }
+}

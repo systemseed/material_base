@@ -7,6 +7,7 @@ $color-bg-body: #FFF !default;
 $color-bg-body-dark: #121212 !default;
 
 $color-bg-highlighted: darken($color-bg-body, 12) !default;
+$color-bg-hover: rgba(#000, 0.04) !default;
 $color-border: darken($color-bg-body, 20) !default;
 
 $theme-primary: $color-primary-base !default;
@@ -117,7 +118,7 @@ $flexboxgrid-outer-margin: $gutter !default;
 $flexboxgrid-breakpoints:
   sm $sm auto,
   md $md auto,
-  lg $lg $lg;
+  lg $lg $lg !default;
 $flexboxgrid-max-width: $lg !default;
 
 // 8.0.5 namespace

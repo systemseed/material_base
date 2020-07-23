@@ -1,0 +1,62 @@
+{% set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+    'navbar',
+    'mdc-top-app-bar',
+    navbar_fixed ? 'mdc-top-app-bar--fixed' : 'mdc-top-app-bar--not-fixed',
+    navbar_style ? 'mdc-top-app-bar--' ~ navbar_style,
+] %}
+
+{% if content %}
+  <div{{ attributes.addClass(classes).setAttribute('data-mdc-auto-init', 'MDCTopAppBar') }}>
+    <div class="navbar__container mdc-top-app-bar__row">
+      <div class="navbar__section mdc-top-app-bar__section">
+
+        {% include "@material_base_mdc/components/02_molecules/icon-button.twig" with {
+          data: {
+            icon: {
+              data: {
+                value: 'menu',
+              },
+              settings: {
+                type: 'svg-sprite',
+              },
+            },
+          },
+          settings: {
+            classes: ['mdc-top-app-bar__navigation-icon'],
+          },
+        } %}
+
+        {{ content }}
+
+        {% include "@material_base_mdc/components/02_molecules/icon-button.twig" with {
+          data: {
+            url: '/user',
+            icon: {
+              data: {
+                value: 'account_circle',
+              },
+              settings: {
+                type: 'svg-sprite',
+              },
+            },
+          },
+          settings: {
+            classes: ['mdc-top-app-bar__action-item', 'navbar-item--right'],
+            tag: 'a',
+          },
+        } %}
+
+        {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+          data: {
+            label: 'contact',
+          },
+          settings: {
+            classes: ['mdc-button--unelevated', 'button--light', 'navbar-item'],
+          },
+        } %}
+      </div>
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,47 @@
+.navbar-button {
+  appearance: none;
+  padding: $spacing * 0.75 $spacing * 1.5;
+  margin-left: 12px;
+  margin-right: 12px;
+  border: 0;
+  background: $color-on-primary;
+  color: $theme-primary;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+
+  .icon {
+    color: $theme-primary;
+    fill: $theme-primary;
+  }
+
+  .navbar--light & {
+    background: $theme-primary;
+    color: $color-on-primary;
+
+    .icon {
+      color: $color-on-primary;
+      fill: $color-on-primary;
+    }
+  }
+
+  .navbar--dark & {
+    background: $color-text-light;
+    color: $color-heading;
+
+    .icon {
+      color: $color-heading;
+      fill: $color-heading;
+    }
+  }
+
+  .navbar--secondary & {
+    background: $color-on-secondary;
+    color: $theme-secondary;
+
+    .icon {
+      color: $theme-secondary;
+      fill: $theme-secondary;
+    }
+  }
+}

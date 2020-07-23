@@ -1,0 +1,137 @@
+$navbar-height-stadard: 64px !default;
+$navbar-height-dense: 48px !default;
+$navbar-height-prominent: 128px !default;
+
+.navbar {
+  background: $theme-primary;
+  color: $color-on-primary;
+  z-index: 5;
+
+  &__section {
+    display: inline-flex;
+    flex: 1 1 auto;
+    align-items: center;
+    padding: 8px 12px;
+    z-index: 1;
+
+    .navbar-item {
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+
+    // Items alignment
+    // Dafault if left
+    //
+    // Center
+    .navbar-item--center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    // Right, should be added only to the first item of right aligned group
+    .navbar-item--right {
+      margin-left: auto;
+    }
+  }
+
+  a {
+    color: $color-on-primary;
+    text-decoration: none;
+  }
+
+  .icon {
+    color: $color-on-primary;
+    fill: $color-on-primary;
+  }
+
+  &--fixed {
+    position: fixed;
+    width: 100%;
+  }
+
+  &--standard,
+  &--dense,
+  &--prominent {
+    .navbar__container {
+      display: flex;
+      width: 100%;
+    }
+  }
+
+  &--standard {
+    .navbar__container {
+      height: $navbar-height-stadard;
+    }
+  }
+
+  &--dense {
+    .navbar__container {
+      height: $navbar-height-dense;
+    }
+
+    .navbar__section {
+      padding: 0 12px;
+    }
+  }
+
+  &--prominent {
+    .navbar__container {
+      height: $navbar-height-prominent;
+    }
+  }
+
+  &--light {
+    background: $color-bg-body;
+    color: $theme-primary;
+
+    a {
+      color: $theme-primary;
+    }
+
+    .icon {
+      color: $theme-primary;
+      fill: $theme-primary;
+    }
+  }
+
+  &--dark {
+    background: $color-bg-body-dark;
+    color: $color-text-light;
+
+    a {
+      color: $color-text-light;
+    }
+
+    .icon {
+      color: $color-text-light;
+      fill: $color-text-light;
+    }
+  }
+
+  &--secondary {
+    background: $theme-secondary;
+    color: $color-on-secondary;
+
+    a {
+      color: $color-on-secondary;
+    }
+
+    .icon {
+      color: $color-on-secondary;
+      fill: $color-on-secondary;
+    }
+  }
+}
+
+.page-navbar-adjust--fixed {
+  &.page-navbar-adjust--standard {
+    padding-top: $navbar-height-stadard;
+  }
+
+  &.page-navbar-adjust--dense {
+    padding-top: $navbar-height-dense;
+  }
+
+  &.page-navbar-adjust--prominent {
+    padding-top: $navbar-height-prominent;
+  }
+}

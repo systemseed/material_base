@@ -14,6 +14,7 @@ $color-accent-base: $color-secondary-base;
 $color-bg-body: #FFF;
 
 $color-bg-highlighted: darken($color-bg-body, 12);
+$color-bg-hover: rgba(#000, 0.04);
 $color-border: darken($color-bg-body, 20);
 
 $theme-primary: $color-primary-base;

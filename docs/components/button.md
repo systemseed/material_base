@@ -42,6 +42,8 @@ Extended MB `classes`:
 
 Default button color is primary.
 
+It is also possible to use button without MDC styles.
+
 Examples of usage
 -----------------
 
@@ -102,3 +104,17 @@ In Twig template file:
 ~~~
 
 Output: Default button with trailing `chevron_right` icon from SVG sprite.
+
+### Unstyled button
+
+In Twig template file:
+
+~~~
+{% include "@material_base/components/02_molecules/button.twig" with {
+  data: {
+    label: 'Button text',
+  },
+} %}
+~~~
+
+Output: Native button without styling.

@@ -1,0 +1,9 @@
+.navbar-menu--dropdown {
+  .menu--level-0 > .menu-item--expanded > .navbar-menu__item > .icon {
+    transition: transform 0.25s;
+  }
+
+  .menu--level-0 > .menu-item--expanded.menu-item--dropdown-expanded > .navbar-menu__item > .icon {
+    transform: rotate(180deg);
+  }
+}

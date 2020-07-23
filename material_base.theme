@@ -7,7 +7,8 @@
 
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Form\FormStateInterface;
-use \Drupal\block_content\BlockContentInterface;
+use Drupal\block_content\BlockContentInterface;
+use Drupal\block\Entity\Block;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -52,6 +53,31 @@ function material_base_preprocess_html(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_page().
+ */
+function material_base_preprocess_page(&$variables) {
+
+  // Pass Navbar style setting path to template
+  $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
+  $variables['navbar_style'] = theme_get_setting('navbar_style');
+
+}
+
+/**
+ * Implements hook_preprocess_region().
+ */
+function material_base_preprocess_region(array &$variables) {
+
+  if ($variables['region'] == 'navbar') {
+    // Pass Navbar style setting path to template
+    $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
+    $variables['navbar_style'] = theme_get_setting('navbar_style');
+    // Pass logo path to template.
+    $variables['site_logo'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+  }
+}
+
+/**
  * Implements hook_preprocess_block().
  */
 function material_base_preprocess_block(&$variables) {
@@ -62,6 +88,13 @@ function material_base_preprocess_block(&$variables) {
 
     // Pass block object shortcut to template.
     $variables['block_content'] = $variables['elements']['content']['#block_content'];
+  }
+
+  // Pass block region value to content so this can be used in
+  // material_base__theme_suggestions_menu_alter.
+  if (isset($variables['elements']['#id'])) {
+    $region = Block::load($variables['elements']['#id'])->getRegion();
+    $variables['content']['#attributes']['region'] = $region;
   }
 
 }
@@ -97,6 +130,39 @@ function material_base_theme_suggestions_block_alter(array &$suggestions, array 
     $suggestions[] = 'block__' . $block_description;
   }
 
+  // View mode suggestion for custom blocks.
+  if (isset($variables['elements']['#configuration']['view_mode'])) {
+    $view_mode = $variables['elements']['#configuration']['view_mode'];
+    $suggestions[] = 'block__' . $view_mode;
+  }
+  else {
+    $view_mode = NULL;
+  }
+
+  // Region suggestions.
+  if (isset($variables['elements']['#id'])) {
+    if ($block = Block::load($variables["elements"]["#id"])) {
+      $region = $block->getRegion();
+      $suggestions[] = 'block__' . $region;
+      $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
+      $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#id'];
+      $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['#id'];
+    }
+  }
+
+  // Custom Blocks suggestions (Bundles and view mode).
+  if ($variables['elements']['#base_plugin_id'] === 'block_content'
+    && isset($variables['elements']['content']['#block_content'])) {
+    // Bundle type.
+    $bundle = $variables['elements']['content']['#block_content']->bundle();
+    $suggestions[] = 'block__' . $region . '__' . $bundle;
+    if ($view_mode = $variables['elements']['content']['#view_mode']) {
+      $suggestions[] = 'block__' . $region . '__' . $bundle . '__' . $view_mode;
+      $suggestions[] = 'block__' . $bundle . '__' . $view_mode;
+    }
+    $suggestions[] = 'block__' . $bundle;
+  }
+
 }
 
 /**
@@ -105,5 +171,18 @@ function material_base_theme_suggestions_block_alter(array &$suggestions, array 
 function material_base_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
   $form['actions']['submit']['#attributes']['class'][] = 'mdc-button--raised';
+
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function material_base_theme_suggestions_menu_alter(&$suggestions, array $variables) {
+
+  // Provide region based menu suggestions.
+  if (isset($variables['attributes']['region'])) {
+    $suggestions[] = 'menu__' . $variables['attributes']['region'];
+    $suggestions[] = 'menu__' . str_replace('-', '_', $variables['menu_name']) . '__' . $variables['attributes']['region'];
+  }
 
 }

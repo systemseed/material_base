@@ -1,0 +1,126 @@
+{#
+/**
+ * Accepted variables:
+ * - data:
+ *   - label: Button text.
+ *   - url: The value for 'href' attribute if using 'a' tag or 'data-url' attribute in other cases.
+ *   - icon: (icon component) icon for showing beside the button text.
+ * - settings:
+ *   - attributes: (object) element attributes.
+ *   - classes: (array) classes for adding to the element.
+ *   - id: HTML 'id' attribute.
+ *   - disabled: (bool) makes button looks and behave as inactive.
+ *   - tag: HTML tag for the element: 'button' (default), 'a', 'span'.
+ *   - target: HTML 'target' attribute, for example '_blank'.
+ *   - icon_trailing: (bool) allows to display the icon at the right of button text. By default icon displayed at the left.
+ *
+ * Examples:
+ * @code
+ * {% include "@material_base/components/02_molecules/button.twig" with {
+ *   data: {
+ *     label: 'Button text',
+ *   },
+ * } %}
+ *
+ * {% include "@material_base/components/02_molecules/button.twig" with {
+ *   data: {
+ *     label: 'Button text',
+ *     url: '/contacts'
+ *   },
+ *   settings: {
+ *     tag: 'a'
+ *   },
+ * } %}
+ *
+ * {% include "@material_base/components/02_molecules/button.twig" with {
+ *   data: {
+ *     label: 'Button text',
+ *     icon: {
+ *       data: {
+ *         value: 'chevron_right',
+ *       },
+ *       settings: {
+ *         type: 'svg-sprite',
+ *       },
+ *     },
+ *   },
+ *   settings: {
+ *     icon_trailing: TRUE,
+ *   },
+ * } %}
+ *
+ * {% include "@material_base/components/02_molecules/button.twig" with {
+ *   data: {
+ *     icon: {
+ *       data: {
+ *         value: 'info',
+ *       },
+ *       settings: {
+ *         type: 'svg-sprite',
+ *       },
+ *     },
+ *   },
+ * } %} 
+ * @endcode 
+ */
+#}
+
+{% if settings.attributes %}
+  {% set attributes = settings.attributes %}
+{% else %}
+  {% set attributes = create_attribute() %}
+{% endif %}
+
+{% if settings.id %}
+  {% set attributes = attributes.setAttribute('id', settings.id) %}
+{% endif %}
+
+{% if settings.target %}
+  {% set attributes = attributes.setAttribute('target', settings.target) %}
+{% endif %}
+
+{% if settings.disabled %}
+  {% set attributes = attributes.setAttribute('disabled', true) %}
+{% endif %}
+
+{% set classes = [
+  'button',
+] %}
+
+{% if settings.classes %}
+  {% set classes = classes|merge(settings.classes) %}
+{% endif %}
+
+{% if settings.tag %}
+  {% set tag = settings.tag %}
+  {% if settings.tag == 'a' %}
+    {% set attributes = attributes.setAttribute('href', data.url) %}
+  {% else %}
+    {% set attributes = attributes.setAttribute('data-url', data.url) %}
+  {% endif %}
+{% else %}
+  {% set tag = 'button' %}
+  {% set attributes = attributes.setAttribute('data-url', data.url) %}
+{% endif %}
+
+<{{ tag }}{{ attributes.addClass(classes) }}>
+  {% if data.icon and settings.icon_trailing and data.label %}
+    <span class="button__label">{{ data.label }}</span>
+  {% endif %}
+
+  {% if data.icon %}
+    {% include "@material_base/components/01_atoms/icon.twig" with {
+      data: {
+        value: data.icon.data.value,
+      },
+      settings: {
+        type: data.icon.settings.type,
+        classes: data.icon.settings.classes|default([])|merge(['button__icon']),
+      }
+    } %}
+  {% endif %}
+
+  {% if not settings.icon_trailing and data.label %}
+    <span class="button__label">{{ data.label }}</span>
+  {% endif %}
+</{{ tag }}>

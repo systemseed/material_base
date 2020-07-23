@@ -1,0 +1,38 @@
+.navbar-icon-button {
+  appearance: none;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background: none;
+  outline: none;
+  cursor: pointer;
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    color: $color-on-primary;
+    fill: $color-on-primary;
+  }
+
+  .navbar--light & {
+    .icon {
+      color: $theme-primary;
+      fill: $theme-primary;
+    }
+  }
+
+  .navbar--dark & {
+    .icon {
+      color: $color-text-light;
+      fill: $color-text-light;
+    }
+  }
+
+  .navbar--secondary & {
+    .icon {
+      color: $color-on-secondary;
+      fill: $color-on-secondary;
+    }
+  }
+}

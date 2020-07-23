@@ -1,0 +1,34 @@
+@use "@material/top-app-bar";
+
+.navbar {
+  &--light.mdc-top-app-bar {
+    @include top-app-bar.fill-color($color-bg-body);
+    @include top-app-bar.ink-color($theme-primary);
+    @include top-app-bar.icon-ink-color($theme-primary);
+  }
+
+  &--dark.mdc-top-app-bar {
+    @include top-app-bar.fill-color($color-bg-body-dark);
+    @include top-app-bar.ink-color($color-text-light);
+    @include top-app-bar.icon-ink-color($color-text-light);
+  }
+
+  &--secondary.mdc-top-app-bar {
+    @include top-app-bar.fill-color($theme-secondary);
+    @include top-app-bar.ink-color($color-on-secondary);
+    @include top-app-bar.icon-ink-color($color-on-secondary);
+  }
+}
+
+.top-app-bar--not-fixed {
+  .toolbar-vertical &,
+  .toolbar-horizontal & {
+    top: 0;
+    margin-top: 39px;
+  }
+
+  .toolbar-horizontal.toolbar-tray-open & {
+    top: 0;
+    margin-top: 79px;
+  }
+}

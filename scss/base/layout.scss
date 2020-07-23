@@ -12,7 +12,7 @@
 // page layout
 
 .layout-container--page {
-  .main-content-container {
+  .main-content__container {
     @extend .container;
   }
 }
@@ -22,4 +22,20 @@ embed,
 object,
 video {
   max-width: 100%;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body,
+.dialog-off-canvas-main-canvas,
+.page,
+.page-container,
+.page-navbar-adjust,
+.page-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }

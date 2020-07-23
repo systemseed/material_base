@@ -29,6 +29,8 @@ Toggle icon currently not supported.
 
 For more info see https://material.io/develop/web/components/buttons/icon-buttons
 
+It is also possible to use icon button without MDC styles.
+
 Examples of usage
 -----------------
 
@@ -52,3 +54,24 @@ In Twig template file:
 ~~~
 
 Output: Button with `info` icon from SVG sprite.
+
+### Unstyled icon button
+
+In Twig template file:
+
+~~~
+{% include "@material_base/components/02_molecules/button.twig" with {
+  data: {
+    icon: {
+      data: {
+        value: 'info',
+      },
+      settings: {
+        type: 'svg-sprite',
+      },
+    },
+  },
+} %}
+~~~
+
+Output: Native button with `info` icon from SVG sprite.
