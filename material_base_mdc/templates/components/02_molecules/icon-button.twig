@@ -63,13 +63,13 @@
 {% if settings.tag %}
   {% set tag = settings.tag %}
   {% if settings.tag == 'a' %}
-    {% set button_attributes = button_attributes.setAttribute('href', data.url) %}
+    {% set attributes = attributes.setAttribute('href', data.url) %}
   {% else %}
-    {% set button_attributes = button_attributes.setAttribute('data-url', data.url) %}
+    {% set attributes = attributes.setAttribute('data-url', data.url) %}
   {% endif %}
 {% else %}
   {% set tag = 'button' %}
-  {% set button_attributes = button_attributes.setAttribute('data-url', data.url) %}
+  {% set attributes = attributes.setAttribute('data-url', data.url) %}
 {% endif %}
 
 {% set classes = [
