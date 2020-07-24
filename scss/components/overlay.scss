@@ -1,0 +1,94 @@
+.page-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $color-bg-body;
+  z-index: 10;
+  overflow: hidden;
+  height: 0;
+
+  @include media-breakpoint-down($lg) {
+    .overlay-open & {
+      top: 0;
+      height: auto; 
+    }
+
+    .overlay-open.toolbar-vertical &,
+    .overlay-open.toolbar-horizontal & {
+      top: 39px;
+    }
+
+    .overlay-open.toolbar-horizontal.toolbar-tray-open & {
+      top: 79px;
+    }
+  }
+}
+
+body.overlay-open {
+  @include media-breakpoint-down($lg) {
+    & {
+      overflow: hidden;
+    }
+  }
+}
+
+.overlay-close {
+  color: $theme-primary;
+
+  &__button {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+  }
+
+  .icon {
+    fill: $theme-primary;
+    color: $theme-primary;
+  }
+}
+
+.overlay-logo {
+  img,
+  svg {
+    display: block;
+  }
+}
+
+.overlay {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    height: 64px;
+    background: $color-bg-body;
+
+    .overlay-close {
+      margin-left: auto;
+    }
+  }
+
+  &__content {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @include media-breakpoint-down($sm) {
+    &__header {
+      padding: 4px;
+      height: 56px;
+    }
+
+    &__content {
+      top: 56px;
+    }
+  }
+}

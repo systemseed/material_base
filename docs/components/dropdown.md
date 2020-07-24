@@ -13,6 +13,7 @@ Component classes
 * `mb-dropdown` - dropdown root element
 * `mb-dropdown__toggle` - dropdown toggle
 * `mb-dropdown__panel` - dropdown content panel
+* `mb-dropdown__group` - (optional) wrapper for hadling dropdown group behaviour
 
 Examples of usage
 -----------------

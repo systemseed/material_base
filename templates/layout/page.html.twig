@@ -58,8 +58,8 @@
     {% endif %}
 
     {% if page.drawer %}
-      <div class="drawer__overlay"></div>
-      <div class="drawer">
+      <div class="page-drawer__overlay"></div>
+      <div class="page-drawer">
         {{ page.drawer }}
       </div>
     {% endif %}
@@ -178,11 +178,6 @@
   </div>
 
   {% if page.overlay %}
-    <div class="page-overlay">
-      <div class="page-overay__bg"></div>
-      <div class="page-overay__container">
-        <div class="page-overlay__content">{{ page.overlay }}</div>
-      </div>
-    </div>
+    {{ page.overlay }}
   {% endif %}
 </div>

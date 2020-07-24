@@ -49,3 +49,17 @@ function material_base_mdc_theme_suggestions_form_element_alter(array &$suggesti
   // Prepend suggestions array for supporting modules like Themable forms
   array_unshift($suggestions , 'form_element__' . $variables['element']['#type']);
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function material_base_mdc_theme_suggestions_region_alter(&$suggestions, array $variables) {
+
+  // Support using example region templates.
+  if (\Drupal::service('theme.manager')->getActiveTheme()->getName() == 'material_base_mdc') {
+    if (!empty($variables['elements']['#region'])) {
+      $suggestions[] = 'region__' . $variables['elements']['#region'] . '__example';
+    }
+  }
+
+}

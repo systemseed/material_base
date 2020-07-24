@@ -1,0 +1,3 @@
+@use "@material/top-app-bar" with (
+  $mobile-breakpoint: $sm - 1,
+);

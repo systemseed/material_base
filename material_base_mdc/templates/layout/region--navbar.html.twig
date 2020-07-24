@@ -12,15 +12,10 @@
  * @see template_preprocess_region()
  */
 #}
-
-{# Example of template usage with demo content #}
-{% extends "region--navbar--example.html.twig" %}
-
-{# Actual template code #}
-{#
 {% set classes = [
     'region',
     'region-' ~ region|clean_class,
+    'page-navbar',
     'navbar',
     'mdc-top-app-bar',
     navbar_fixed ? 'mdc-top-app-bar--fixed' : 'mdc-top-app-bar--not-fixed',
@@ -31,11 +26,9 @@
   <div{{ attributes.addClass(classes).setAttribute('data-mdc-auto-init', 'MDCTopAppBar') }}>
     <div class="navbar__container mdc-top-app-bar__row">
       <div class="navbar__section mdc-top-app-bar__section">
-
         {{ content }}
-
       </div>
     </div>
   </div>
 {% endif %}
-#}
+

@@ -1,5 +1,5 @@
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 @each $breakpoint in $flexboxgrid-breakpoints {
@@ -9,24 +9,24 @@
   .visible-#{$breakpoint-name},
   .visible-#{$breakpoint-name}-inline,
   .visible-#{$breakpoint-name}-flex {
-    display: none;
+    display: none !important;
   }
 
   @include media-breakpoint-up($breakpoint-value) {
     .hidden-#{$breakpoint-name} {
-      display: none;
+      display: none !important;
     }
 
     .visible-#{$breakpoint-name} {
-      display: block;
+      display: block !important;
     }
 
     .visible-#{$breakpoint-name}-inline {
-      display: inline-block;
+      display: inline-block !important;
     }
 
     .visible-#{$breakpoint-name}-flex {
-      display: flex;
+      display: flex !important;
     }
   }
 }

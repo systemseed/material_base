@@ -13,24 +13,6 @@ $navbar-height-prominent: 128px !default;
     align-items: center;
     padding: 8px 12px;
     z-index: 1;
-
-    .navbar-item {
-      margin-left: 12px;
-      margin-right: 12px;
-    }
-
-    // Items alignment
-    // Dafault if left
-    //
-    // Center
-    .navbar-item--center {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    // Right, should be added only to the first item of right aligned group
-    .navbar-item--right {
-      margin-left: auto;
-    }
   }
 
   a {
@@ -119,6 +101,68 @@ $navbar-height-prominent: 128px !default;
       color: $color-on-secondary;
       fill: $color-on-secondary;
     }
+  }
+
+  @include media-breakpoint-down($sm) {
+    &__section {
+      padding: 4px;
+    }
+
+    &--dense {
+      .navbar__section {
+        padding: 0 4px;
+      }
+    }
+  }
+}
+
+.navbar-item {
+  margin-left: 12px;
+  margin-right: 12px;
+
+  // Items alignment
+  // Dafault if left
+  //
+  // Center
+  &--center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Right, should be added only to the first item of right aligned group
+  // If first item is different per breakpoint, class should be added to all such items
+  &--right {
+    margin-left: auto;
+  }
+}
+
+@include media-breakpoint-up($sm) {
+  .navbar-item--right.visible-sm + .navbar-item--right {
+    margin-left: 0;
+  }
+
+  .navbar-item--right.visible-sm + .navbar-item.navbar-item--right {
+    margin-left: 12px;
+  }
+}
+
+@include media-breakpoint-up($md) {
+  .navbar-item--right.visible-md + .navbar-item--right {
+    margin-left: 0;
+  }
+
+  .navbar-item--right.visible-md + .navbar-item.navbar-item--right {
+    margin-left: 12px;
+  }
+}
+
+@include media-breakpoint-up($lg) {
+  .navbar-item--right.visible-lg + .navbar-item--right {
+    margin-left: 0;
+  }
+
+  .navbar-item--right.visible-lg + .navbar-item.navbar-item--right {
+    margin-left: 12px;
   }
 }
 

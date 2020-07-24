@@ -33,7 +33,7 @@ For more info see https://material.io/develop/web/components/cards
 
 However it implements only one default layout (with media at the top and one action button). More layouts could be created with Twig blocks feature, see https://twig.symfony.com/doc/2.x/tags/block.html for more info.
 
-Supported MDC library `classes`:
+Supported MDC library classes:
 
 * "no classes" - default card 
 * `mdc-card--outlined` - bordered card without elevation

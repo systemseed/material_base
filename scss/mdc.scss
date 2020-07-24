@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
 @import "base/variables";
+@import "base/mixins";
 
 @import "mdc/theme";
 @import "mdc/typography";
+@import "mdc/top-app-bar";
 @import "mdc/components";
 
 // components

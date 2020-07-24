@@ -1,9 +1,11 @@
-$font-size-ml0: $font-size-button !default; // 14px
-$line-height-ml0: 24px !default; // 24px
-$font-weight-ml0: $font-weight-button !default; // 500
-$font-size-ml1: $font-size-text !default; // 16px
-$line-height-ml1: 24px !default; // 24px
-$font-weight-ml1: $font-weight-text !default; // 400
+// First menu level
+$font-size-nml1: $font-size-button !default; // 14px
+$line-height-nml1: 24px !default; // 24px
+$font-weight-nml1: $font-weight-button !default; // 500
+// Second menu level
+$font-size-nml2: $font-size-text !default; // 16px
+$line-height-nml2: 24px !default; // 24px
+$font-weight-nml2: $font-weight-text !default; // 400
 
 .navbar-menu {
   margin-left: 12px;
@@ -39,9 +41,9 @@ $font-weight-ml1: $font-weight-text !default; // 400
 
   .menu--level-0 > .menu-item > .navbar-menu__item {
     padding: 8px 12px;
-    font-size: $font-size-ml0;
-    line-height: $line-height-ml0;
-    font-weight: $font-weight-ml0;
+    font-size: $font-size-nml1;
+    line-height: $line-height-nml1;
+    font-weight: $font-weight-nml1;
     text-transform: uppercase;
 
     & > .navbar-menu__item-text {
@@ -71,9 +73,9 @@ $font-weight-ml1: $font-weight-text !default; // 400
 
     .menu--level-1 > .menu-item > .navbar-menu__item {
       padding: 12px 16px;
-      font-size: $font-size-ml1;
-      line-height: $line-height-ml1;
-      font-weight: $font-weight-ml1;
+      font-size: $font-size-nml2;
+      line-height: $line-height-nml2;
+      font-weight: $font-weight-nml2;
 
       &:hover {
         background: $color-bg-hover;
@@ -101,11 +103,11 @@ $font-weight-ml1: $font-weight-text !default; // 400
 }
 
 .navbar-menu--dropdown {
-  .mb-dropdown__toggle > .icon {
+  .mb-dropdown__toggle .icon {
     transition: transform 0.25s;
   }
 
-  .mb-dropdown--expanded .mb-dropdown__toggle > .icon {
+  .mb-dropdown--expanded .mb-dropdown__toggle .icon {
     transform: rotate(180deg);
   }
 }

@@ -12,7 +12,7 @@ Component classes
 
 `text-list` - list wrapper, provides default list styles.
 
-Additional `classes`:
+Additional classes:
 
 * `text-list text-list--unstyled` -  list without markers
 * `text-list text-list--bulleted` -  list with brand colored bullets

@@ -8,7 +8,7 @@ Component implemented as CSS styles which automaticaly applyed to markup provide
 Component options
 -----------------
 
-Extended MB `classes`:
+Additional MB classes:
 
 * `slick--equal-heght` - makes slides the same height
 

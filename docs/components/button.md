@@ -28,14 +28,14 @@ Button component implements Button component from MDC library and support all it
 
 For more info see https://material.io/develop/web/components/buttons  
 
-Supported MDC library `classes`:
+Supported MDC library classes:
 
 * "no classes" - default button 
 * `mdc-button--outlined` - outlined button
 * `mdc-button--raised` - contained button
 * `mdc-button--unelevated` - contained button without elevation
 
-Extended MB `classes`:
+Additional MB classes:
 
 * `button--secondary` - secondary color button
 * `button--light` -  light color button

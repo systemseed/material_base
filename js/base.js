@@ -21,6 +21,21 @@ requireAll(require.context('../images/', true, /\.(png|jpg|jpeg|webp|svg)$/));
 (function ($) {
   $(document).ready(function () {
 
+    // Handling overlay visibility
+    $('.overlay-open__button').click(function(e) {
+      e.preventDefault();
+      $('body').addClass('overlay-open');
+    });
+
+    $('.overlay-close__button').click(function(e) {
+      e.preventDefault();
+      $('body').removeClass('overlay-open');
+    });
+
+    $('.overlay-nav .menu-item a').click(function() {
+      $('body').removeClass('overlay-open');
+    });
+
     // Accordion
     $('.mb-accordion .mb-accordion__section-toggle').click(function(e) {
       e.preventDefault();
