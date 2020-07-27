@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ */
+#}
+{% if breadcrumb %}
+  <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+    <ol class="breadcrumb__items">
+    {% for item in breadcrumb %}
+      <li class="breadcrumb__item">
+        {% if item.url %}
+          <a class="breadcrumb__item-label breadcrumb__item-link" href="{{ item.url }}">{{ item.text }}</a>
+        {% else %}
+          <span class="breadcrumb__item-label breadcrumb__item-text">{{ item.text }}</span>
+        {% endif %}
+        {% if not loop.last %}
+          <div class="breadcrumb__item-separator">
+            {% include "@material_base/components/01_atoms/icon.twig" with {
+              data: {
+                value: 'chevron_right',
+              },
+              settings: {
+                type: 'svg-sprite',
+              }
+            } %}
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ol>
+  </nav>
+{% endif %}

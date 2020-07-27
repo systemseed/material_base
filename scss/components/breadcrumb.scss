@@ -1,0 +1,38 @@
+.breadcrumb {
+  margin-top: $spacing * 2;
+  margin-bottom: $spacing * 2;
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__item {
+    display: flex;
+    margin-right: 8px;
+  }
+
+  &__item-label {
+    text-decoration: none;
+    font-size: $font-size-text-small;
+    line-height: 18px;
+    font-weight: $font-weight-text-small;
+  }
+
+  &__item-separator {
+    margin-left: 8px;
+
+    .icon {
+      display: block;
+      width: 18px;
+      height: 18px;
+      color: $color-text-secondary;
+      fill: $color-text-secondary;
+    }
+  }
+}

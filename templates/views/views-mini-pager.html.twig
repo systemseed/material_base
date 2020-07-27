@@ -1,0 +1,58 @@
+{#
+/**
+ * @file
+ * Theme override for a views mini-pager.
+ *
+ * Available variables:
+ * - heading_id: Pagination heading ID.
+ * - items: List of pager items.
+ *
+ * @see template_preprocess_views_mini_pager()
+ */
+#}
+{% if items.previous or items.next %}
+  <nav class="pager pager--mini" role="navigation" aria-labelledby="{{ heading_id }}">
+    <h4 id="{{ heading_id }}" class="pager__heading visually-hidden">{{ 'Pagination'|t }}</h4>
+    <ul class="pager__items js-pager__items">
+      {% if items.previous %}
+        <li class="pager__item pager__item--previous">
+          <a href="{{ items.previous.href }}" title="{{ 'Go to previous page'|t }}" rel="prev"{{ items.previous.attributes.addClass('pager__item-label')|without('href', 'title', 'rel') }}>
+            <span class="visually-hidden">{{ 'Previous page'|t }}</span>
+            {% include "@material_base/components/01_atoms/icon.twig" with {
+              data: {
+                value: 'chevron_left',
+              },
+              settings: {
+                type: 'svg-sprite',
+              }
+            } %}
+          </a>
+        </li>
+      {% endif %}
+      {% if items.current %}
+        <li class="pager__item is-active">
+          <div class="pager__item-text">
+            {% trans %}
+              Page {{ items.current }}
+            {% endtrans %}
+          </div>
+        </li>
+      {% endif %}
+      {% if items.next %}
+        <li class="pager__item pager__item--next">
+          <a href="{{ items.next.href }}" title="{{ 'Go to next page'|t }}" rel="next"{{ items.next.attributes.addClass('pager__item-label')|without('href', 'title', 'rel') }}>
+            <span class="visually-hidden">{{ 'Next page'|t }}</span>
+            {% include "@material_base/components/01_atoms/icon.twig" with {
+              data: {
+                value: 'chevron_right',
+              },
+              settings: {
+                type: 'svg-sprite',
+              }
+            } %}
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
