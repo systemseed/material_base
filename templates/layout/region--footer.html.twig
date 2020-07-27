@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{% set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+    'page-footer',
+    'footer',
+    footer_style ? 'footer--' ~ footer_style,
+] %}
+
+{% if content %}
+  <footer{{ attributes.addClass(classes).setAttribute('role', 'contentinfo') }}>
+    <div class="footer__container">
+      <div class="footer__section">
+        {{ content }}
+      </div>
+    </div>
+  </footer>
+{% endif %}

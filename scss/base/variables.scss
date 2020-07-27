@@ -17,6 +17,9 @@ $theme-background: $color-bg-body !default;
 $color-text-base: #000 !default;
 $color-text: rgba($color-text-base, .87) !default;
 $color-heading: darken($theme-primary, 20) !default;
+$color-link: darken($theme-secondary, 10) !default;
+$color-text-secondary: rgba($color-text-base, .60) !default;
+$color-text-disabled: rgba($color-text-base, .38) !default;
 
 $color-text-light-base: #FFF !default;
 $color-text-light: $color-text-light-base !default;

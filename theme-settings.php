@@ -31,4 +31,14 @@ function material_base_form_system_theme_settings_alter(&$form, \Drupal\Core\For
     ],
     '#default_value' => theme_get_setting('navbar_style'),
   ];
+
+  $form['layout']['footer_style'] = [
+    '#type' => 'select',
+    '#title' => t('Footer style'),
+    '#options' => [
+      'standard' => t('Standard'),
+      'roomy' => t('Roomy'),
+    ],
+    '#default_value' => theme_get_setting('footer_style'),
+  ];
 }

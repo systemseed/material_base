@@ -68,13 +68,21 @@ function material_base_preprocess_page(&$variables) {
  */
 function material_base_preprocess_region(array &$variables) {
 
-  if ($variables['region'] == 'navbar') {
-    // Pass Navbar style setting path to template
-    $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
-    $variables['navbar_style'] = theme_get_setting('navbar_style');
-    // Pass logo path to template.
-    $variables['site_logo'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+  switch ($variables['region']) {
+    case 'navbar':
+      // Pass Navbar style setting path to template
+      $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
+      $variables['navbar_style'] = theme_get_setting('navbar_style');
+      // Pass logo path to template.
+      $variables['site_logo'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+      break;
+    
+    case 'footer':
+      // Pass Navbar style setting path to template
+      $variables['footer_style'] = theme_get_setting('footer_style');
+      break;
   }
+
 }
 
 /**
@@ -90,11 +98,27 @@ function material_base_preprocess_block(&$variables) {
     $variables['block_content'] = $variables['elements']['content']['#block_content'];
   }
 
-  // Pass block region value to content so this can be used in
-  // material_base__theme_suggestions_menu_alter.
+  // Pass block config data to content so this can be used in menu element
   if (isset($variables['elements']['#id'])) {
-    $region = Block::load($variables['elements']['#id'])->getRegion();
+    $block = Block::load($variables['elements']['#id']);
+    $region = $block->getRegion();
     $variables['content']['#attributes']['region'] = $region;
+    $settings = $block->get('settings');
+    if (isset($settings['depth'])) {
+      $variables['content']['#attributes']['menu_depth'] = $settings['depth'];
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function material_base_preprocess_menu(&$variables) {
+
+  // Pass mene depth to template
+  if (isset($variables['attributes']['menu_depth'])) {
+    $variables['menu_depth'] = $variables['attributes']['menu_depth'];
   }
 
 }

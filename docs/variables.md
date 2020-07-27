@@ -24,6 +24,9 @@ $theme-background: $color-bg-body;
 $color-text-base: #000;
 $color-text: rgba($color-text-base, .87);
 $color-heading: darken($theme-primary, 20);
+$color-link: darken($theme-secondary, 10);
+$color-text-secondary: rgba($color-text-base, .60);
+$color-text-disabled: rgba($color-text-base, .38);
 
 $color-text-light-base: #FFF;
 $color-text-light: $color-text-light-base;

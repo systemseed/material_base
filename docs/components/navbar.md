@@ -44,13 +44,15 @@ Supported navbar items:
 
 Main idea behind navbar items accessibility is to make inner spacing for clickable items without background or border (Logo, Icon button, Menu item), and outer spacing for items with their own inner spacing or non clickable (Button with background, Menu, Slogan).
 
-Default navbar items already follow this rule. For achieving outer spacing for custom items (for example, buttons), `navbar-item` class could be used .
+Default navbar items already follow this rule. For achieving outer spacing for custom items (for example, buttons), `navbar-item` class could be used.
 
 Classes for handling navbar items visibility and alignment:
 
 * `navbar-item--center` - makes item be center aligned
 * `navbar-item--right` - makes item be right aligned. The Class should be added only to the first item of right aligned group. If first item is different per breakpoint, class should be added to all such items.
 * `visible-BREAKPOINT` - show item starting from `BREAKPOINT` (`sm`, `md`, `lg`)
+* `visible-BREAKPOINT-inline` - show item as inline
+* `visible-BREAKPOINT-flex` - show item as flex
 * `hidden-BREAKPOINT` - hide item starting from `BREAKPOINT` (`sm`, `md`, `lg`)
 
 Default navbar item alignment is left and visibility is visible.

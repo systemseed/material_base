@@ -1,0 +1,126 @@
+// First menu level
+$font-size-fml1: $font-size-text-small !default; // 14px
+$line-height-fml1: $line-height-text-small !default; // 20px
+$font-weight-fml1: $font-weight-text-small !default; // 400
+// Second menu level
+$font-size-fml2: $font-size-fml1 !default; // 14px
+$line-height-fml2: $line-height-fml1 !default; // 20px
+$font-weight-fml2: $font-weight-fml1 !default; // 400
+
+.footer-menu {
+  // common menu styles
+  .menu {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    list-style: none;
+  }
+
+  .menu--level-0 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .menu--level-1 {
+    display: block;
+  }
+
+  &__item {
+    cursor: pointer;
+    display: block;
+    padding: 8px 12px;
+    color: $color-heading;
+
+    &:hover {
+      color: darken($color-heading, 12);
+    }
+  }
+
+  .menu--level-0 > .menu-item > .footer-menu__item {
+    font-size: $font-size-fml1;
+    line-height: $line-height-fml1;
+    font-weight: $font-weight-fml1;
+  }
+
+  .menu--level-1 > .menu-item > .footer-menu__item {
+    font-size: $font-size-fml2;
+    line-height: $line-height-fml2;
+    font-weight: $font-weight-fml2;
+  }
+
+  .menu--level-2 {
+    display: none;
+  }
+
+  .footer--roomy & {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  @include media-breakpoint-down($sm) {
+    .footer--roomy & {
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.footer-menu--depth-1 {
+  .menu--level-0 {
+    flex-direction: column;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .footer-item--center & .menu--level-0 {
+    text-align: center;
+  }
+
+  @include media-breakpoint-up($sm) {
+    .menu--level-0 {
+      flex-direction: row;
+    }
+
+    .footer-item--center & .menu--level-0 {
+      justify-content: center;
+    }
+  }
+}
+
+.footer-menu--depth-2 {
+  .menu--level-0 > .menu-item {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  @include media-breakpoint-up($xs) {
+    .menu--level-0 > .menu-item {
+      width: 50%;
+    }
+  }
+
+  @include media-breakpoint-up($md) {
+    .menu--level-0 > .menu-item {
+      width: 33.33%;
+    }
+
+    &.footer-menu--items-4 {
+      .menu--level-0 > .menu-item {
+        width: 25%;
+      }
+    }
+  }
+
+  @include media-breakpoint-up($lg) {
+    .menu--level-0 {
+      flex-wrap: nowrap;
+    }
+
+    .menu--level-0 > .menu-item {
+      flex: 1 1 0;
+    }
+  }
+}

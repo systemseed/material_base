@@ -1,0 +1,115 @@
+$color-bg-footer: $color-bg-highlighted !default;
+$color-text-footer: $color-text-secondary !default;
+$color-link-footer: $color-heading !default;
+$font-size-footer: $font-size-text-small !default; // 14sp
+$line-height-footer: $line-height-text-small !default; // 20sp
+$font-weight-footer: $font-weight-text-small !default;
+
+.footer {
+  background: $color-bg-footer;
+  font-size: $font-size-footer;
+  line-height: $line-height-footer;
+  font-weight: $font-weight-footer;
+  color: $color-text-footer;
+
+  a {
+    color: $color-link-footer;
+    text-decoration: none;
+
+    &:hover {
+      color: darken($color-link-footer, 12);
+    }
+  }
+
+  &__section {
+    padding: 8px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+  }
+
+  &--roomy {
+    .footer__section {
+      padding: 48px 12px;
+    }
+  }
+
+  @include media-breakpoint-down($sm) {
+    &__section {
+      padding: 4px;
+    }
+
+    &--roomy {
+      .footer__section {
+        padding: 32px 4px;
+      }
+    }
+  }
+}
+
+.footer-item {
+  margin: 8px 12px;
+
+  .footer--roomy & {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  // Items alignment
+  // Dafault if left
+  //
+  // Center
+  &--center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Right, should be added only to the first item of right aligned group
+  // If first item is different per breakpoint, class should be added to all such items
+  &--right {
+    margin-left: auto;
+  }
+
+  // Full width
+  &--full-width {
+    width: 100%;
+  }
+
+  @include media-breakpoint-down($sm) {
+    .footer--roomy & {
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+@include media-breakpoint-up($sm) {
+  .footer-item--right.visible-sm + .footer-item--right {
+    margin-left: 0;
+  }
+
+  .footer-item--right.visible-sm + .footer-item.footer-item--right {
+    margin-left: 12px;
+  }
+}
+
+@include media-breakpoint-up($md) {
+  .footer-item--right.visible-md + .footer-item--right {
+    margin-left: 0;
+  }
+
+  .footer-item--right.visible-md + .footer-item.footer-item--right {
+    margin-left: 12px;
+  }
+}
+
+@include media-breakpoint-up($lg) {
+  .footer-item--right.visible-lg + .footer-item--right {
+    margin-left: 0;
+  }
+
+  .footer-item--right.visible-lg + .footer-item.footer-item--right {
+    margin-left: 12px;
+  }
+}
