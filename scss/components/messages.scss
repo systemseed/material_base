@@ -1,0 +1,97 @@
+$color-bg-messages-status: #e8f5e9 !default;
+$color-bg-messages-warning: #fff7cf !default;
+$color-bg-messages-error: #ffebee !default;
+
+.messages {
+  &__group {
+    margin-top: $spacing * 2;
+    margin-bottom: $spacing * 2;
+  }
+
+  &__list {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &--colored {
+    padding: 14px 54px 14px 16px;
+    background: $color-bg-highlighted;
+    border-radius: 4px;
+    position: relative;
+    min-height: 48px;
+    font-size: 14px;
+    line-height: 20px;
+
+    &.messages--status {
+      background: $color-bg-messages-status;
+    }
+
+    &.messages--warning {
+      background: $color-bg-messages-warning;
+    }
+
+    &.messages--error {
+      background: $color-bg-messages-error;
+    }
+
+    & + & {
+      margin-top: $spacing;
+    }
+    
+    .messages__close {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+    }
+
+    .messages__close-button {
+      width: 36px;
+      height: 36px;
+      padding: 8px;
+      border-radius: 50%;
+      cursor: pointer;
+
+      .icon {
+        display: block;
+        width: 20px;
+        height: 20px;
+        color: $color-text;
+        fill: $color-text;
+      }
+
+      &:hover {
+        background: $color-bg-hover;
+      }
+    }
+  }
+}
+
+.messages__wrapper--fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .messages__container {
+    max-width: 688px;
+  }
+
+  .messages__group {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .messages--fixed {
+    margin: 8px;
+  }
+
+  @include media-breakpoint-up($sm) {
+    .messages__container {
+      max-width: 720px;
+    }
+
+    .messages--fixed {
+      margin: 24px;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@use "@material/snackbar";
+
+.messages__wrapper--fixed {
+  .mdc-snackbar {
+    position: relative;
+  }
+
+  .mdc-snackbar__surface {
+    flex-grow: 1;
+  }
+
+  @include media-breakpoint-up($sm) {
+    .mdc-snackbar {
+      @include snackbar.viewport-margin(snackbar.$viewport-margin-wide);
+      @include snackbar.position-leading;
+    }
+  }
+}

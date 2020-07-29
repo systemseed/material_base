@@ -41,4 +41,10 @@ function material_base_form_system_theme_settings_alter(&$form, \Drupal\Core\For
     ],
     '#default_value' => theme_get_setting('footer_style'),
   ];
+
+  $form['layout']['messages_fixed'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Messages in overlay'),
+    '#default_value' => theme_get_setting('messages_fixed'),
+  );
 }

@@ -150,6 +150,16 @@ requireAll(require.context('../images/', true, /\.(png|jpg|jpeg|webp|svg)$/));
         $('body').removeClass('search-autocomplete-open');
       });
 
+      // Status messages close button.
+      $(context).find('.messages .messages__close-button').click(function() {
+        $(this).closest('.messages').fadeOut('fast');
+      });
+
+      // Fixed status messages auto hide.
+      setTimeout(function() {
+        $(context).find('.messages--fixed').fadeOut('fast');
+      }, 5000);
+
     }
   };
 }) (jQuery, Drupal, drupalSettings);

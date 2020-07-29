@@ -120,6 +120,9 @@
                 <div class="page-content__wrapper">
                   <div class="page-content-primary">
                     {{ page.breadcrumb }}
+                    {% if not messages_fixed %}
+                      {{ page.messages }}
+                    {% endif %}
                     {{ page.highlighted }}
                     {{ page.help }}
 
@@ -173,6 +176,14 @@
     </div>
   </div>
 
+  {% if messages_fixed %}
+    <div class="messages__wrapper messages__wrapper--fixed">
+      <div class="messages__container">
+        {{ page.messages }}
+      </div>
+    </div>
+  {% endif %}
+  
   {% if page.overlay %}
     {{ page.overlay }}
   {% endif %}

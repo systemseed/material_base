@@ -69,6 +69,11 @@
         $('.mdc-menu-dropdown').removeClass('mdc-menu-dropdown--expanded');
       });
 
+      // Displaying status messages.
+      $(context).find('.messages.mdc-snackbar').each(function() {
+        $(this)[0].MDCSnackbar.open();
+      });
+
     }
   };
 }) (jQuery, Drupal);

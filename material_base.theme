@@ -57,9 +57,10 @@ function material_base_preprocess_html(&$variables) {
  */
 function material_base_preprocess_page(&$variables) {
 
-  // Pass Navbar style setting path to template
+  // Pass layout setting to template.
   $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
   $variables['navbar_style'] = theme_get_setting('navbar_style');
+  $variables['messages_fixed'] = theme_get_setting('messages_fixed');
 
 }
 
@@ -70,7 +71,7 @@ function material_base_preprocess_region(array &$variables) {
 
   switch ($variables['region']) {
     case 'navbar':
-      // Pass Navbar style setting path to template
+      // Pass Navbar style setting to template.
       $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
       $variables['navbar_style'] = theme_get_setting('navbar_style');
       // Pass logo path to template.
@@ -78,7 +79,7 @@ function material_base_preprocess_region(array &$variables) {
       break;
     
     case 'footer':
-      // Pass Navbar style setting path to template
+      // Pass Navbar style setting to template.
       $variables['footer_style'] = theme_get_setting('footer_style');
       break;
   }
@@ -120,6 +121,16 @@ function material_base_preprocess_menu(&$variables) {
   if (isset($variables['attributes']['menu_depth'])) {
     $variables['menu_depth'] = $variables['attributes']['menu_depth'];
   }
+
+}
+
+/**
+ * Implements hook_preprocess_status_messages().
+ */
+function material_base_preprocess_status_messages(&$variables) {
+
+  // Pass messages setting to template.
+  $variables['messages_fixed'] = theme_get_setting('messages_fixed');
 
 }
 
@@ -187,6 +198,17 @@ function material_base_theme_suggestions_block_alter(array &$suggestions, array 
     $suggestions[] = 'block__' . $bundle;
   }
 
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function material_base_theme_suggestions_status_messages_alter(&$suggestions, &$variables) {
+
+  if (theme_get_setting('messages_fixed') == TRUE) {
+    $suggestions[] = 'status_messages__fixed';
+  }
+  
 }
 
 /**

@@ -75,4 +75,5 @@ Full documentation
     * [Slick](/components/slick.md)
     * [Navbar](/components/navbar.md)
     * [Overlay](/components/overlay.md)
+    * [Messages](/components/messages.md)
   
