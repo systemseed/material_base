@@ -1,11 +1,11 @@
 {% extends "@material_base/layout/page.html.twig" %}
 
-{% if navbar_style == 'standard' %}
-  {% set navbar_style_adjust = 'mdc-top-app-bar--fixed-adjust' %}
-{% elseif navbar_style == 'dense' %}
+{% if navbar_style == 'dense' %}
   {% set navbar_style_adjust = 'mdc-top-app-bar--dense-fixed-adjust' %}
 {% elseif navbar_style == 'prominent' %}
-  {% set navbar_style_adjust = 'mdc-top-app-bar--prominent-fixed-adjust' %}  
+  {% set navbar_style_adjust = 'mdc-top-app-bar--prominent-fixed-adjust' %}
+{% else %}
+  {% set navbar_style_adjust = 'mdc-top-app-bar--fixed-adjust' %}
 {% endif %}
 
 {% block navbar_adjust %}

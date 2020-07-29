@@ -24,7 +24,7 @@ Supported footer items:
 * One-level menu (Drupal menu block) - horizontal
 * Two-level menu (Drupal menu block) - columns
 
-Footer menus already includes default spacings. For achieving outer spacing for custom items (for example, Custom blocks), `footer-item` class could be used.
+Footer menus and Powered by Drupal block already includes default spacings. For achieving outer spacing for custom items (for example, Custom blocks), `footer-item` class could be used.
 
 Classes for handling footer items visibility and alignment:
 

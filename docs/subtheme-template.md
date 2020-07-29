@@ -15,13 +15,16 @@ Creating subtheme from template
 2. Rename the folder to your new theme name, for example, `westeros`.
 3. Go to this folder and browse all files which contain `THEMENAME` in a filename. They all should be renamed according to your theme name, for example, `THEMENAME.info.yml` should become `westeros.info.yml`. List of files to rename:
 
+    * `config/install/THEMENAME.settings.yml`
+    * all files in `config/optional` folder
     * `THEMENAME.breakpoints.yml`
     * `THEMENAME.info.yml`
     * `THEMENAME.libraries.yml`
     * `THEMENAME.theme`
-
+    
 4. There are some values in file content that also should be replaced according to your theme name. These values also look like `THEMENAME`. It would be a good starting point to surf over all files and checks how the theme is organized and at the same time update values and probably even adjust some. List of files for obligatory to check (which contains placeholders):
 
+    * all files in `config/optional` folder
     * `js/mdc.js`
     * `js/theme.js`
     * `composer.json`

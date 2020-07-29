@@ -30,6 +30,7 @@
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
     block_bundle ? 'block-' ~ block_bundle|clean_class : 'block-default',
+    'footer-item',
 ] %}
 
 <div{{ attributes.addClass(classes) }}>

@@ -50,10 +50,12 @@
 
       {% include "@material_base_mdc/components/02_molecules/button.twig" with {
         data: {
-          label: 'contact',
+          label: 'Contact',
+          url: '/contact',
         },
         settings: {
           classes: ['mdc-button--unelevated', 'button--light', 'navbar-item', 'visible-sm-flex'],
+          tag: 'a',
         },
       } %}
     </div>
