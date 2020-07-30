@@ -1,4 +1,4 @@
-# !!! Remove `hidden: true` for making your theme visible in theme list
+# !!! Comment out 'hidden' parameter below or change it to 'false' for making your theme visible in theme list
 hidden: true
 
 name: Theme name
