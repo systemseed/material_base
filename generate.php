@@ -9,7 +9,7 @@ define('GENERATOR_TEMPLATE_FOLDER', 'material_base_subtheme');
 define('GENERATOR_PLACEHOLDER', 'THEMENAME');
 
 define('GENERATOR_DEFAULT_THEMENAME', 'material_top');
-define('GENERATOR_DEFAULT_THEMES_PATH', '../../custom');
+define('GENERATOR_DEFAULT_THEMES_PATH', '../../custom');      // Default path should be relative
 
 // Getting project name from environment variables
 if ($project = getenv('PROJECT_NAME')) {
@@ -17,9 +17,6 @@ if ($project = getenv('PROJECT_NAME')) {
 } else {
   define('GENERATOR_THEMENAME', GENERATOR_DEFAULT_THEMENAME);
 }
-
-// Geting absolute path to themes folder
-define('GENERATOR_THEMES_PATH', realpath(__DIR__ . DIRECTORY_SEPARATOR . GENERATOR_DEFAULT_THEMES_PATH));
 
 /**
  * Main function.
@@ -194,9 +191,21 @@ function generate_subtheme($variables = []) {
   }
 
   if (isset($variables['path'])) {
+    // Already valid path
     $path = $variables['path'];
   } else {
-    $path = GENERATOR_THEMES_PATH;
+    // Checking default path is valid
+    $path = __DIR__ . DIRECTORY_SEPARATOR . GENERATOR_DEFAULT_THEMES_PATH;
+    if (!is_dir($path)) {
+      // Creating default path folder
+      if (!mkdir($path)) {
+        echo 'Can not create "' . $path . '".'. PHP_EOL;
+        exit(1);
+      } 
+    }
+    // Providing valid path
+    $path = realpath($path);
+    
   }
 
   $theme_path = $path . DIRECTORY_SEPARATOR . $themename;
@@ -260,8 +269,8 @@ function copy_folder($source, $destination) {
     exit;
   }
 
-  // Creating destination folder recursively
-  if (!mkdir($destination, 0777, TRUE)) {
+  // Creating destination folder
+  if (!mkdir($destination)) {
     echo 'Can not create "' . $destination . '".'. PHP_EOL;
     exit(1);
   }
