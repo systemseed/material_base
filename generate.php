@@ -11,9 +11,13 @@ define('GENERATOR_PLACEHOLDER', 'THEMENAME');
 define('GENERATOR_DEFAULT_THEMENAME', 'material_top');
 define('GENERATOR_DEFAULT_THEMES_PATH', '../../custom');
 
-// TODO: handle environment variables
+// Getting project name from environment variables
+if ($project = getenv('PROJECT_NAME')) {
+  define('GENERATOR_THEMENAME', 'material_' . $project);
+} else {
+  define('GENERATOR_THEMENAME', GENERATOR_DEFAULT_THEMENAME);
+}
 
-define('GENERATOR_THEMENAME', GENERATOR_DEFAULT_THEMENAME);
 define('GENERATOR_THEMES_PATH', realpath(GENERATOR_DEFAULT_THEMES_PATH));
 
 /**
@@ -36,11 +40,7 @@ handle_arguments($argv, $argc);
  */
 function handle_arguments($args, $args_count) {
 
-  // echo 'Handling arguments' . PHP_EOL;
-  // echo 'args:' . PHP_EOL;
-  // print_r($args);
-  // echo 'args_count: ' . $args_count . PHP_EOL;
-
+  // Handling arguments by amount 
   if ($args_count == 1) {
     // No args.
     return generate_subtheme();
@@ -109,8 +109,14 @@ function show_help() {
   echo 'Subtheme generator' . PHP_EOL;
   echo PHP_EOL;
   echo 'Usage: ' . PHP_EOL;
-  echo '  generate.php [themename] [path to themes folder]' . PHP_EOL;
-  exit(0);
+  echo '  php generate.php [themename] [path to themes folder]' . PHP_EOL;
+  echo PHP_EOL;
+  echo 'Examples: ' . PHP_EOL;
+  echo '  php generate.php' . PHP_EOL;
+  echo '  php generate.php westeros' . PHP_EOL;
+  echo '  php generate.php westeros "../../custom"' . PHP_EOL;
+  echo '  php generate.php westeros "/var/www/html/web/themes/custom"' . PHP_EOL;
+  exit;
 
 }
 
@@ -125,8 +131,6 @@ function show_help() {
  *  FALSE if name not valid.
  */
 function validate_themename($name) {
-
-  // echo 'Validating themename' . PHP_EOL;
 
   if (preg_match('/^[a-z0-9_]+$/', $name)) {
     return TRUE;
@@ -148,8 +152,6 @@ function validate_themename($name) {
  *  FALSE if path not valid.
  */
 function validate_path($path) {
-
-  // echo 'Validating path' . PHP_EOL;
 
   if (substr($path, 0, 1) == '/') {
     // Absolute path
@@ -184,10 +186,6 @@ function validate_path($path) {
  */
 function generate_subtheme($variables = []) {
 
-  // echo 'Generating subtheme' . PHP_EOL;
-  // echo 'variables:' . PHP_EOL;
-  // print_r($variables);
-
   if (isset($variables['themename'])) {
     $themename = $variables['themename'];
   } else {
@@ -200,9 +198,6 @@ function generate_subtheme($variables = []) {
     $path = GENERATOR_THEMES_PATH;
   }
 
-  // echo 'themename: ' . $themename . PHP_EOL;
-  // echo 'path: ' . $path . PHP_EOL;
-
   $theme_path = $path . DIRECTORY_SEPARATOR . $themename;
 
   // Copy template folder to themes folder
@@ -214,10 +209,10 @@ function generate_subtheme($variables = []) {
   // Replace placeholders in files content
   replace_template_placeholders($theme_path, $themename);
 
-  // Comment out hidden parameter in THEMENAME.info.yml
-  unhide_theme($theme_path, $themename);
+  // Unhide theme and update human name
+  update_theme_info($theme_path, $themename);
 
-  exit(0);
+  exit;
 
 }
 
@@ -231,9 +226,6 @@ function generate_subtheme($variables = []) {
  *  Result of executing.
  */
 function copy_template_folder($destination) {
-
-  // echo 'Copying template folder' . PHP_EOL;
-  // echo 'destination: ' . $destination . PHP_EOL;
 
   return copy_folder(__DIR__ . DIRECTORY_SEPARATOR . GENERATOR_TEMPLATE_FOLDER, $destination);
 
@@ -249,7 +241,7 @@ function copy_template_folder($destination) {
  *  Path to destination.
  * 
  * @return
- *  Result of executing.
+ *  TRUE if success.
  */
 function copy_folder($source, $destination) {
 
@@ -304,13 +296,9 @@ function copy_folder($source, $destination) {
  *  Name of the theme.
  * 
  * @return
- *  Result of executing.
+ *  TRUE if success.
  */
 function rename_template_files($path, $themename) {
-
-  // echo 'Renaming template files' . PHP_EOL;
-  // echo 'path: ' . $path . PHP_EOL;
-  // echo 'themename: ' . $themename . PHP_EOL;
 
   // Getting folder content
   if (!$folder = opendir($path)) {
@@ -326,15 +314,11 @@ function rename_template_files($path, $themename) {
       if (is_dir($target_file) ) {
         rename_template_files($target_file, $themename);
       } else {
-        // echo 'path: ' . $path . PHP_EOL;
-        // echo 'file: ' . $file . PHP_EOL;
 
         // Checking filename has placeholder
         if (strpos($file, GENERATOR_PLACEHOLDER) !== FALSE) {
           // Preparing new file path
           $new_file = $path . DIRECTORY_SEPARATOR . str_replace(GENERATOR_PLACEHOLDER, $themename, $file);
-
-          // echo 'new_file: ' . $new_file . PHP_EOL;
 
           // Renaming
           if (!rename($target_file, $new_file)) {
@@ -363,13 +347,9 @@ function rename_template_files($path, $themename) {
  *  Name of the theme.
  * 
  * @return
- *  Result of executing.
+ *  TRUE if success.
  */
 function replace_template_placeholders($path, $themename) {
-
-  // echo 'Replacing template paceholders' . PHP_EOL;
-  // echo 'path: ' . $path . PHP_EOL;
-  // echo 'themename: ' . $themename . PHP_EOL;
 
   // Getting folder content
   if (!$folder = opendir($path)) {
@@ -393,9 +373,6 @@ function replace_template_placeholders($path, $themename) {
             echo 'Can not write to "' . $target_file . '".' . PHP_EOL;
             exit(1);
           }
-
-          // echo 'file: ' . $file . PHP_EOL;
-          // echo 'replace: ' . $replace . PHP_EOL;
         }
       }
 
@@ -408,7 +385,8 @@ function replace_template_placeholders($path, $themename) {
 }
 
 /**
- * Comment out 'hidden: thue' in THEMENAME.info.yml
+ * Update theme properties in THEMENAME.info.yml.
+ * Comment out 'hidden: thue', create human readable name.
  *
  * @param $path
  *  Path to theme folder.
@@ -417,18 +395,18 @@ function replace_template_placeholders($path, $themename) {
  *  Name of the theme.
  * 
  * @return
- *  Result of executing.
+ *  TRUE if success.
  */
-function unhide_theme($path, $themename) {
-
-  // echo 'Unhiding the theme' . PHP_EOL;
-  // echo 'path: ' . $path . PHP_EOL;
-  // echo 'themename: ' . $themename . PHP_EOL;
+function update_theme_info($path, $themename) {
 
   $info_file = $path . DIRECTORY_SEPARATOR . $themename . '.info.yml';
+  $name = ucfirst(str_replace('_', ' ', $themename));
 
   $file_content = file_get_contents($info_file);
+  // Commenting out 'hidden' property
   $file_content = str_replace('hidden: true', '# hidden: true', $file_content);
+  // Updating theme name
+  $file_content = str_replace('name: Theme name', 'name: ' . $name, $file_content);
   if (!file_put_contents($info_file, $file_content)) {
     echo 'Can not write to "' . $info_file . '".' . PHP_EOL;
     exit(1);

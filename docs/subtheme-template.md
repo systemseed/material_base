@@ -11,6 +11,33 @@ Subtheme template uses pretty much the same file [structure](/folder-structure.m
 Creating subtheme from template
 -------------------------------
 
+### Automatic generation subtheme files
+
+Material base includes PHP script for generation subtheme based on `material_base_subtheme` folder.
+
+Usage:
+
+From Material Base theme folder:
+
+~~~
+php generate.php [themename] [path to themes folder]
+~~~
+
+If `path to themes folder` not provided, `../../custom` path name will be used by default.  
+If `themename` not provided, `material_top` name will be used as theme name by default.  
+If `themename` not provided and `PROJECT_NAME` environment variable is set, `material_PROJECT_NAME` will be used as theme name.
+
+Examples:
+
+~~~
+php generate.php
+php generate.php westeros
+php generate.php westeros "../../custom"
+php generate.php westeros "/var/www/html/web/themes/custom"
+~~~
+
+### Manual copying subtheme files
+
 1. Copy `material_base_subtheme` folder and paste it to `PROJECTROOT/web/themes/custom`.
 2. Rename the folder to your new theme name, for example, `westeros`.
 3. Go to this folder and browse all files which contain `THEMENAME` in a filename. They all should be renamed according to your theme name, for example, `THEMENAME.info.yml` should become `westeros.info.yml`. List of files to rename:
