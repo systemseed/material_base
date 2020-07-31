@@ -18,7 +18,8 @@ if ($project = getenv('PROJECT_NAME')) {
   define('GENERATOR_THEMENAME', GENERATOR_DEFAULT_THEMENAME);
 }
 
-define('GENERATOR_THEMES_PATH', realpath(GENERATOR_DEFAULT_THEMES_PATH));
+// Geting absolute path to themes folder
+define('GENERATOR_THEMES_PATH', realpath(__DIR__ . DIRECTORY_SEPARATOR . GENERATOR_DEFAULT_THEMES_PATH));
 
 /**
  * Main function.
