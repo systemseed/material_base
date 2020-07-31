@@ -213,6 +213,7 @@ function generate_subtheme($variables = []) {
   // Unhide theme and update human name
   update_theme_info($theme_path, $themename);
 
+  echo 'Theme "' . $themename . '" was successfully generated.' . PHP_EOL;
   exit;
 
 }
@@ -254,12 +255,13 @@ function copy_folder($source, $destination) {
 
   // Check for destination folder already exist
   if (is_dir($destination)) {
-    echo 'Destination folder "' . $destination . '" already exists.' . PHP_EOL;
-    exit(1);
+    echo 'Destination folder "' . $destination . '" already exists, skipping.' . PHP_EOL;
+    // Not an error
+    exit;
   }
 
-  // Creating destination folder
-  if (!mkdir($destination)) {
+  // Creating destination folder recursively
+  if (!mkdir($destination, 0777, TRUE)) {
     echo 'Can not create "' . $destination . '".'. PHP_EOL;
     exit(1);
   }
@@ -339,7 +341,7 @@ function rename_template_files($path, $themename) {
 }
 
 /**
- * Recursively replace template paceholders
+ * Recursively replace template placeholders
  *
  * @param $path
  *  Path to theme folder.
@@ -387,7 +389,7 @@ function replace_template_placeholders($path, $themename) {
 
 /**
  * Update theme properties in THEMENAME.info.yml.
- * Comment out 'hidden: thue', create human readable name.
+ * Comment out 'hidden: true', create human readable name.
  *
  * @param $path
  *  Path to theme folder.
