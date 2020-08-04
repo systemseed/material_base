@@ -129,9 +129,7 @@
                     {{ page.help }}
 
                     <div class="page-content layout-content">
-                      {% block content %}
-                        {{ page.content }}
-                      {% endblock %}  
+                      {{ block('content') }}
                     </div>
                   </div>
 
