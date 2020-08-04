@@ -15,6 +15,7 @@ screenshot: screenshot.svg
 
 libraries:
   - THEMENAME/theme                               # Contains project theme defaults and components (extends whole base)
+  - THEMENAME/mdc                                 # Contains project MDC defenition
 #  - THEMENAME/YOURLIBRARY                    
 
 libraries-override:
@@ -25,7 +26,10 @@ libraries-override:
 #  material_base/grid: false                      # Contains Flexbox Grid defenition
 #  material_base/icons-font: false                # Contains Material icons fonts definitions
   material_base/fonts: THEMENAME/fonts            # Contains default font defenition, replaced by project fonts defenitions
-  material_base_mdc/mdc: THEMENAME/mdc            # Contains default MDC defenition, replaced by project MDC defenition
+  material_base_mdc/mdc:                          # Contains default MDC defenition, replaced by project MDC defenition except mdc.js
+    css:
+      theme:
+        ../dist/css/mdc.css: false
 
 regions:
   navbar: 'Navbar'

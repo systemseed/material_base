@@ -94,7 +94,9 @@
 
           {# layout controlled by confuguration #}
           <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-          {{ page.content }}
+          {% block content %}
+            {{ page.content }}
+          {% endblock %}  
 
         {% else %}
 
@@ -127,7 +129,9 @@
                     {{ page.help }}
 
                     <div class="page-content layout-content">
-                      {{ page.content }}
+                      {% block content %}
+                        {{ page.content }}
+                      {% endblock %}  
                     </div>
                   </div>
 
