@@ -73,7 +73,7 @@ In Twig template file:
   },
   settings: {
     classes: ['mdc-button--unelevated'],
-    tag: 'a'
+    tag: 'a',
   },
 } %}
 ~~~

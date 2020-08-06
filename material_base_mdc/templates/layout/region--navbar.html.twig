@@ -23,12 +23,12 @@
 ] %}
 
 {% if content %}
-  <div{{ attributes.addClass(classes).setAttribute('data-mdc-auto-init', 'MDCTopAppBar') }}>
+  <header{{ attributes.addClass(classes).setAttribute('data-mdc-auto-init', 'MDCTopAppBar') }}>
     <div class="navbar__container mdc-top-app-bar__row">
-      <div class="navbar__section mdc-top-app-bar__section">
+      <section class="navbar__section mdc-top-app-bar__section">
         {{ content }}
       </div>
-    </div>
-  </div>
+    </section>
+  </header>
 {% endif %}
 

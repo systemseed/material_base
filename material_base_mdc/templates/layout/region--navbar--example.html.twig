@@ -8,9 +8,9 @@
     navbar_style ? 'mdc-top-app-bar--' ~ navbar_style,
 ] %}
 
-<div{{ attributes.addClass(classes).setAttribute('data-mdc-auto-init', 'MDCTopAppBar') }}>
+<header{{ attributes.addClass(classes).setAttribute('data-mdc-auto-init', 'MDCTopAppBar') }}>
   <div class="navbar__container mdc-top-app-bar__row">
-    <div class="navbar__section mdc-top-app-bar__section">
+    <section class="navbar__section mdc-top-app-bar__section">
 
       {% include "@material_base_mdc/components/02_molecules/icon-button.twig" with {
         data: {
@@ -58,6 +58,6 @@
           tag: 'a',
         },
       } %}
-    </div>
+    </section>
   </div>
-</div>
+</header>

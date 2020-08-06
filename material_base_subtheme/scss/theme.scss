@@ -13,7 +13,6 @@
 
 // Base theme Components
 @import "../../contrib/material_base/scss/components"; // ! Check path
-@import "../../contrib/material_base/scss/mdc-components"; // ! Check path
 // Also it is possible to import by single component, for example:
 // @import "../../contrib/material_base/scss/components/forms"; // ! Check path
 // @import "../../contrib/material_base/scss/components/icon"; // ! Check path
@@ -23,5 +22,5 @@
 @import "theme/typography";
 @import "theme/layout";
 
-// contrib components
+// Theme components
 @import "components";

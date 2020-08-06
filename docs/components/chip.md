@@ -52,7 +52,8 @@ In checkbox form element Twig template:
       value: 'filter_list',
     },
     settings: {
-      type: 'material-icons',
+      type: 'font',
+      classes: ['material-icons'],
     },
   }
 } %}

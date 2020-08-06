@@ -52,13 +52,13 @@
 
 <div class="page">
   <div class="page-container layout-container{{ page_layout ? ' layout-container--node' : ' layout-container--page' }}">
+    <div class="page-container__overlay"></div>
 
     {% if page.navbar %}
       {{ page.navbar }}
     {% endif %}
 
     {% if page.drawer %}
-      <div class="page-drawer__overlay"></div>
       <div class="page-drawer">
         {{ page.drawer }}
       </div>

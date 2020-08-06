@@ -5,8 +5,20 @@
 @import "../../contrib/material_base/scss/base/variables"; // ! Check path
 @import "../../contrib/material_base/scss/base/mixins"; // ! Check path
 
-// MDC
+@import "theme/mixins";
+@import "theme/extends";
+
+// MDC library
 @import "mdc/theme";
 @import "mdc/typography";
 @import "mdc/top-app-bar";
 @import "mdc/components";
+
+// Base theme MDC Components
+@import "../../contrib/material_base/scss/mdc-components"; // ! Check path
+// Also it is possible to import by single component, for example:
+// @import "../../contrib/material_base/scss/mdc-components/forms"; // ! Check path
+// @import "../../contrib/material_base/scss/mdc-components/button"; // ! Check path
+
+// Theme MDC components
+@import "mdc-components";
