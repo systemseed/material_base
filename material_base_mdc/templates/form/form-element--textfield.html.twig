@@ -69,7 +69,7 @@
 
 {% set mdc_classes = [
   'mdc-text-field',
-  outlined ? 'mdc-text-field--outlined',
+  outlined ? 'mdc-text-field--outlined' : 'mdc-text-field--filled',
   full_width ? 'mdc-text-field--fullwidth',
   disabled == 'disabled' ? 'mdc-text-field--disabled',
   label_display == 'invisible' ? 'mdc-text-field--no-label',
