@@ -139,10 +139,14 @@ function material_base_preprocess_status_messages(&$variables) {
  */
 function material_base_theme_suggestions_page_alter(&$suggestions, &$variables) {
 
-  $request = \Drupal::routeMatch()->getRouteObject();
+  // Suggestion by page alias.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  $suggestions[] = 'page__' . preg_replace('/\W+/','_',strtolower(ltrim($current_alias, '/')));
 
   // Suggestion for page manager.
   // Source https://drupal.stackexchange.com/questions/211145/page-manager-panels-and-theme-suggestions
+  $request = \Drupal::routeMatch()->getRouteObject();
   if ($request->getDefault('_entity_view') === 'page_manager_page_variant') {
     $page_name = $request->getDefault('page_manager_page');
     $page_variant = $request->getDefault('page_manager_page_variant');
@@ -150,6 +154,25 @@ function material_base_theme_suggestions_page_alter(&$suggestions, &$variables) 
     $suggestions[] = 'page__page_manager__' . $page_name;
     $suggestions[] = 'page__page_manager__' . $page_name . '__' . $page_variant;
   }
+}
+
+/**
+ * Implements hook_theme_suggestions_node_alter().
+ */
+function material_base_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+
+  // Suggestion by page alias.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  $current_alias = preg_replace('/\W+/','_',strtolower(ltrim($current_alias, '/')));
+  $suggestions[] = 'node__' . $current_alias;
+
+  $node = $variables['elements']['#node'];
+
+  if (isset($variables['elements']['#view_mode'])) {
+    $suggestions[] = 'node__' . $current_alias . '__' .$variables['elements']['#view_mode'];
+  }
+
 }
 
 /**

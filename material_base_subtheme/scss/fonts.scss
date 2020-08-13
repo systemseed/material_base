@@ -6,7 +6,10 @@
 // Define your fonts here
 
 // Google Fonts example:
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+// Not worked properly with Drupal CSS aggregation
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+// Use old sytax
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Roboto:300,400,500,700&display=swap');
 
 // Self hosted fonts example (source folder is `fonts`):
 /*

@@ -3,29 +3,55 @@
 $color-primary-base: #546e7a !default;
 $color-secondary-base: #00c9f8 !default;
 $color-accent-base: $color-secondary-base !default;
-$color-bg-body: #FFF !default;
-$color-bg-body-dark: #121212 !default;
+
+$color-primary: $color-primary-base !default;
+$color-primary-light: lighten($color-primary, 10) !default;
+$color-primary-dark: darken($color-primary, 10) !default;
+
+$color-secondary: $color-secondary-base !default;
+$color-secondary-light: lighten($color-secondary, 10) !default;
+$color-secondary-dark: darken($color-secondary, 10) !default;
+
+$color-accent: $color-accent-base !default;
+$color-accent-light: lighten($color-accent, 10) !default;
+$color-accent-dark: darken($color-accent, 10) !default;
+
+$color-bg-light: #FFF !default;
+$color-bg-dark: #121212 !default;
+$color-bg-body: $color-bg-light !default;
 
 $color-bg-highlighted: darken($color-bg-body, 12) !default;
 $color-bg-hover: rgba(#000, 0.04) !default;
 $color-border: darken($color-bg-body, 20) !default;
 
-$theme-primary: $color-primary-base !default;
-$theme-secondary: $color-secondary-base !default;
+$theme-primary: $color-primary !default;
+$theme-secondary: $color-secondary !default;
 $theme-background: $color-bg-body !default;
 
-$color-text-base: #000 !default;
+$color-text-dark-base: #000 !default;
+$color-text-dark: $color-text-dark-base !default;
+
+$color-text-light-base: #FFF !default;
+$color-text-light: $color-text-light-base !default;
+
+$color-text-base: $color-text-dark !default;
 $color-text: rgba($color-text-base, .87) !default;
 $color-heading: darken($theme-primary, 20) !default;
 $color-link: darken($theme-secondary, 10) !default;
 $color-text-secondary: rgba($color-text-base, .60) !default;
 $color-text-disabled: rgba($color-text-base, .38) !default;
 
-$color-text-light-base: #FFF !default;
-$color-text-light: $color-text-light-base !default;
-
 $color-on-primary: $color-text-light !default;
+$color-on-primary-light: $color-text-light !default;
+$color-on-primary-dark: $color-text-light !default;
+
 $color-on-secondary: $color-text-light !default;
+$color-on-secondary-light: $color-text-dark !default;
+$color-on-secondary-dark: $color-text-light !default;
+
+$color-on-accent: $color-text-light !default;
+$color-on-accent-light: $color-text-dark !default;
+$color-on-accent-dark: $color-text-light !default;
 
 $color-text-placeholer: rgba($color-text-base, .6) !default;
 

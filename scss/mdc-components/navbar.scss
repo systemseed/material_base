@@ -8,7 +8,7 @@
   }
 
   &--dark.mdc-top-app-bar {
-    @include top-app-bar.fill-color($color-bg-body-dark);
+    @include top-app-bar.fill-color($color-bg-dark);
     @include top-app-bar.ink-color($color-text-light);
     @include top-app-bar.icon-ink-color($color-text-light);
   }

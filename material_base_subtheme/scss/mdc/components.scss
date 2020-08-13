@@ -1,3 +1,5 @@
+// @use "material-components-web";
+
 @use "@material/button/mdc-button";
 @use "@material/icon-button/mdc-icon-button";
 @use "@material/card/mdc-card";
@@ -5,7 +7,7 @@
 @use "@material/form-field/mdc-form-field";
 @use "@material/checkbox/mdc-checkbox";
 @use "@material/radio/mdc-radio";
-@use "@material/ripple";
+@use "@material/ripple/mdc-ripple";
 @use "@material/top-app-bar/mdc-top-app-bar";
 @use "@material/list/mdc-list";
 @use "@material/menu-surface/mdc-menu-surface";
@@ -14,6 +16,4 @@
 @use "@material/floating-label/mdc-floating-label";
 @use "@material/line-ripple/mdc-line-ripple";
 @use "@material/notched-outline/mdc-notched-outline";
-@use "@material/textfield";
-
-@include textfield.core-styles;
+@use "@material/textfield/mdc-text-field";

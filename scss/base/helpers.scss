@@ -30,3 +30,49 @@
     }
   }
 }
+
+$branding-colors:
+  primary $color-primary $color-on-primary, 
+  primary-light $color-primary-light $color-on-primary-light,
+  primary-dark $color-primary-dark $color-on-primary-dark,
+  secondary $color-secondary $color-on-secondary,
+  secondary-light $color-secondary-light $color-on-secondary-light,
+  secondary-dark $color-secondary-dark $color-on-secondary-dark,
+  accent $color-accent $color-on-accent,
+  accent-light $color-accent-light $color-on-accent-light,
+  accent-dark $color-accent-dark $color-on-accent-dark !default;
+
+@each $color in $branding-colors {
+  $color-name: nth($color, 1);
+  $color-value: nth($color, 2);
+  $color-on-value: nth($color, 3);
+
+  .bg-#{$color-name} {
+    background-color: $color-value;
+    color: $color-on-value;
+  }
+
+  .text-#{$color-name} {
+    color: $color-value;
+  }
+
+  .text-on-#{$color-name} {
+    color: $color-on-value;
+  }
+}
+
+.bg-light {
+  background-color: $color-bg-light;
+}
+
+.bg-dark {
+  background-color: $color-bg-dark;
+}
+
+.text-light {
+  color: $color-text-light;
+}
+
+.text-dark {
+  color: $color-text-dark;
+}

@@ -1,0 +1,1385 @@
+{% set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+] %}
+<article{{ attributes.addClass(classes) }}>
+
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  <div{{ content_attributes.addClass('node__content') }}>   
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Colors</h2>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          <div class="style-guide__example-color bg-primary"><span class="text-on-primary">Z</span></div>
+        </div>
+        <div class="style-guide__item">
+          <div class="style-guide__example-color bg-primary-light"><span class="text-on-primary">Z</span></div>
+        </div>
+        <div class="style-guide__item">
+          <div class="style-guide__example-color bg-primary-dark"><span class="text-on-primary">Z</span></div>
+        </div>
+        <div class="style-guide__item">
+          <div class="style-guide__example-color bg-secondary"><span class="text-on-secondary">Z</span></div>
+        </div>
+        <div class="style-guide__item">
+          <div class="style-guide__example-color bg-secondary-light"><span class="text-on-secondary">Z</span></div>
+        </div>
+        <div class="style-guide__item">
+          <div class="style-guide__example-color bg-secondary-dark"><span class="text-on-secondary">Z</span></div>
+        </div>
+        <div class="style-guide__item">
+          <div class="style-guide__example-color bg-accent"><span class="text-on-accent">Z</span></div>
+        </div>
+        <div class="style-guide__item">
+          <div class="style-guide__example-color bg-accent-light"><span class="text-on-accent">Z</span></div>
+        </div>
+        <div class="style-guide__item">
+          <div class="style-guide__example-color bg-accent-dark"><span class="text-on-accent">Z</span></div>
+        </div>
+        <div class="style-guide__item">
+          <div class="style-guide__example-color bg-light"><span class="text-dark">A</span></div>
+        </div>
+        <div class="style-guide__item">
+          <div class="style-guide__example-color bg-dark"><span class="text-light">B</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Typography</h2>
+
+      <h3 class="style-guide__section-subtitle">Headings</h3>
+
+      <div>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Default lists</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          <ul class="text-list">
+            <li>List intem lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipisicing elit</li>
+            <li>Hic provident cupiditate mollitia praesentium iste nisi</li>
+            <li>Aliquam deserunt harum</li>
+          </ul>
+        </div>
+        <div class="style-guide__item">
+          <ol class="text-list">
+            <li>List intem lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipisicing elit</li>
+            <li>Hic provident cupiditate mollitia praesentium iste nisi</li>
+            <li>Aliquam deserunt harum</li>
+          </ol>
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Bulleted list</h3>
+
+      <ul class="text-list text-list--bulleted">
+        <li>List intem lorem ipsum dolor sit amet</li>
+        <li>Consectetur adipisicing elit</li>
+        <li>Hic provident cupiditate mollitia praesentium iste nisi</li>
+        <li>Aliquam deserunt harum</li>
+      </ul>
+
+      <h3 class="style-guide__section-subtitle">Iconed list</h3>
+
+      <ul class="text-list text-list--iconed">
+        <li><i class="icon material-icons">done</i>List intem lorem ipsum dolor sit amet</li>
+        <li><i class="icon material-icons">done</i>Consectetur adipisicing elit</li>
+        <li><i class="icon material-icons">done</i>Hic provident cupiditate mollitia praesentium iste nisi</li>
+        <li><i class="icon material-icons">done</i>Aliquam deserunt harum</li>
+      </ul>
+
+      <h3 class="style-guide__section-subtitle">Unstyled list</h3>
+
+      <ul class="text-list text-list--unstyled">
+        <li>List intem lorem ipsum dolor sit amet</li>
+        <li>Consectetur adipisicing elit</li>
+        <li>Hic provident cupiditate mollitia praesentium iste nisi</li>
+        <li>Aliquam deserunt harum</li>
+      </ul>
+    </div>
+
+    
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Icons</h2>
+
+      <h3 class="style-guide__section-subtitle">Icon font</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          {% include "@material_base/components/01_atoms/icon.twig" with {
+            data: {
+              value: 'account_box',
+            }, 
+            settings: {
+              type: 'font',
+              classes: ['material-icons'],
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/01_atoms/icon.twig" with {
+            data: {
+              value: 'account_box',
+            }, 
+            settings: {
+              type: 'font',
+              classes: ['material-icons-outlined'],
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/01_atoms/icon.twig" with {
+            data: {
+              value: 'account_box',
+            }, 
+            settings: {
+              type: 'font',
+              classes: ['material-icons-two-tone'],
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/01_atoms/icon.twig" with {
+            data: {
+              value: 'account_box',
+            }, 
+            settings: {
+              type: 'font',
+              classes: ['material-icons-round'],
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/01_atoms/icon.twig" with {
+            data: {
+              value: 'account_box',
+            }, 
+            settings: {
+              type: 'font',
+              classes: ['material-icons-sharp'],
+            }
+          } %}
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">SVG sprite icons</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          {% include "@material_base/components/01_atoms/icon.twig" with {
+            data: {
+              value: 'chevron_right',
+            },
+            settings: {
+              type: 'svg-sprite',
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/01_atoms/icon.twig" with {
+            data: {
+              value: 'check_circle',
+            },
+            settings: {
+              type: 'svg-sprite',
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/01_atoms/icon.twig" with {
+            data: {
+              value: 'info',
+            },
+            settings: {
+              type: 'svg-sprite',
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/01_atoms/icon.twig" with {
+            data: {
+              value: 'warning',
+            },
+            settings: {
+              type: 'svg-sprite',
+            }
+          } %}
+        </div>
+      </div>
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Buttons</h2>
+
+      <h3 class="style-guide__section-subtitle">Text button</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item style-guide__items style-guide__items--stacked">
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Button',
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Outlined',
+              },
+              settings: {
+                classes: ['mdc-button--outlined'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unelevated',
+              },
+              settings: {
+                classes: ['mdc-button--unelevated'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Raised',
+              },
+              settings: {
+                classes: ['mdc-button--raised'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unstyled',
+              },
+            } %}
+          </div>
+        </div>
+
+        <div class="style-guide__item style-guide__items style-guide__items--stacked">
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Secondary',
+              },
+              settings: {
+                classes: ['button--secondary'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Outlined',
+              },
+              settings: {
+                classes: ['mdc-button--outlined', 'button--secondary'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unelevated',
+              },
+              settings: {
+                classes: ['mdc-button--unelevated', 'button--secondary'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Raised',
+              },
+              settings: {
+                classes: ['mdc-button--raised', 'button--secondary'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unstyled',
+              },
+              settings: {
+                classes: ['button--secondary'],
+              },
+            } %}
+          </div>
+        </div>
+
+        <div class="style-guide__item style-guide__item--bg-primary style-guide__items style-guide__items--stacked">
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Light',
+              },
+              settings: {
+                classes: ['button--light'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Outlined',
+              },
+              settings: {
+                classes: ['mdc-button--outlined', 'button--light'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unelevated',
+              },
+              settings: {
+                classes: ['mdc-button--unelevated', 'button--light'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Raised',
+              },
+              settings: {
+                classes: ['mdc-button--raised', 'button--light'],
+              },
+            } %}
+          </div>
+
+          <div class="style-guide__item">
+            {% include "@material_base/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unstyled',
+              },
+              settings: {
+                classes: ['button--light'],
+              },
+            } %}
+          </div>
+        </div>
+
+        <div class="style-guide__item style-guide__items style-guide__items--stacked">
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Disabled',
+              },
+              settings: {
+                disabled: TRUE,
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Outlined',
+              },
+              settings: {
+                classes: ['mdc-button--outlined'],
+                disabled: TRUE,
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unelevated',
+              },
+              settings: {
+                classes: ['mdc-button--unelevated'],
+                disabled: TRUE,
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Raised',
+              },
+              settings: {
+                classes: ['mdc-button--raised'],
+                disabled: TRUE,
+              },
+            } %}
+          </div>
+
+          <div class="style-guide__item">
+            {% include "@material_base/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unstyled',
+              },
+              settings: {
+                disabled: TRUE,
+              },
+            } %}
+          </div>
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Button with icon</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item style-guide__items style-guide__items--stacked">
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Btn with icon',
+                icon: {
+                  data: {
+                    value: 'info',
+                  },
+                  settings: {
+                    type: 'svg-sprite',
+                  },
+                },
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Outlined',
+                icon: {
+                  data: {
+                    value: 'info',
+                  },
+                  settings: {
+                    type: 'svg-sprite',
+                  },
+                },
+              },
+              settings: {
+                classes: ['mdc-button--outlined'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unelevated',
+                icon: {
+                  data: {
+                    value: 'info',
+                  },
+                  settings: {
+                    type: 'svg-sprite',
+                  },
+                },
+              },
+              settings: {
+                classes: ['mdc-button--unelevated'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Raised',
+                icon: {
+                  data: {
+                    value: 'info',
+                  },
+                  settings: {
+                    type: 'svg-sprite',
+                  },
+                },
+              },
+              settings: {
+                classes: ['mdc-button--raised'],
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unstyled',
+                icon: {
+                  data: {
+                    value: 'info',
+                  },
+                  settings: {
+                    type: 'svg-sprite',
+                  },
+                },
+              },
+            } %}
+          </div>
+        </div>
+
+        <div class="style-guide__item style-guide__items style-guide__items--stacked">
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Icon at right',
+                icon: {
+                  data: {
+                    value: 'chevron_right',
+                  },
+                  settings: {
+                    type: 'svg-sprite',
+                  },
+                },
+              },
+              settings: {
+                icon_trailing: TRUE,
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Outlined',
+                icon: {
+                  data: {
+                    value: 'chevron_right',
+                  },
+                  settings: {
+                    type: 'svg-sprite',
+                  },
+                },
+              },
+              settings: {
+                classes: ['mdc-button--outlined'],
+                icon_trailing: TRUE,
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unelevated',
+                icon: {
+                  data: {
+                    value: 'chevron_right',
+                  },
+                  settings: {
+                    type: 'svg-sprite',
+                  },
+                },
+              },
+              settings: {
+                classes: ['mdc-button--unelevated'],
+                icon_trailing: TRUE,
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Raised',
+                icon: {
+                  data: {
+                    value: 'chevron_right',
+                  },
+                  settings: {
+                    type: 'svg-sprite',
+                  },
+                },
+              },
+              settings: {
+                classes: ['mdc-button--raised'],
+                icon_trailing: TRUE,
+              },
+            } %}
+          </div>
+          <div class="style-guide__item">
+            {% include "@material_base/components/02_molecules/button.twig" with {
+              data: {
+                label: 'Unstyled',
+                icon: {
+                  data: {
+                    value: 'chevron_right',
+                  },
+                  settings: {
+                    type: 'svg-sprite',
+                  },
+                },
+              },
+              settings: {
+                icon_trailing: TRUE,
+              },
+            } %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Icon buttons</h2>
+
+      <h3 class="style-guide__section-subtitle">Styled icon buttons</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          {% include "@material_base_mdc/components/02_molecules/icon-button.twig" with {
+            data: {
+              icon: {
+                data: {
+                  value: 'info',
+                },
+                settings: {
+                  type: 'svg-sprite',
+                },
+              },
+            },
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base_mdc/components/02_molecules/icon-button.twig" with {
+            data: {
+              icon: {
+                data: {
+                  value: 'info',
+                },
+                settings: {
+                  type: 'svg-sprite',
+                },
+              },
+            },
+            settings: {
+              disabled: TRUE,
+            },
+          } %}
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Unstyled icon buttons</h3>
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/button.twig" with {
+            data: {
+              icon: {
+                data: {
+                  value: 'info',
+                },
+                settings: {
+                  type: 'svg-sprite',
+                },
+              },
+            },
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/button.twig" with {
+            data: {
+              icon: {
+                data: {
+                  value: 'info',
+                },
+                settings: {
+                  type: 'svg-sprite',
+                },
+              },
+            },
+            settings: {
+              disabled: TRUE,
+            },
+          } %}
+        </div>
+      </div>
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Share button</h2>
+
+      <h3 class="style-guide__section-subtitle">Default buttons</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Share',
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'facebook',
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Tweet',
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'twitter',
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'share',
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'linkedin',
+            }
+          } %}
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Buttons with trailing icon</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Share',
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'facebook',
+              icon_trailing: TRUE,
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Tweet',
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'twitter',
+              icon_trailing: TRUE,
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'share',
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'linkedin',
+              icon_trailing: TRUE,
+            }
+          } %}
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Buttons without text</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'facebook',
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'twitter',
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'linkedin',
+            }
+          } %}
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Buttons without icon</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Facebook',
+              url: 'https://example.com',
+              title: 'Example site',
+              icon: FALSE,
+            },
+            settings: {
+              network: 'facebook',
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Twitter',
+              url: 'https://example.com',
+              title: 'Example site',
+              icon: FALSE,
+            },
+            settings: {
+              network: 'twitter',
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Linked In',
+              url: 'https://example.com',
+              title: 'Example site',
+              icon: FALSE,
+            },
+            settings: {
+              network: 'linkedin',
+            }
+          } %}
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Buttons with custom icons</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Share',
+              url: 'https://example.com',
+              title: 'Example site',
+              icon: {
+                data: {
+                  value: 'thumb_up',
+                },
+                settings: {
+                  type: 'font',
+                  classes: ['material-icons'],
+                },
+              },
+            },
+            settings: {
+              network: 'facebook',
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Tweet',
+              url: 'https://example.com',
+              title: 'Example site',
+              icon: {
+                data: {
+                  value: 'send',
+                },
+                settings: {
+                  type: 'font',
+                  classes: ['material-icons'],
+                },
+              },
+            },
+            settings: {
+              network: 'twitter',
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'share',
+              url: 'https://example.com',
+              title: 'Example site',
+              icon: {
+                data: {
+                  value: 'share',
+                },
+                settings: {
+                  type: 'font',
+                  classes: ['material-icons'],
+                },
+              },
+            },
+            settings: {
+              network: 'linkedin',
+            }
+          } %}
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Buttons with brand background color</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Share',
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'facebook',
+              classes: ['share-button--branded'],
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Tweet',
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'twitter',
+              classes: ['share-button--branded'],
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'share',
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'linkedin',
+              classes: ['share-button--branded'],
+            }
+          } %}
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Buttons using MDC button styles</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          {% include "@material_base_mdc/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Share',
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'facebook',
+              classes: ['mdc-button--raised'],
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base_mdc/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'Tweet',
+              url: 'https://example.com',
+              title: 'Example site',
+            },
+            settings: {
+              network: 'twitter',
+              classes: ['mdc-button--raised'],
+            }
+          } %}
+        </div>
+        <div class="style-guide__item">
+          {% include "@material_base_mdc/components/02_molecules/share-button.twig" with {
+            data: {
+              label: 'share',
+              url: 'https://example.com',
+              title: 'Example site',
+              icon: true,
+            },
+            settings: {
+              network: 'linkedin',
+              classes: ['mdc-button--raised'],
+            }
+          } %}
+        </div>
+      </div>
+
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Forms</h2>
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Search</h2>
+
+      <h3 class="style-guide__section-subtitle">Search field</h3>
+
+      <div class="form-item form-no-label search-field">
+        <div class="search-field__group">
+          <svg class="icon search-field__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+          </svg>
+          <input placeholder="Search" type="text" size="30" maxlength="128">
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Search buttons</h3>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          <div class="search-toggle">
+            <button class="search-toggle__button">
+              <svg class="icon search-toggle__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="style-guide__item">
+          <div class="search-close">
+            <button class="search-close__button">
+              <svg class="icon search-close__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Search result snippet</h3>
+
+      <article class="search-results-list__item">
+        <h3 class="item-title"><a href="#">Drupal</a></h3>
+        <div class="item-content">
+          Drupal lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia quis minus odio hic provident fugiat laudantium quae, architecto at! Blanditiis corporis non fuga voluptates vero tenetur ut deleniti beatae dicta …
+        </div>
+        <footer class="item-footer">
+          <a href="#" rel="bookmark">https://example.com/drupal</a>
+        </footer>
+      </article>
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Grid</h2>
+
+      <h3 class="style-guide__section-subtitle">Basic example</h3>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="style-guide__example-block">Block 1</div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="style-guide__example-block">Block 2</div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="style-guide__example-block">Block 3</div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-12 col-lg-3">
+          <div class="style-guide__example-block">Block 4</div>
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Offsets</h3>
+
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+          <div class="style-guide__example-block">Block 1</div>
+        </div>
+        <div class="col-xs-12">
+          <div class="style-guide__example-block">Block 2</div>
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Reordering</h3>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 last-xs last-sm last-md">
+          <div class="style-guide__example-block">Block 1 (order last)</div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="style-guide__example-block">Block 2</div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 first-xs first-sm first-md">
+          <div class="style-guide__example-block">Block 3 (order first)</div>
+        </div>
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Reversing</h3>
+
+      <div class="row reverse">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="style-guide__example-block">Block 1</div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="style-guide__example-block">Block 2</div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="style-guide__example-block">Block 3</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Cards</h2>
+
+      <h3 class="style-guide__section-subtitle">Text card</h3>
+      <div class="style-guide__card-container">
+        {% include "@material_base_mdc/components/03_organisms/card.twig" with {
+          data: {
+            label: 'Label',
+            title: 'Title Lorem ipsum dolor sit amet',
+            subtitle: 'Subtitle consectetur adipisicing elit',
+            text: 'Text sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          },
+        } %}
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Card with media</h3>
+      <div class="style-guide__card-container">
+        {% include "@material_base_mdc/components/03_organisms/card.twig" with {
+          data: {
+            media: [{'#markup': '<img src="/themes/custom/material_base/images/bg.png" />'}],
+            title: 'Title Lorem ipsum dolor sit amet',
+            subtitle: 'Subtitle consectetur adipisicing elit',
+            text: 'Text sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          },
+        } %}
+      </div>  
+
+      <h3 class="style-guide__section-subtitle">Card with action button</h3>
+      <div class="style-guide__card-container">
+        {% include "@material_base_mdc/components/03_organisms/card.twig" with {
+          data: {
+            media: [{'#markup': '<img src="/themes/custom/material_base/images/bg.png" />'}],
+            title: 'Title Lorem ipsum dolor sit amet',
+            subtitle: 'Subtitle consectetur adipisicing elit',
+            button: {
+              data: {
+                label: 'Action',
+                url: '#',
+              },
+              settings: {
+                tag: 'a',
+              },
+            },
+          },
+        } %}
+      </div>
+
+      <h3 class="style-guide__section-subtitle">Card link</h3>
+      <div class="style-guide__card-container">
+        {% include "@material_base_mdc/components/03_organisms/card.twig" with {
+          data: {
+            url: '#',
+            media: [{'#markup': '<img src="/themes/custom/material_base/images/bg.png" />'}],
+            title: 'Title Lorem ipsum dolor sit amet',
+            subtitle: 'Subtitle consectetur adipisicing elit',
+            button: {
+              data: {
+                label: 'Action',
+              },
+            },
+          },
+          settings: {
+            tag: 'a',
+          },
+        } %}
+      </div>
+        
+      </div>
+    </div>
+
+    
+
+    
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Accordion</h2>
+
+      <div class="mb-accordion style-guide__accordion">
+        <div class="mb-accordion__section">
+          <div class="mb-accordion__section-toggle">
+            Section 1 toggle
+          </div>
+          <div class="mb-accordion__section-panel">
+            Section 1 content lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium tempore quo, explicabo consectetur beatae atque molestiae eveniet culpa et, perferendis voluptate ad officiis fuga, unde quae tempora iste quasi numquam.
+          </div>
+        </div>
+        <div class="mb-accordion__section">
+          <div class="mb-accordion__section-toggle">
+            Section 2 toggle
+          </div>
+          <div class="mb-accordion__section-panel">
+            Section 2 content lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quidem facilis at qui repellendus distinctio sit inventore itaque quod. Cupiditate unde sed deserunt dignissimos nihil illo, optio tempore, delectus. Iste!
+          </div>
+        </div>
+        <div class="mb-accordion__section">
+          <div class="mb-accordion__section-toggle">
+            Section 3 toggle
+          </div>
+          <div class="mb-accordion__section-panel">
+            Section 3 content lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ullam voluptate ipsam quisquam aliquid natus ea placeat minus officia. Nulla?
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Dropdown</h2>
+
+      <div class="mb-dropdown style-guide__dropdown">
+        {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+          data: {
+            label: 'Dropdown',
+          },
+          settings: {
+            classes: ['mb-dropdown__toggle'],
+          },
+        } %}
+        <div class="mb-dropdown__panel">
+          Dropdown content
+        </div>
+      </div>
+
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Menu dropdown</h2>
+
+      <div class="mdc-menu-dropdown">
+        {% include "@material_base_mdc/components/02_molecules/button.twig" with {
+          data: {
+            label: 'Dropdown',
+          },
+          settings: {
+            classes: ['mdc-menu-dropdown__toggle'],
+          },
+        } %}
+        <div class="mdc-menu-surface--anchor">
+          <div class="mdc-menu mdc-menu-surface" data-mdc-auto-init="MDCMenu">
+            <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1" data-mdc-auto-init="MDCList">
+              <li class="mdc-list-item" role="menuitem" data-mdc-auto-init="MDCRipple">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">A Menu Item</span>
+              </li>
+              <li class="mdc-list-item" role="menuitem" data-mdc-auto-init="MDCRipple">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">Another Menu Item</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Tooltip</h2>
+
+      <div class="tooltip">
+        Tooltip
+      </div>
+
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Chip</h2>
+
+      <div class="style-guide__items">
+        <div class="style-guide__item">
+          <div class="form-item form-item-chip">
+            <div class="mb-chip" data-mdc-auto-init="MDCRipple">
+              <input type="checkbox" id="chip-1" class="form-checkbox visually-hidden">
+              <label class="option" for="chip-1">
+                Chip
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="style-guide__item">
+          <div class="form-item form-item-chip">
+            <div class="mb-chip mb-chip--outlined" data-mdc-auto-init="MDCRipple">
+              <input type="checkbox" id="chip-2" class="form-checkbox visually-hidden">
+              <label class="option" for="chip-2">
+                Outlined
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="style-guide__item">
+          <div class="form-item form-item-chip">
+            <div class="mb-chip mb-chip--with-icon" data-mdc-auto-init="MDCRipple">
+              <input type="checkbox" id="chip-3" class="form-checkbox visually-hidden">
+              <label class="option" for="chip-3">
+                <div class="mb-chip__icon-background">
+                  <i class="material-icons mb-chip__icon" aria-hidden="true">filter_list</i>
+                </div>
+                With icon
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="style-guide__section">
+      <h2 class="style-guide__section-title">Copy target</h2>
+
+      <div class="style-guide__items style-guide__items--v-centered">
+        <div class="style-guide__item">Text to copy</div>
+        <div class="copy-target style-guide__item">
+          <button data-target="Text to copy" class="mdc-icon-button copy-target__button">
+            <i class="icon material-icons mdc-icon-button__icon">content_copy</i>
+          </button>
+          <div class="tooltip copy-target__tooltip">
+            Copied to clipboard
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    
+
+
+{# ------------------------------ #}
+  </div>
+
+</article>

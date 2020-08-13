@@ -5,6 +5,16 @@
     padding: $spacing * 1.5 $spacing * 2;
   }
 
+  &__example-color {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: $spacing;
+  }
+
   &__section {
     margin-bottom: $spacing * 8;
   }
@@ -50,7 +60,7 @@
     }
 
     &--bg-dark {
-      background: $color-bg-body-dark;
+      background: $color-bg-dark;
     }
 
     &--bg-primary {

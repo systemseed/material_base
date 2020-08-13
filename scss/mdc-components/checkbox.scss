@@ -1,0 +1,5 @@
+@use "@material/checkbox";
+
+.mdc-checkbox {
+  @include checkbox.ink-color($color-on-secondary);
+}
