@@ -48,6 +48,7 @@
       %}
       <li{{ item.attributes.addClass(classes) }}>
         {% set item_label %}
+          <span class="mdc-list-item__ripple"></span>
           <span class="mdc-list-item__text">{{ item.title }}</span>
           {% if item.is_expanded and menu_level == 0 %}
             <span class="mdc-list-item__meta">
