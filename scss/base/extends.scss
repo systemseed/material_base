@@ -28,3 +28,348 @@
     clear: both;
   }
 }
+
+// Spacings
+
+// Responsive spacings
+$spacings-y:
+  small 3 5 8,
+  standard 4 6 10,
+  large 8 12 16 !default;
+
+$spacings-x:
+  small 1 1.5 2,
+  standard 2 3 4,
+  large 3 5 8 !default;  
+
+@each $item in $spacings-y {
+  $item-name: nth($item, 1);
+  $item-xs: nth($item, 2);
+  $item-sm: nth($item, 3);
+  $item-lg: nth($item, 4);
+
+  .spacing-mt-#{$item-name} {
+    margin-top: $spacing * $item-xs;
+  }
+
+  .spacing-mb-#{$item-name} {
+    margin-bottom: $spacing * $item-xs;
+  }
+
+  .spacing-my-#{$item-name} {
+    margin-top: $spacing * $item-xs;
+    margin-bottom: $spacing * $item-xs;
+  }
+
+  .spacing-pt-#{$item-name} {
+    padding-top: $spacing * $item-xs;
+  }
+
+  .spacing-pb-#{$item-name} {
+    padding-bottom: $spacing * $item-xs;
+  }
+
+  .spacing-py-#{$item-name} {
+    padding-top: $spacing * $item-xs;
+    padding-bottom: $spacing * $item-xs;
+  }
+
+  @include media-breakpoint-up($sm) {
+    .spacing-mt-#{$item-name} {
+      margin-top: $spacing * $item-sm;
+    }
+
+    .spacing-mb-#{$item-name} {
+      margin-bottom: $spacing * $item-sm;
+    }
+
+    .spacing-my-#{$item-name} {
+      margin-top: $spacing * $item-sm;
+      margin-bottom: $spacing * $item-sm;
+    }
+
+    .spacing-pt-#{$item-name} {
+      padding-top: $spacing * $item-sm;
+    }
+
+    .spacing-pb-#{$item-name} {
+      padding-bottom: $spacing * $item-sm;
+    }
+
+    .spacing-py-#{$item-name} {
+      padding-top: $spacing * $item-sm;
+      padding-bottom: $spacing * $item-sm;
+    }
+  }
+
+  @include media-breakpoint-up($lg) {
+    .spacing-mt-#{$item-name} {
+      margin-top: $spacing * $item-lg;
+    }
+
+    .spacing-mb-#{$item-name} {
+      margin-bottom: $spacing * $item-lg;
+    }
+
+    .spacing-my-#{$item-name} {
+      margin-top: $spacing * $item-lg;
+      margin-bottom: $spacing * $item-lg;
+    }
+
+    .spacing-pt-#{$item-name} {
+      padding-top: $spacing * $item-lg;
+    }
+
+    .spacing-pb-#{$item-name} {
+      padding-bottom: $spacing * $item-lg;
+    }
+
+    .spacing-py-#{$item-name} {
+      padding-top: $spacing * $item-lg;
+      padding-bottom: $spacing * $item-lg;
+    }
+  }
+}
+
+@each $item in $spacings-x {
+  $item-name: nth($item, 1);
+  $item-xs: nth($item, 2);
+  $item-sm: nth($item, 3);
+  $item-lg: nth($item, 4);
+
+  .spacing-ml-#{$item-name} {
+    margin-left: $spacing * $item-xs;
+  }
+
+  .spacing-mr-#{$item-name} {
+    margin-right: $spacing * $item-xs;
+  }
+
+  .spacing-mx-#{$item-name} {
+    margin-left: $spacing * $item-xs;
+    margin-right: $spacing * $item-xs;
+  }
+
+  .spacing-pl-#{$item-name} {
+    margin-left: $spacing * $item-xs;
+  }
+
+  .spacing-pr-#{$item-name} {
+    margin-right: $spacing * $item-xs;
+  }
+
+  .spacing-px-#{$item-name} {
+    margin-left: $spacing * $item-xs;
+    margin-right: $spacing * $item-xs;
+  }
+
+  @include media-breakpoint-up($sm) {
+    .spacing-ml-#{$item-name} {
+      margin-left: $spacing * $item-sm;
+    }
+
+    .spacing-mr-#{$item-name} {
+      margin-right: $spacing * $item-sm;
+    }
+
+    .spacing-mx-#{$item-name} {
+      margin-left: $spacing * $item-sm;
+      margin-right: $spacing * $item-sm;
+    }
+
+    .spacing-pl-#{$item-name} {
+      margin-left: $spacing * $item-sm;
+    }
+
+    .spacing-pr-#{$item-name} {
+      margin-right: $spacing * $item-sm;
+    }
+
+    .spacing-px-#{$item-name} {
+      margin-left: $spacing * $item-sm;
+      margin-right: $spacing * $item-sm;
+    }
+  }
+
+  @include media-breakpoint-up($lg) {
+    .spacing-ml-#{$item-name} {
+      margin-left: $spacing * $item-lg;
+    }
+
+    .spacing-mr-#{$item-name} {
+      margin-right: $spacing * $item-lg;
+    }
+
+    .spacing-mx-#{$item-name} {
+      margin-left: $spacing * $item-lg;
+      margin-right: $spacing * $item-lg;
+    }
+
+    .spacing-pl-#{$item-name} {
+      margin-left: $spacing * $item-lg;
+    }
+
+    .spacing-pr-#{$item-name} {
+      margin-right: $spacing * $item-lg;
+    }
+
+    .spacing-px-#{$item-name} {
+      margin-left: $spacing * $item-lg;
+      margin-right: $spacing * $item-lg;
+    }
+  }
+}
+
+// Fixed spacings
+@for $i from 1 through 24 {
+  .spacing-mt-#{$i} {
+    margin-top: $spacing * $i;
+  }
+
+  .spacing-mb-#{$i} {
+    margin-bottom: $spacing * $i;
+  }
+
+  .spacing-my-#{$i} {
+    margin-top: $spacing * $i;
+    margin-bottom: $spacing * $i;
+  }
+
+  .spacing-pt-#{$i} {
+    padding-top: $spacing * $i;
+  }
+
+  .spacing-pb-#{$i} {
+    padding-bottom: $spacing * $i;
+  }
+
+  .spacing-py-#{$i} {
+    padding-top: $spacing * $i;
+    padding-bottom: $spacing * $i;
+  }
+
+  .spacing-ml-#{$i} {
+    margin-left: $spacing * $i;
+  }
+
+  .spacing-mr-#{$i} {
+    margin-right: $spacing * $i;
+  }
+
+  .spacing-mx-#{$i} {
+    margin-left: $spacing * $i;
+    margin-right: $spacing * $i;
+  }
+
+  .spacing-pl-#{$i} {
+    margin-left: $spacing * $i;
+  }
+
+  .spacing-pr-#{$i} {
+    margin-right: $spacing * $i;
+  }
+
+  .spacing-px-#{$i} {
+    margin-left: $spacing * $i;
+    margin-right: $spacing * $i;
+  }
+}
+
+// Unsetting spacings
+.spacing-mt-none {
+  margin-top: 0;
+}
+
+.spacing-mb-none {
+  margin-bottom: 0;
+}
+
+.spacing-my-none {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.spacing-pt-none {
+  padding-top: 0;
+}
+
+.spacing-pb-none {
+  padding-bottom: 0;
+}
+
+.spacing-py-none {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.spacing-inner-my-none {
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.spacing-ml-none {
+  margin-left: 0;
+}
+
+.spacing-mr-none {
+  margin-right: 0;
+}
+
+.spacing-mx-none {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.spacing-pl-none {
+  padding-left: 0;
+}
+
+.spacing-pr-none {
+  padding-right: 0;
+}
+
+.spacing-px-none {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.spacing-inner-mx-none {
+  & > *:first-child {
+    margin-left: 0;
+  }
+
+  & > *:last-child {
+    margin-right: 0;
+  }
+}
+
+// Titles
+
+.page-title-small {
+  @extend .h5;
+}
+
+.page-title-standard {
+  @extend .h4;
+}
+
+.page-title-large {
+  @extend .h3;
+}
+
+.block-title-small {
+  @extend .h6;
+}
+
+.block-title-standard {
+  @extend .h5;
+}
+
+.block-title-large {
+  @extend .h4;
+}

@@ -156,9 +156,11 @@ In Twig template file:
 {% include "@material_base_mdc/components/02_molecules/button.twig" with {
   data: {
     label: 'contact',
+    url: '/contact'
   },
   settings: {
     classes: ['mdc-button--unelevated', 'button--light', 'navbar-item'],
+    tag: 'a',
   },
 } %}
 ~~~
@@ -223,9 +225,11 @@ In Twig template file:
 {% include "@material_base/components/02_molecules/button.twig" with {
   data: {
     label: 'contact',
+    url: '/contact'
   },
   settings: {
     classes: ['navbar-button'],
+    tag: 'a',
   },
 } %}
 ~~~

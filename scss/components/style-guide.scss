@@ -16,25 +16,23 @@
   }
 
   &__section {
-    margin-bottom: $spacing * 8;
+    @extend .spacing-mb-small;
   }
 
   &__section + &__section {
-    padding-top: $spacing * 8;
+    @extend .spacing-pt-small;
     border-top: 1px solid darken($color-bg-body, 20);
   }
 
   &__section-title {
-    margin-bottom: $spacing * 4;
-    font-size: 1.5rem;
-    font-weight: 500;
+    @extend .block-title-standard;
+    margin-bottom: $spacing * 3;
   }
 
   &__section-subtitle {
-    margin-top: $spacing * 4;
+    @extend .block-title-small;
+    margin-top: $spacing * 3;
     margin-bottom: $spacing * 3;
-    font-size: 1.25rem;
-    font-weight: 500;
   }
 
   &__items {
@@ -70,6 +68,17 @@
 
   &__card-container {
     max-width: $ms;
+  }
+
+  &__navbar {
+    position: static !important;
+  }
+
+  &__overlay {
+    position: relative;
+    max-width: 360px;
+    min-height: 480px;
+    border: 1px solid $color-border;
   }
 
   &__accordion {

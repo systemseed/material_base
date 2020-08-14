@@ -1,0 +1,4 @@
+.block-title {
+  @extend .block-title-standard;
+  margin-bottom: $spacing * 3;
+}

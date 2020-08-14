@@ -63,16 +63,20 @@ $branding-colors:
 
 .bg-light {
   background-color: $color-bg-light;
+  color: $color-text-dark;
 }
 
 .bg-dark {
   background-color: $color-bg-dark;
-}
-
-.text-light {
   color: $color-text-light;
 }
 
-.text-dark {
+.text-light,
+.text-on-dark {
+  color: $color-text-light;
+}
+
+.text-dark,
+.text-on-light {
   color: $color-text-dark;
 }
