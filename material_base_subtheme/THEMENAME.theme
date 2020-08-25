@@ -10,6 +10,33 @@
  */
 function THEMENAME_preprocess_html(&$variables) {
 
-  // placeholder
+  foreach ($variables['page']['#attached']['html_head'] as $key => $attachment) {
+    switch($attachment[1]){
+      
+      // Unset preloading Roboto font.
+      case 'preload_font_roboto':
+        unset($variables['page']['#attached']['html_head'][$key]);
+        break;
+      
+      // Unset preloading Material icons font.
+      /*
+      case 'preload_font_material_icons':
+        unset($variables['page']['#attached']['html_head'][$key]);
+        break;
+      */
+    }
+  }
+
+  // Preload Montserrat and Roboto fonts.
+  $preload_font_montserrat_roboto = [
+    '#tag' => 'link',
+    '#attributes' => [
+      'rel' => 'preload',
+      'href' => 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Roboto:300,400,500,700&display=swap',
+      'as' => 'style',
+    ],
+  ];
+
+  $variables['page']['#attached']['html_head'][] = [$preload_font_montserrat_roboto, 'preload_font_montserrat_roboto'];
 
 }

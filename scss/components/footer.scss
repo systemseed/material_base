@@ -63,12 +63,14 @@ $font-weight-footer: $font-weight-text-small !default;
   &--center {
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
   }
 
   // Right, should be added only to the first item of right aligned group
   // If first item is different per breakpoint, class should be added to all such items
   &--right {
     margin-left: auto;
+    text-align: right;
   }
 
   // Full width
