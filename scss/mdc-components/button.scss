@@ -1,7 +1,6 @@
 @use "@material/button";
 
 .button {
-
   &.mdc-button--outlined {
     @include button.outline-color($theme-primary);
   }
@@ -9,11 +8,11 @@
   &--secondary {
     &.mdc-button {
       @include button.ink-color($theme-secondary);
-    }
 
-    .mdc-button__ripple:before,
-    .mdc-button__ripple:after {
-      background: $theme-secondary;
+      .mdc-button__ripple:before,
+      .mdc-button__ripple:after {
+        background: $theme-secondary;
+      }
     }
 
     &.mdc-button--outlined {
@@ -30,13 +29,13 @@
   &--light {
     &.mdc-button {
       @include button.ink-color($color-text-light);
+
+      .mdc-button__ripple:before,
+      .mdc-button__ripple:after {
+        background: $color-text-light;
+      }
     }
     
-    .mdc-button__ripple:before,
-    .mdc-button__ripple:after {
-      background: $color-text-light;
-    }
-
     &.mdc-button--outlined {
       @include button.ink-color($color-text-light);
       @include button.outline-color($color-text-light);

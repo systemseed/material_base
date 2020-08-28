@@ -15,11 +15,11 @@ All libraries from base theme includes by default to their subthemes untill you 
 
 **`material_base/base`**
 
-Contains basic CSS, JS, variables, mixins and includes all components for building with default values.
+Contains basic CSS, JS, variables, mixins, extends, helpers and includes all components for building with default values.
 
 This library not intended to be excluded because most other libraries depends on it.
 
-This library intended to be overridden by implementation in your custom subtheme created with your project values and adjustments.
+CSS part of this library intended to be overridden by implementation in your custom subtheme created with your project values and adjustments.
 
 More information about using [mixins](/mixins.md), [variables](/variables.md) and [coponents](/components.md).
 
@@ -37,11 +37,15 @@ Contains default font definition. Default Material Design font family is Roboto,
 
 This library intended to be excluded or overridden according to fonts used on your project.
 
+In case of library was overridden, fonts preloading definitions in `THEMENAME.theme` should be also updated.
+
 **`material_base/icons-font`**
 
 Contains "Material Icons" iconic fonts definition including themes like Outlined, Rounded, Sharp, Two-Tone and Filed (default).
 
 This library could be excluded if you not going to use iconic fonts. It also could be overridden or extended by other iconic fonts.
+
+In case of library was overridden, fonts preloading definitions in `THEMENAME.theme` should be also updated.
 
 More information about using Material Icons fonts in Material Base [here](/icon-fonts.md).
 
@@ -57,7 +61,7 @@ Contains [Material Components for web](https://material.io/develop/web) library 
 
 This library was picked out to separate subtheme because it should be used together Twig templates specific to MDC library.
 
-This library intended to be overridden by implementation in your custom subtheme created with only MDC components directly used on your project and it's variables values.
+CSS part of this library intended to be overridden by implementation in your custom subtheme created with only MDC components directly used on your project and it's variables values.
 
 More information about MDC in Material Base [here](/mdc.md).
 

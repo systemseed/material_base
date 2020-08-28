@@ -26,7 +26,7 @@ Quick install
 The recommended way for getting the theme is installing it with Composer.
 
 ~~~
-composer require 'drupal/material_base:2.x-dev'
+composer require 'drupal/material_base:^2.0'
 ~~~
 
 For more information see this [page](https://www.drupal.org/docs/develop/using-composer/using-composer-to-install-drupal-and-manage-dependencies).
@@ -36,8 +36,6 @@ For more information see this [page](https://www.drupal.org/docs/develop/using-c
 It is not recommended to using Material Base theme as a site theme, the best practice is creating subtheme and specify Material Base as a base theme. However base theme could be used for demonstration purposes.
 
 Just enable it and make default via Appearance settings or Drush, as usual.
-
-<!-- TODO: update and add additional steps if they will be needed -->
 
 Full documentation
 ------------------
@@ -56,6 +54,7 @@ Full documentation
     * [Grid](/grid.md)
     * [Breakpoints](/breakpoints.md)
     * [Mixins](/mixins.md)
+    * [Helpers and extends](/helpers-extends.md)
     * [Icon fonts](/icon-fonts.md)
     * [SVG icons sprite](/svg-icons.md)
 * [Components](/components.md)

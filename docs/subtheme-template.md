@@ -6,7 +6,7 @@ Subtheme template structure
 
 Subtheme template is placed in `material_base_subtheme` folder.
 
-Subtheme template uses pretty much the same file [structure](/folder-structure.md) as a base theme (excluding itself, MDC subtheme, and docs folders).
+Subtheme template uses pretty much the same file [structure](/folder-structure.md) as a base theme (excluding itself, MDC subtheme, docs, and some other files).
 
 Creating subtheme from template
 -------------------------------
@@ -85,8 +85,10 @@ When the library contains parts which designed to be inherited or reused you cou
 @import "YOURLIBRARY/variables";
 @import "../../contrib/material_base/scss/base/variables";
 @import "../../contrib/material_base/scss/base/mixins";
+@import "../../contrib/material_base/scss/base/extends";
 @import "../../contrib/material_base/scss/base/layout";
 @import "../../contrib/material_base/scss/base/typography";
+@import "../../contrib/material_base/scss/base/helpers";
 @import "../../contrib/material_base/scss/components";
 ~~~
 

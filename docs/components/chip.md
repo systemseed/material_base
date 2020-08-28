@@ -1,7 +1,7 @@
 Chip
 ====
 
-Material Base includes custom implementation of Material Design chips for using with Drupal checkboxes form item.
+Material Base includes custom implementation of Material Design chips for using with Drupal checkboxe form item.
 
 MDC library chip component wasn't implemented yet.
 

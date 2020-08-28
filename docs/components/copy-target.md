@@ -15,6 +15,10 @@ Component classes
 Examples of usage
 -----------------
 
+### Using as markup
+
+Markup:
+
 ~~~
 <div class="copy-target">
   <button data-target="Text to copy" class="mdc-icon-button copy-target__button">
@@ -25,3 +29,35 @@ Examples of usage
   </div>
 </div>
 ~~~
+
+Output: Button for copying text.
+
+### Using in templates
+
+In Twig template file:
+
+~~~
+<div class="copy-target">
+  {% include "@material_base_mdc/components/02_molecules/icon-button.twig" with {
+    data: {
+      icon: {
+        data: {
+          value: 'content_copy',
+        },
+        settings: {
+          type: 'svg-sprite',
+        },
+      },
+    },
+    settings: {
+      target: 'Text to copy',
+      classes: ['copy-target__button'],
+    },
+  } %}
+  <div class="tooltip copy-target__tooltip">
+    Copied to clipboard
+  </div>
+</div>
+~~~
+
+Output: Button for copying text.

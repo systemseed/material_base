@@ -1,4 +1,12 @@
 .style-guide {
+  code,
+  pre {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'Roboto Mono', monospace;
+    background: darken($color-bg-body, 6);
+  }
+
   &__example-block {
     background: darken($color-bg-body, 8);
     margin-bottom: $spacing * 2;
@@ -6,7 +14,7 @@
   }
 
   &__example-color {
-    width: 64px;
+    width: 240px;
     height: 64px;
     display: flex;
     align-items: center;
@@ -38,8 +46,10 @@
   &__items {
     display: flex;
     flex-wrap: wrap;
-    margin-left: $spacing * -1;
-    margin-right: $spacing * -1;
+    margin-top: $spacing * 2;
+    margin-bottom: $spacing * 2;
+    margin-left: $spacing * -2;
+    margin-right: $spacing * -2;
 
     &--stacked {
       flex-direction: column;
@@ -48,10 +58,17 @@
     &--v-centered {
       align-items: center;
     }
+
+    &.style-guide__item {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: $spacing;
+      margin-bottom: $spacing;
+    }
   }
 
   &__item {
-    margin: $spacing * 0.75 $spacing;
+    margin: $spacing $spacing * 2;
 
     .icon {
       display: block;
@@ -63,6 +80,31 @@
 
     &--bg-primary {
       background: $theme-primary;
+    }
+  }
+
+  &__code-snippet {
+    margin-top: $spacing * 2;
+    margin-bottom: $spacing * 2;
+
+    &.mb-dropdown {
+      border: 1px solid darken($color-bg-body, 10);
+    }
+    
+    .mb-dropdown__toggle {
+      padding: ($spacing * 1.5) - 1 ($spacing * 2) - 1;
+    }
+
+    .mb-dropdown__panel {
+      position: static;
+      padding: ($spacing * 2) - 1;
+      background: darken($color-bg-body, 6);
+      border-top: 1px solid darken($color-bg-body, 10);
+    }
+
+    pre {
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 
@@ -96,7 +138,7 @@
 
     .mb-accordion__section-panel {
       padding: ($spacing * 2) - 1;
-      background: darken($color-bg-body, 8);
+      background: darken($color-bg-body, 6);
       border-top: 1px solid darken($color-bg-body, 10);
     }
   }
