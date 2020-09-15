@@ -41,8 +41,8 @@ $color-link-messages-error: #b71c1c !default;
       }
 
       .icon {
-        color: $color-link-messages-status;
-        fill: $color-link-messages-status;
+        color: $color-text-messages-status;
+        fill: $color-text-messages-status;
       }
     }
 
@@ -59,8 +59,8 @@ $color-link-messages-error: #b71c1c !default;
       }
 
       .icon {
-        color: $color-link-messages-warning;
-        fill: $color-link-messages-warning;
+        color: $color-text-messages-warning;
+        fill: $color-text-messages-warning;
       }
     }
 
@@ -77,8 +77,8 @@ $color-link-messages-error: #b71c1c !default;
       }
 
       .icon {
-        color: $color-link-messages-error;
-        fill: $color-link-messages-error;
+        color: $color-text-messages-error;
+        fill: $color-text-messages-error;
       }
     }
 
