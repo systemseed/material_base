@@ -1,6 +1,12 @@
 $color-bg-messages-status: #e8f5e9 !default;
 $color-bg-messages-warning: #fff7cf !default;
 $color-bg-messages-error: #ffebee !default;
+$color-text-messages-status: #388e3c !default;
+$color-text-messages-warning: #fbc02d !default;
+$color-text-messages-error: #d32f2f !default;
+$color-link-messages-status: #2e7d32 !default;
+$color-link-messages-warning: #f57f17 !default;
+$color-link-messages-error: #b71c1c !default;
 
 .messages {
   &__group {
@@ -14,7 +20,7 @@ $color-bg-messages-error: #ffebee !default;
   }
 
   &--colored {
-    padding: 14px 54px 14px 16px;
+    padding: 14px 54px 14px 54px;
     background: $color-bg-highlighted;
     border-radius: 4px;
     position: relative;
@@ -24,18 +30,70 @@ $color-bg-messages-error: #ffebee !default;
 
     &.messages--status {
       background: $color-bg-messages-status;
+      color: $color-text-messages-status;
+
+      a {
+        color: $color-link-messages-status;
+
+        &:hover {
+          color: darken($color-link-messages-status, 5);
+        }
+      }
+
+      .icon {
+        color: $color-link-messages-status;
+        fill: $color-link-messages-status;
+      }
     }
 
     &.messages--warning {
       background: $color-bg-messages-warning;
+      color: $color-text-messages-warning;
+
+      a {
+        color: $color-link-messages-warning;
+
+        &:hover {
+          color: darken($color-link-messages-warning, 5);
+        }
+      }
+
+      .icon {
+        color: $color-link-messages-warning;
+        fill: $color-link-messages-warning;
+      }
     }
 
     &.messages--error {
       background: $color-bg-messages-error;
+      color: $color-text-messages-error;
+
+      a {
+        color: $color-link-messages-error;
+
+        &:hover {
+          color: darken($color-link-messages-error, 5);
+        }
+      }
+
+      .icon {
+        color: $color-link-messages-error;
+        fill: $color-link-messages-error;
+      }
     }
 
     & + & {
       margin-top: $spacing;
+    }
+
+    .messages__icon {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+
+      .icon {
+        display: block;
+      }
     }
     
     .messages__close {
