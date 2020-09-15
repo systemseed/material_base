@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+
+{% if drawer_style != 'permanent' %}
+  {% set attributes = attributes.setAttribute('data-mdc-auto-init', 'MDCDrawer') %}
+  
+  {% if drawer_height == 'below_navbar' %}
+    {% if navbar_style == 'dense' %}
+      {% set navbar_style_adjust = 'mdc-top-app-bar--dense-fixed-adjust' %}
+    {% elseif navbar_style == 'prominent' %}
+      {% set navbar_style_adjust = 'mdc-top-app-bar--prominent-fixed-adjust' %}
+    {% else %}
+      {% set navbar_style_adjust = 'mdc-top-app-bar--fixed-adjust' %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+    'page-drawer',
+    'drawer',
+    'mdc-drawer',
+    drawer_style != 'parmanent' ? 'mdc-drawer--' ~ drawer_style,
+    navbar_style_adjust ? navbar_style_adjust,
+] %}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    {#
+    <div class="drawer__header">
+      <!-- Logo or title -->
+    </div>
+    #}
+    <div class="mdc-drawer__content">
+
+      {{ content }}
+
+      {# Bottom action #}
+    </div>
+  </div>
+  {% if drawer_style == 'modal' %}
+    <div class="mdc-drawer-scrim"></div>
+  {% endif %}
+{% endif %}

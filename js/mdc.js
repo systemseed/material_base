@@ -8,6 +8,23 @@
       // See https://material.io/develop/web/components/auto-init/
       window.mdc.autoInit();
 
+      // Handling MDC Drawer.
+      $(context).find('.drawer-open__button').click(function(e) {
+        e.preventDefault();
+        $('.mdc-drawer')[0].MDCDrawer.open = true;
+      });
+
+      $(context).find('.drawer-close__button').click(function(e) {
+        e.preventDefault();
+        $('.mdc-drawer')[0].MDCDrawer.open = false;
+      });
+
+      $(context).find('.drawer-toggle__button').click(function(e) {
+        e.preventDefault();
+        var drawer = $('.mdc-drawer')[0].MDCDrawer;
+        drawer.open = !drawer.open;
+      });
+
       // Handling chips
       // Add class when checkbox checked by default.
       $(context).find('.form-item-chip input[type=checkbox]').each(function() {

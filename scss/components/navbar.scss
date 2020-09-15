@@ -103,6 +103,10 @@ $navbar-height-prominent: 128px !default;
     }
   }
 
+  .drawer-below-navbar & {
+    z-index: 7;
+  }
+
   @include media-breakpoint-down($sm) {
     &__section {
       padding: 4px;

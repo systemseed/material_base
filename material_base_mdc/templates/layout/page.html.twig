@@ -8,6 +8,10 @@
   {% set navbar_style_adjust = 'mdc-top-app-bar--fixed-adjust' %}
 {% endif %}
 
+{% block page_container %}
+  <div class="page-container layout-container{{ page_layout ? ' layout-container--node' : ' layout-container--page' }}{{ drawer_full ? ' mdc-drawer-app-content'}}">
+{% endblock %}
+
 {% block navbar_adjust %}
-  <div class="page-navbar-adjust{{ navbar_style_adjust ? ' ' ~ navbar_style_adjust }}">
+  <div class="page-navbar-adjust {{ navbar_style_adjust }}{{ drawer_below ? ' mdc-drawer-app-content'}}">
 {% endblock %}

@@ -32,6 +32,27 @@ function material_base_form_system_theme_settings_alter(&$form, \Drupal\Core\For
     '#default_value' => theme_get_setting('navbar_style'),
   ];
 
+  $form['layout']['drawer_style'] = [
+    '#type' => 'select',
+    '#title' => t('Drawer style'),
+    '#options' => [
+      'permanent' => t('Permanent'),
+      'dismissible' => t('Dismissible'),
+      'modal' => t('Modal'),
+    ],
+    '#default_value' => theme_get_setting('drawer_style'),
+  ];
+
+  $form['layout']['drawer_height'] = [
+    '#type' => 'select',
+    '#title' => t('Drawer height'),
+    '#options' => [
+      'full' => t('Full height'),
+      'below_navbar' => t('Below navbar'),
+    ],
+    '#default_value' => theme_get_setting('drawer_height'),
+  ];
+
   $form['layout']['footer_style'] = [
     '#type' => 'select',
     '#title' => t('Footer style'),

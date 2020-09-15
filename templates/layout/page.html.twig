@@ -50,23 +50,36 @@
  */
 #}
 
+{% if page.drawer %}
+  {% if drawer_style == 'permanent' or drawer_height == 'full' %}
+    {% set drawer_full = TRUE %}
+  {% else %}
+    {% set drawer_below = TRUE %}
+  {% endif %}
+{% endif %}
+
 <div class="page">
-  <div class="page-container layout-container{{ page_layout ? ' layout-container--node' : ' layout-container--page' }}">
+  {% if drawer_full %}
+    {{ page.drawer }}
+  {% endif %}
+
+  {% block page_container %}
+    <div class="page-container layout-container{{ page_layout ? ' layout-container--node' : ' layout-container--page' }}{{ drawer_full ? ' page-drawer-page-content'}}">
+  {% endblock %}
+
     <div class="page-container__overlay"></div>
 
     {% if page.navbar %}
       {{ page.navbar }}
     {% endif %}
 
-    {% if page.drawer %}
-      <div class="page-drawer">
-        {{ page.drawer }}
-      </div>
+    {% if drawer_below %}
+      {{ page.drawer }}
     {% endif %}
 
     {% block navbar_adjust %}
-      <div class="page-navbar-adjust{{ navbar_style ? ' page-navbar-adjust--' ~ navbar_style }}{{ navbar_fixed ? ' page-navbar-adjust--fixed' }}">
-    {% endblock %}  
+      <div class="page-navbar-adjust{{ navbar_style ? ' page-navbar-adjust--' ~ navbar_style }}{{ navbar_fixed ? ' page-navbar-adjust--fixed' }}{{ drawer_below ? ' page-drawer-page-content'}}">
+    {% endblock %}
 
       {% if page.header %}
         <header class="page-header" role="banner">

@@ -36,6 +36,30 @@ requireAll(require.context('../images/', true, /\.(png|jpg|jpeg|webp|svg)$/));
       $('body').removeClass('overlay-open');
     });
 
+    // Handling drawer visibility
+    $('.drawer-open__button').click(function(e) {
+      e.preventDefault();
+      $('body').addClass('drawer-open');
+    });
+
+    $('.drawer-close__button').click(function(e) {
+      e.preventDefault();
+      $('body').removeClass('drawer-open');
+    });
+
+    $('.drawer-toggle__button').click(function(e) {
+      e.preventDefault();
+      $('body').toggleClass('drawer-open');
+    });
+
+    $('.drawer-nav .menu-item a').click(function() {
+      $('body').removeClass('drawer-open');
+    });
+
+    $('.drawer__overlay').click(function() {
+      $('body').removeClass('drawer-open');
+    });
+
     // Accordion
     $('.mb-accordion .mb-accordion__section-toggle').click(function(e) {
       e.preventDefault();

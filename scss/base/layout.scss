@@ -32,11 +32,16 @@ body {
 
 body,
 .dialog-off-canvas-main-canvas,
-.page,
 .page-container,
 .page-navbar-adjust,
 .page-main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+}
+
+.page {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
 }

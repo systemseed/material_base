@@ -27,6 +27,10 @@ function material_base_preprocess_html(&$variables) {
   $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
   $variables['attributes']['class'][] = 'page-' . \Drupal\Component\Utility\Html::cleanCssIdentifier(ltrim($current_alias, '/'));
 
+  if (theme_get_setting('drawer_style') != 'permanent' and theme_get_setting('drawer_height') == 'below_navbar') {
+    $variables['attributes']['class'][] = 'drawer-below-navbar';
+  }
+
   // Check for SVG sprite file.
   $icons = '';
   $icons_file = \Drupal::theme()->getActiveTheme()->getPath() . '/dist/images/icons.svg';
@@ -91,6 +95,8 @@ function material_base_preprocess_page(&$variables) {
   // Pass layout setting to template.
   $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
   $variables['navbar_style'] = theme_get_setting('navbar_style');
+  $variables['drawer_style'] = theme_get_setting('drawer_style');
+  $variables['drawer_height'] = theme_get_setting('drawer_height');
   $variables['messages_fixed'] = theme_get_setting('messages_fixed');
 
 }
@@ -102,15 +108,25 @@ function material_base_preprocess_region(array &$variables) {
 
   switch ($variables['region']) {
     case 'navbar':
-      // Pass Navbar style setting to template.
+      // Pass Navbar style settings to template.
       $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
       $variables['navbar_style'] = theme_get_setting('navbar_style');
       // Pass logo path to template.
       $variables['site_logo'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
       break;
+
+    case 'drawer':
+      // Pass style settings to template.
+      $variables['drawer_style'] = theme_get_setting('drawer_style');
+      $variables['drawer_height'] = theme_get_setting('drawer_height');
+      $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
+      $variables['navbar_style'] = theme_get_setting('navbar_style');
+      // Pass logo path to template.
+      $variables['site_logo'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+      break;  
     
     case 'footer':
-      // Pass Navbar style setting to template.
+      // Pass Footer style setting to template.
       $variables['footer_style'] = theme_get_setting('footer_style');
       break;
   }

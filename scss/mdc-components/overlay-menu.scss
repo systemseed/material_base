@@ -2,6 +2,12 @@
   .mdc-list-item {
     padding-left: 24px;
     padding-right: 24px;
+
+    &.is-active {
+      & > .mdc-list-item__text {
+        color: $theme-primary;
+      }
+    }
   }
 
   .menu--level-1 .mdc-list-item {
