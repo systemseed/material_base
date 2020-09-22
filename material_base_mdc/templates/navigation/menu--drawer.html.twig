@@ -67,7 +67,11 @@
           'mdc-list-item',
           item.is_expanded and menu_level == 0 ? 'mb-accordion__section-toggle',
         ] %}
-        {{ link(item_label, item.url, { 'class': item_classes, 'data-mdc-auto-init': 'MDCRipple' }) }}
+        {% if menu_level == 0 and loop.first %}
+          {{ link(item_label, item.url, { 'class': item_classes, 'data-mdc-auto-init': 'MDCRipple', tabindex: 0 }) }}
+        {% else %}
+          {{ link(item_label, item.url, { 'class': item_classes, 'data-mdc-auto-init': 'MDCRipple' }) }}
+        {% endif %}
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
