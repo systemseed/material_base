@@ -2,4 +2,13 @@
   &.mdc-drawer--permanent {
     height: auto;
   }
+
+  .toolbar-vertical &,
+  .toolbar-horizontal & {
+    height: calc(100% - 39px);
+  }
+
+  .toolbar-horizontal.toolbar-tray-open & {
+    height: calc(100% - 79px);
+  }
 }
