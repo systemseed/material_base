@@ -11,19 +11,19 @@
 function THEMENAME_preprocess_html(&$variables) {
 
   foreach ($variables['page']['#attached']['html_head'] as $key => $attachment) {
-    switch($attachment[1]){
-      
+    switch ($attachment[1]) {
+
       // Unset preloading Roboto font.
       case 'preload_font_roboto':
         unset($variables['page']['#attached']['html_head'][$key]);
         break;
-      
+
       // Unset preloading Material icons font.
       /*
       case 'preload_font_material_icons':
-        unset($variables['page']['#attached']['html_head'][$key]);
-        break;
-      */
+      unset($variables['page']['#attached']['html_head'][$key]);
+      break;
+       */
     }
   }
 
