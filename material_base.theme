@@ -147,8 +147,7 @@ function material_base_preprocess_block(&$variables) {
   }
 
   // Pass block config data to content so this can be used in menu element
-  if (isset($variables['elements']['#id'])) {
-    $block = Block::load($variables['elements']['#id']);
+  if (isset($variables['elements']['#id']) && $block = Block::load($variables['elements']['#id'])) {
     $region = $block->getRegion();
     $variables['content']['#attributes']['region'] = $region;
     $settings = $block->get('settings');
@@ -245,14 +244,12 @@ function material_base_theme_suggestions_block_alter(array &$suggestions, array 
   }
 
   // Region suggestions.
-  if (isset($variables['elements']['#id'])) {
-    if ($block = Block::load($variables["elements"]["#id"])) {
-      $region = $block->getRegion();
-      $suggestions[] = 'block__' . $region;
-      $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
-      $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#id'];
-      $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['#id'];
-    }
+  if (isset($variables['elements']['#id']) && $block = Block::load($variables['elements']['#id'])) {
+    $region = $block->getRegion();
+    $suggestions[] = 'block__' . $region;
+    $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
+    $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#id'];
+    $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['#id'];
   }
 
   // Custom Blocks suggestions (Bundles and view mode).
