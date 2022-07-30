@@ -31,5 +31,5 @@
 <button{{ button_attributes.addClass(button_classes) }}>
   <div class="mdc-button__ripple"></div>
   <span class="mdc-button__label">{{ attributes.value|render }}</span>
-  <input{{ attributes|without('class').addClass('button-submit__input', 'visually-hidden') }} />
+  <input{{ attributes|without('class').addClass('button-submit__input') }} />
 </button>
