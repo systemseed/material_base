@@ -1,8 +1,7 @@
 name: Material Base
 type: theme
 description: Base theme inspirited by Material Design concept.
-core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 
 base theme: stable
 

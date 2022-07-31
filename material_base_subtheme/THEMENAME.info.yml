@@ -4,8 +4,7 @@ hidden: true
 name: Theme name
 type: theme
 description: Custom theme based on Material Base theme.
-core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 
 base theme: material_base_mdc                     # Default. Subtheme of Material Base with MDC library related stuff
 # base theme: material_base                       # Pure base theme without MDC library related stuff

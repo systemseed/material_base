@@ -1,8 +1,7 @@
 name: Material Base MDC
 type: theme
 description: Materail Base subtheme which implements MDC.
-core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 
 base theme: material_base
 

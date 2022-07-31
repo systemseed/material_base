@@ -5,10 +5,11 @@
  * Functions to support theming in the Material Base theme.
  */
 
-use Drupal\Core\Template\Attribute;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\block_content\BlockContentInterface;
 use Drupal\block\Entity\Block;
+use Drupal\block_content\BlockContentInterface;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -25,7 +26,7 @@ function material_base_preprocess_html(&$variables) {
   // Add page alias as body class.
   $current_path = \Drupal::service('path.current')->getPath();
   $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
-  $variables['attributes']['class'][] = 'page-' . \Drupal\Component\Utility\Html::cleanCssIdentifier(ltrim($current_alias, '/'));
+  $variables['attributes']['class'][] = 'page-' . Html::cleanCssIdentifier(ltrim($current_alias, '/'));
 
   if (theme_get_setting('drawer_style') != 'permanent' and theme_get_setting('drawer_height') == 'below_navbar') {
     $variables['attributes']['class'][] = 'drawer-below-navbar';
@@ -40,7 +41,7 @@ function material_base_preprocess_html(&$variables) {
     $icons = file_get_contents($icons_file);
   } else {
     // Use base theme SVG sprite file.
-    $icons_file = drupal_get_path('theme', 'material_base') . '/dist/images/icons.svg';
+    $icons_file = \Drupal::service('extension.list.theme')->getPath('material_base') . '/dist/images/icons.svg';
     if (file_exists($icons_file)) {
       // Get the contents of the SVG sprite.
       $icons = file_get_contents($icons_file);
@@ -112,7 +113,7 @@ function material_base_preprocess_region(array &$variables) {
       $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
       $variables['navbar_style'] = theme_get_setting('navbar_style');
       // Pass logo path to template.
-      $variables['site_logo'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+      $variables['site_logo'] = \Drupal::service('file_url_generator')->generateString(theme_get_setting('logo.url'));
       break;
 
     case 'drawer':
@@ -122,7 +123,7 @@ function material_base_preprocess_region(array &$variables) {
       $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
       $variables['navbar_style'] = theme_get_setting('navbar_style');
       // Pass logo path to template.
-      $variables['site_logo'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+      $variables['site_logo'] = \Drupal::service('file_url_generator')->generateString(theme_get_setting('logo.url'));
       break;  
     
     case 'footer':
