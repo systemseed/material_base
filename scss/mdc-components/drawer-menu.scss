@@ -1,5 +1,5 @@
 .mdc-drawer {
-  .mdc-list-item {
+  .mdc-deprecated-list-item {
     margin: 0 !important;
 
     &:first-child,
@@ -7,32 +7,32 @@
       margin-top: 0 !important;
     }
 
-    &.is-active:not(.mdc-list-item--disabled) {
+    &.is-active:not(.mdc-deprecated-list-item--disabled) {
       color: rgba($theme-primary, .87);
 
       &:before,
       &:after,
-      .mdc-list-item__ripple:before,
-      .mdc-list-item__ripple:after {
+      .mdc-deprecated-list-item__ripple:before,
+      .mdc-deprecated-list-item__ripple:after {
         background: $theme-primary;
       }
 
       &:before,
-      .mdc-list-item__ripple:before {
+      .mdc-deprecated-list-item__ripple:before {
         opacity: .12;
       }
 
       &:hover:before,
-      &:hover .mdc-list-item__ripple:before {
+      &:hover .mdc-deprecated-list-item__ripple:before {
         opacity: .16;
       }
 
       &:active:after,
-      &:active .mdc-list-item__ripple:after {
+      &:active .mdc-deprecated-list-item__ripple:after {
         opacity: .24;
       }
       
-      .mdc-list-item__graphic {
+      .mdc-deprecated-list-item__graphic {
         color: $theme-primary;
         fill: $theme-primary;
       }
@@ -62,29 +62,29 @@
     }
   }
 
-  .menu--level-1 .mdc-list-item {
+  .menu--level-1 .mdc-deprecated-list-item {
     padding-left: 24px;
   }
 
-  .mdc-list-item__meta .icon {
+  .mdc-deprecated-list-item__meta .icon {
     display: block;
   }
 
-  .mb-accordion__section-toggle .mdc-list-item__meta .icon {
+  .mb-accordion__section-toggle .mdc-deprecated-list-item__meta .icon {
     transition: transform .25s ease-out;
   }
 
-  .mb-accordion__section--expanded .mb-accordion__section-toggle .mdc-list-item__meta .icon {
+  .mb-accordion__section--expanded .mb-accordion__section-toggle .mdc-deprecated-list-item__meta .icon {
     transform: rotate(180deg);
   }
 
   @include media-breakpoint-down($sm) {
-    .mdc-list-item {
+    .mdc-deprecated-list-item {
       padding-left: 16px;
       padding-right: 16px;
     }
 
-    .menu--level-1 .mdc-list-item {
+    .menu--level-1 .mdc-deprecated-list-item {
       padding-left: 16px;
     }
   }

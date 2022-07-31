@@ -36,14 +36,14 @@ In Twig template file:
   } %}
   <div class="mdc-menu-surface--anchor">
     <div class="mdc-menu mdc-menu-surface" data-mdc-auto-init="MDCMenu">
-      <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1" data-mdc-auto-init="MDCList">
-        <li class="mdc-list-item" role="menuitem" data-mdc-auto-init="MDCRipple">
-          <span class="mdc-list-item__ripple"></span>
-          <span class="mdc-list-item__text">A Menu Item</span>
+      <ul class="mdc-deprecated-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1" data-mdc-auto-init="MDCList">
+        <li class="mdc-deprecated-list-item" role="menuitem" data-mdc-auto-init="MDCRipple">
+          <span class="mdc-deprecated-list-item__ripple"></span>
+          <span class="mdc-deprecated-list-item__text">A Menu Item</span>
         </li>
-        <li class="mdc-list-item" role="menuitem" data-mdc-auto-init="MDCRipple">
-          <span class="mdc-list-item__ripple"></span>
-          <span class="mdc-list-item__text">Another Menu Item</span>
+        <li class="mdc-deprecated-list-item" role="menuitem" data-mdc-auto-init="MDCRipple">
+          <span class="mdc-deprecated-list-item__ripple"></span>
+          <span class="mdc-deprecated-list-item__text">Another Menu Item</span>
         </li>
       </ul>
     </div>

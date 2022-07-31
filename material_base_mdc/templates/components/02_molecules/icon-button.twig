@@ -81,6 +81,7 @@
 {% endif %}
 
 <{{ tag }}{{ attributes.addClass(classes) }}>
+  <div class="mdc-icon-button__ripple"></div>
   {% include "@material_base/components/01_atoms/icon.twig" with {
     data: {
       value: data.icon.data.value,

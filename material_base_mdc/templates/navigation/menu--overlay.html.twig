@@ -32,7 +32,7 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('menu', 'menu--level-' ~ menu_level, 'mb-accordion', 'mdc-list').setAttribute('data-mdc-auto-init', 'MDCList') }}>
+      <ul{{ attributes.addClass('menu', 'menu--level-' ~ menu_level, 'mb-accordion', 'mdc-deprecated-list').setAttribute('data-mdc-auto-init', 'MDCList') }}>
     {% else %}
       <ul class="menu menu--level-{{ menu_level }}{{ menu_level == 1 ? ' mb-accordion__section-panel' }}">
     {% endif %}
@@ -48,10 +48,10 @@
       %}
       <li{{ item.attributes.addClass(classes) }}>
         {% set item_label %}
-          <span class="mdc-list-item__ripple"></span>
-          <span class="mdc-list-item__text">{{ item.title }}</span>
+          <span class="mdc-deprecated-list-item__ripple"></span>
+          <span class="mdc-deprecated-list-item__text">{{ item.title }}</span>
           {% if item.is_expanded and menu_level == 0 %}
-            <span class="mdc-list-item__meta">
+            <span class="mdc-deprecated-list-item__meta">
               {% include "@material_base/components/01_atoms/icon.twig" with {
                 data: {
                   value: 'arrow_drop_down',
@@ -64,7 +64,7 @@
           {% endif %}
         {% endset %}
         {% set item_classes = [
-          'mdc-list-item',
+          'mdc-deprecated-list-item',
           item.is_expanded and menu_level == 0 ? 'mb-accordion__section-toggle',
         ] %}
         {{ link(item_label, item.url, { 'class': item_classes, 'data-mdc-auto-init': 'MDCRipple' }) }}
