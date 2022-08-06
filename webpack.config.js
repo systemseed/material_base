@@ -91,18 +91,14 @@ module.exports = [{
           presets: ['@babel/preset-env'],
         },
       },
-     {
+      {
         test: /\.(png|jpg|jpeg|webp|svg)$/,
         exclude: /icons\/.*\.svg$/,
+        type: 'asset/resource',
+        generator: {
+          filename: './[path][name][ext]'
+        },
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              emitFile: true,
-              name: '[path][name].[ext]',
-              publicPath: '../',
-            },
-          },
           {
             loader: 'image-webpack-loader',
             options: {
