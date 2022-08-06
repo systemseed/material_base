@@ -14,4 +14,4 @@ None.
 Installation
 ------------
 
-Install as usual, see https://www.drupal.org/docs/extending-drupal/installing-themes for further information.
+Install as usual, see [doc](https://www.drupal.org/docs/extending-drupal/installing-themes) for further information.

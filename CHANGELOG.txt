@@ -1,7 +1,0 @@
-Material Base v2 development changes
-====================================
-
-28.08.2020
-----------
-
-* First beta release.
