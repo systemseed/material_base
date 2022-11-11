@@ -10,12 +10,12 @@ Accepted variables
 
 - `data`:
     - `url`: The value for `href` attribute if using `a` tag or `data-url` attribute in other cases, for the whole card.
-    - `media`: (render array) image or media. 
+    - `media`: (render array) image or media.
     - `label`: Tag or label.
     - `title`: Card title text.
     - `subtitle`: Card subtitle text.
     - `text`:  Card text.
-    - `button`: ([button component](/components/button.md)) card action button.
+    - `button`: ([button component](button.md)) card action button.
 - `settings`:
     - `attributes`: (object) element attributes.
     - `classes`: (array) classes for adding to the element.
@@ -35,7 +35,7 @@ However it implements only one default layout (with media at the top and one act
 
 Supported MDC library classes:
 
-* "no classes" - default card 
+* "no classes" - default card
 * `mdc-card--outlined` - bordered card without elevation
 
 Examples of usage

@@ -39,8 +39,8 @@ Supported navbar items:
 
 * Branding (Drupal site branding block)
 * Menu, including 2 level submenus (Drupal menu block)
-* Icon button (as [Icon button](/components/icon-button.md) or [Button](/components/button.md) components)
-* Button (as [Button](/components/button.md) component)
+* Icon button (as [Icon button](icon-button.md) or [Button](button.md) components)
+* Button (as [Button](button.md) component)
 
 Main idea behind navbar items accessibility is to make inner spacing for clickable items without background or border (Logo, Icon button, Menu item), and outer spacing for items with their own inner spacing or non clickable (Button with background, Menu, Slogan).
 
@@ -79,7 +79,7 @@ Place Site branding block instance into Navbar region. Configure block for displ
 ### Default menu (MDC Menu)
 
 Default menu support second menu level displayed as dropdown menu by click (MDC Menu component).
- 
+
 Place some menu block instance into Navbar region. Configure block for displaying needed menu deepness.
 
 ### Menu (MB Dropdown)
@@ -87,7 +87,7 @@ Place some menu block instance into Navbar region. Configure block for displayin
 This implementation support second menu level displayed as dropdown menu by click (MB Dropdown component).
 
 Copy `menu--navbar.html.twig` from `templates/navigation` folder (not from `material_base_mdc/templates/navigation` folder) and paste to `templates/navigation` folder of your custom theme.
- 
+
 Place some menu block instance into Navbar region. Configure block for displaying needed menu deepness.
 
 ### Menu (hoverable)
@@ -95,7 +95,7 @@ Place some menu block instance into Navbar region. Configure block for displayin
 This implementation support second menu level displayed as dropdown menu by hover.
 
 Copy `menu--navbar--hoverable.html.twig` from `templates/navigation` folder and paste as `menu--navbar.html.twig` to `templates/navigation` folder of your custom theme.
- 
+
 Place some menu block instance into Navbar region. Configure block for displaying needed menu deepness.
 
 ### Overlay menu open button (Icon button)

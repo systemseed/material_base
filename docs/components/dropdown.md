@@ -3,7 +3,7 @@ Dropdown
 
 Material Base provides JS and minimal styles for creating dropdowns.
 
-[Button component](/components/button.md) could be used as Dropdown toggle as well.
+[Button component](button.md) could be used as Dropdown toggle as well.
 
 Component implemented as CSS classes for using in markup.
 

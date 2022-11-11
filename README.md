@@ -1,17 +1,9 @@
 Material Base v2
 ================
 
-Introduction
-------------
+**Material Base** — is a base theme for Drupal 7, 8, 9 and 10.
+It implements Material Design concept by Google.
 
-Base theme which implements [Material Design](https://material.io/) concept and [Material Components for web](https://material.io/develop/web) library from Goggle.
+Read **[documentation](docs/index.md)** to get started.
 
-Requirements
-------------
-
-None.
-
-Installation
-------------
-
-Install as usual, see [doc](https://www.drupal.org/docs/extending-drupal/installing-themes) for further information.
+Happy theming!

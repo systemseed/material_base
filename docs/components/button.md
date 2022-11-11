@@ -11,7 +11,7 @@ Accepted variables
 - `data`:
     - `label`: Button text.
     - `url`: The value for `href` attribute if using `a` tag or `data-url` attribute in other cases.
-    - `icon`: ([icon component](/components/icon.md)) icon for showing beside the button text.
+    - `icon`: ([icon component](icon.md)) icon for showing beside the button text.
 - `settings`:
     - `attributes`: (object) element attributes.
     - `classes`: (array) classes for adding to the element.
@@ -26,11 +26,11 @@ Component options
 
 Button component implements Button component from MDC library and support all it's features.
 
-For more info see https://material.io/develop/web/components/buttons  
+For more info see https://material.io/develop/web/components/buttons
 
 Supported MDC library classes:
 
-* "no classes" - default button 
+* "no classes" - default button
 * `mdc-button--outlined` - outlined button
 * `mdc-button--raised` - contained button
 * `mdc-button--unelevated` - contained button without elevation

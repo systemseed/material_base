@@ -13,7 +13,7 @@ Accepted variables
 Template accept all default `form-element` template variables and additionaly these ones:
 
 - `outlined`: (bool) makes chip looks outlined.
-- `icon`: ([icon component](/components/icon.md)) icon for showing beside the chip text.
+- `icon`: ([icon component](icon.md)) icon for showing beside the chip text.
 
 Component options
 -----------------

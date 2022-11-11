@@ -5,9 +5,9 @@ Material Base provides Sass variables for site level customizations and options.
 
 Defined variables and their default values stored in `sass\base\variables.scss`.
 
-Main colors and typography variables reflects [MDC library](/mdc.md) variables structure. 
+Main colors and typography variables reflects [MDC library](mdc.md) variables structure.
 
-Layouts and styles of Material Base theme components are built depending on variables values. 
+Layouts and styles of Material Base theme components are built depending on variables values.
 
 Adjusting variables
 -------------------

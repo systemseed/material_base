@@ -5,7 +5,7 @@ Material Base provides JS for handling menu dropdowns.
 
 Menu dropdown component uses Menu component from MDC library and support all it's features.
 
-[Button component](/components/button.md) could be used as menu dropdown toggle as well.
+[Button component](button.md) could be used as menu dropdown toggle as well.
 
 Component implemented as CSS classes for using in markup.
 
@@ -20,7 +20,7 @@ Component classes
 Examples of usage
 -----------------
 
-### Button with menu dropdown 
+### Button with menu dropdown
 
 In Twig template file:
 

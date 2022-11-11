@@ -13,7 +13,7 @@ You could create your subtheme from scratch or use a template included in MB (re
 
 Folder `material_base_subtheme` contains the template for creating your custom theme.
 
-For detailed information about how to create subtheme from template see [Custom subtheme template](/subtheme-template.md).
+For detailed information about how to create subtheme from template see [Custom subtheme template](subtheme-template.md).
 
 Enabling theme
 --------------
@@ -28,6 +28,6 @@ Starting usage and further theme development
 
 Your next steps of preparing your custom theme for usage and development could be:
 
-1. Defining needed [libraries](/libraries.md)
-2. Setting up [variables](/variables.md)
-3. [Building theme](/build.md)
+1. Defining needed [libraries](libraries.md)
+2. Setting up [variables](variables.md)
+3. [Building theme](build.md)

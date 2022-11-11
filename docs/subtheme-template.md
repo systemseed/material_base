@@ -6,7 +6,7 @@ Subtheme template structure
 
 Subtheme template is placed in `material_base_subtheme` folder.
 
-Subtheme template uses pretty much the same file [structure](/folder-structure.md) as a base theme (excluding itself, MDC subtheme, docs, and some other files).
+Subtheme template uses pretty much the same file [structure](folder-structure.md) as a base theme (excluding itself, MDC subtheme, docs, and some other files).
 
 Creating subtheme from template
 -------------------------------
@@ -23,8 +23,8 @@ From Material Base theme folder:
 php generate.php [themename] [path to themes folder]
 ~~~
 
-If `path to themes folder` not provided, `../../custom` path name will be used by default.  
-If `themename` not provided, `material_top` name will be used as theme name by default.  
+If `path to themes folder` not provided, `../../custom` path name will be used by default.
+If `themename` not provided, `material_top` name will be used as theme name by default.
 If `themename` not provided and `PROJECT_NAME` environment variable is set, `material_PROJECT_NAME` will be used as theme name.
 
 Examples:
@@ -48,7 +48,7 @@ php generate.php westeros "/var/www/html/web/themes/custom"
     * `THEMENAME.info.yml`
     * `THEMENAME.libraries.yml`
     * `THEMENAME.theme`
-    
+
 4. There are some values in file content that also should be replaced according to your theme name. These values also look like `THEMENAME`. It would be a good starting point to surf over all files and checks how the theme is organized and at the same time update values and probably even adjust some. List of files for obligatory to check (which contains placeholders):
 
     * all files in `config/optional` folder
@@ -97,5 +97,5 @@ Your theme variables file should always be imported first. Make sure that import
 
 In a similar way `THEMENAME/mdc` library form subtheme template intended to be used as a replacement of `material_base_mdc/mdc` library from Material Base MDC theme.
 
-For more info about libraries see [Libraries](/libraries.md) page.
+For more info about libraries see [Libraries](libraries.md) page.
 

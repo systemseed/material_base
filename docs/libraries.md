@@ -21,7 +21,7 @@ This library not intended to be excluded because most other libraries depends on
 
 CSS part of this library intended to be overridden by implementation in your custom subtheme created with your project values and adjustments.
 
-More information about using [mixins](/mixins.md), [variables](/variables.md) and [coponents](/components.md).
+More information about using [mixins](mixins.md), [variables](variables.md) and [coponents](components.md).
 
 **`material_base/grid`**
 
@@ -29,7 +29,7 @@ Contains grid system definitions for [Flexbox Grid](http://flexboxgrid.com/) ext
 
 This library could be freely excluded or overridden by any other grid system.
 
-More information about using Flexbox Grid in Material Base [here](/grid.md).
+More information about using Flexbox Grid in Material Base [here](grid.md).
 
 **`material_base/fonts`**
 
@@ -47,23 +47,23 @@ This library could be excluded if you not going to use iconic fonts. It also cou
 
 In case of library was overridden, fonts preloading definitions in `THEMENAME.theme` should be also updated.
 
-More information about using Material Icons fonts in Material Base [here](/icon-fonts.md).
+More information about using Material Icons fonts in Material Base [here](icon-fonts.md).
 
-Using iconic font is probably easiest way of using predefined icon sets like Material Icons or Font Awesome but not so convenient for custom icons. For easy using of custom icons (but not excluding icons from icon libraries) there is also SVG icon sprite generation function included in [building](/build.md) process.
+Using iconic font is probably easiest way of using predefined icon sets like Material Icons or Font Awesome but not so convenient for custom icons. For easy using of custom icons (but not excluding icons from icon libraries) there is also SVG icon sprite generation function included in [building](build.md) process.
 
-More information about using SVG icons sprite in Material Base [here](/svg-icons.md).
+More information about using SVG icons sprite in Material Base [here](svg-icons.md).
 
 Both icon usage options could be effectively used together.
 
 **`material_base_mdc/mdc`** (from "Material Base MDC" subtheme)
 
-Contains [Material Components for web](https://material.io/develop/web) library definition.
+Contains [Material Components for web](https://m2.material.io/develop/web) library definition.
 
 This library was picked out to separate subtheme because it should be used together Twig templates specific to MDC library.
 
 CSS part of this library intended to be overridden by implementation in your custom subtheme created with only MDC components directly used on your project and it's variables values.
 
-More information about MDC in Material Base [here](/mdc.md).
+More information about MDC in Material Base [here](mdc.md).
 
 **`THEMENAME/theme`** (library template from `material_base_subtheme` folder)
 

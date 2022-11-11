@@ -12,9 +12,9 @@ Accepted variables
     - `label`: Button text.
     - `url`: URL of page for sharing.
     - `title`: Title of page for sharing.
-    - `icon`: icon for showing beside the button text: `TRUE` (default), `FALSE` or [icon component](/components/icon.md).
+    - `icon`: icon for showing beside the button text: `TRUE` (default), `FALSE` or [icon component](icon.md).
 - `settings`:
-    - `network`: `'facebook'`, `'twitter'`, `'linkedin'`. 
+    - `network`: `'facebook'`, `'twitter'`, `'linkedin'`.
     - `attributes`: (object) element attributes.
     - `classes`: (array) classes for adding to the element.
     - `id`: HTML `id` attribute.

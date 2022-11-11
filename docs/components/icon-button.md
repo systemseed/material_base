@@ -10,7 +10,7 @@ Accepted variables
 
 - `data`:
     - `url`: The value for `href` attribute if using `a` tag or `data-url` attribute in other cases.
-    - `icon`: ([icon component](/components/icon.md)) icon for display.
+    - `icon`: ([icon component](icon.md)) icon for display.
 - `settings`:
     - `attributes`: (object) element attributes.
     - `classes`: (array) classes for adding to the element.
@@ -18,7 +18,7 @@ Accepted variables
     - `disabled`: (bool) makes button looks and behave as inactive.
     - `tag`: HTML tag for the element: `'button'` (default), `'a'`, `'span'`.
     - `label`: The value for `aria-label` attribute.
-    - `target`: The value for `data-target` attribute. 
+    - `target`: The value for `data-target` attribute.
 
 Component options
 -----------------
