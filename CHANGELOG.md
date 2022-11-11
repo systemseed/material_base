@@ -1,6 +1,11 @@
 Material Base v2 development changes
 ====================================
 
+Not released
+----------
+
+* Use "stable9" instead of "stable" as base theme.
+
 06.08.2022
 ----------
 

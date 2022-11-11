@@ -4,7 +4,7 @@ hidden: true
 name: Theme name
 type: theme
 description: Custom theme based on Material Base theme.
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^9 || ^10
 
 base theme: material_base_mdc                     # Default. Subtheme of Material Base with MDC library related stuff
 # base theme: material_base                       # Pure base theme without MDC library related stuff
@@ -14,7 +14,7 @@ screenshot: screenshot.svg
 libraries:
   - THEMENAME/theme                               # Contains project theme defaults and components (extends whole base)
   - THEMENAME/mdc                                 # Contains project MDC defenition
-#  - THEMENAME/YOURLIBRARY                    
+#  - THEMENAME/YOURLIBRARY
 
 libraries-override:
   material_base/base:                             # Contains base theme defaults and components, replaced by project theme except base.js
@@ -48,7 +48,7 @@ regions:
   footer: 'Footer'
   drawer: 'Drawer'
   overlay: 'Overlay'
-  
+
 regions_hidden:
   page_bottom: 'Page bottom'
   page_top: 'Page top'

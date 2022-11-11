@@ -11,6 +11,7 @@ Files and folders of Material Base:
 * `📁 js` - source folder for JS files
 * `📁 material_base_mdc` - "Material Base MDC" theme folder
 * `📁 material_base_subtheme` - example kit for creating your custom subtheme
+* `📁 material_stable9` - "Material Stable 9" theme folder
 * `📁 scss` - source folder for Sass files
 * `📁 templates` - contains Twig templates for Drupal elements and theme components
 * `📄 .gitignore` - contains exclusions for Git repository

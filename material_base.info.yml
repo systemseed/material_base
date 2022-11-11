@@ -1,9 +1,9 @@
 name: Material Base
 type: theme
 description: Base theme inspirited by Material Design concept.
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^9 || ^10
 
-base theme: stable
+base theme: material_stable9
 
 screenshot: screenshot.svg
 
@@ -38,7 +38,7 @@ regions:
   footer: 'Footer'
   drawer: 'Drawer'
   overlay: 'Overlay'
-  
+
 regions_hidden:
   page_bottom: 'Page bottom'
   page_top: 'Page top'

@@ -1,7 +1,7 @@
 name: Material Base MDC
 type: theme
 description: Materail Base subtheme which implements MDC.
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^9 || ^10
 
 base theme: material_base
 
@@ -29,7 +29,7 @@ regions:
   footer: 'Footer'
   drawer: 'Drawer'
   overlay: 'Overlay'
-  
+
 regions_hidden:
   page_bottom: 'Page bottom'
   page_top: 'Page top'
