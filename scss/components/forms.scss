@@ -3,6 +3,10 @@
   margin-bottom: $spacing * 2;
   max-width: $ms;
 
+  &.js-form-type-vertical-tabs {
+    max-width: none;
+  }
+
   .form-item {
     margin-top: $spacing;
     margin-bottom: $spacing;
@@ -28,11 +32,16 @@
 .form-actions {
   display: flex;
   flex-wrap: wrap;
-  margin: $spacing * 1.5 $spacing * -0.5;
-  max-width: $ms + $spacing;
+  margin: $spacing * 2 0;
+  gap: $spacing;
+  max-width: $ms;
 
-  & > .form-submit {
-    margin: $spacing * 0.5;
+  &.full-width {
+    max-width: none;
+  }
+
+  & > .full-width {
+    width: 100%;
   }
 }
 
@@ -54,6 +63,10 @@ details {
 
   & > .form-item:last-child {
     margin-bottom: 0;
+  }
+
+  &.vertical-tabs__pane > summary + .form-item {
+    margin-top: 0;
   }
 }
 

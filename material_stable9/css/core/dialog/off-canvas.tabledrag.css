@@ -43,14 +43,14 @@
   padding: 0;
   background-color: transparent;
   /* Use lighter drag icon against dark background. */
-  background-image: url(/core/icons/misc/bebebe/move.svg);
+  background-image: url(/core/misc/icons/bebebe/move.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
 #drupal-off-canvas .draggable a.tabledrag-handle:hover .handle,
 #drupal-off-canvas .draggable a.tabledrag-handle:focus .handle {
   text-decoration: none;
-  background-image: url(/core/icons/misc/787878/move.svg);
+  background-image: url(/core/misc/icons/787878/move.svg);
 }
 #drupal-off-canvas tr td {
   transition: background 0.3s ease;

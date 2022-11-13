@@ -6,7 +6,6 @@
  */
 
 use Drupal\block\Entity\Block;
-use Drupal\block_content\BlockContentInterface;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
@@ -14,7 +13,7 @@ use Drupal\Core\Template\Attribute;
 /**
  * Implements hook_preprocess_HOOK().
  */
-function material_base_preprocess_html(&$variables) {
+function material_base_preprocess_html(array &$variables) {
 
   // Add body class for front and not front pages.
   if (\Drupal::service('path.matcher')->isFrontPage()) {
@@ -50,10 +49,10 @@ function material_base_preprocess_html(&$variables) {
 
   if ($icons) {
     // Add SVG sprite to page_bottom.
-    $variables['page_bottom']['icons'] = array(
+    $variables['page_bottom']['icons'] = [
       '#type' => 'inline_template',
       '#template' => '<span class="hidden">' . $icons . '</span>',
-    );
+    ];
   }
 
   $preconnect_google_fonts = [
@@ -91,7 +90,7 @@ function material_base_preprocess_html(&$variables) {
 /**
  * Implements hook_preprocess_page().
  */
-function material_base_preprocess_page(&$variables) {
+function material_base_preprocess_page(array &$variables) {
 
   // Pass layout setting to template.
   $variables['navbar_fixed'] = theme_get_setting('navbar_fixed');
@@ -137,7 +136,7 @@ function material_base_preprocess_region(array &$variables) {
 /**
  * Implements hook_preprocess_block().
  */
-function material_base_preprocess_block(&$variables) {
+function material_base_preprocess_block(array &$variables) {
 
   if (isset($variables['elements']['content']['#block_content'])) {
     // Pass block type to template.
@@ -162,9 +161,9 @@ function material_base_preprocess_block(&$variables) {
 /**
  * Implements hook_preprocess_menu().
  */
-function material_base_preprocess_menu(&$variables) {
+function material_base_preprocess_menu(array &$variables) {
 
-  // Pass mene depth to template
+  // Pass menu depth to template
   if (isset($variables['attributes']['menu_depth'])) {
     $variables['menu_depth'] = $variables['attributes']['menu_depth'];
   }
@@ -174,7 +173,7 @@ function material_base_preprocess_menu(&$variables) {
 /**
  * Implements hook_preprocess_status_messages().
  */
-function material_base_preprocess_status_messages(&$variables) {
+function material_base_preprocess_status_messages(array &$variables) {
 
   // Pass messages setting to template.
   $variables['messages_fixed'] = theme_get_setting('messages_fixed');
@@ -184,7 +183,7 @@ function material_base_preprocess_status_messages(&$variables) {
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function material_base_theme_suggestions_page_alter(&$suggestions, &$variables) {
+function material_base_theme_suggestions_page_alter(array &$suggestions, array &$variables) {
 
   // Suggestion by page alias.
   $current_path = \Drupal::service('path.current')->getPath();
@@ -227,23 +226,6 @@ function material_base_theme_suggestions_node_alter(array &$suggestions, array $
  */
 function material_base_theme_suggestions_block_alter(array &$suggestions, array $variables) {
 
-  $content = $variables['elements']['content'];
-
-  if (isset($content['#block_content']) and $content['#block_content'] instanceof BlockContentInterface) {
-    // Block title suggetion, default do not work in page manager blocks.
-    $block_description = preg_replace('/\W+/','_',strtolower($content['#block_content']->label()));
-    $suggestions[] = 'block__' . $block_description;
-  }
-
-  // View mode suggestion for custom blocks.
-  if (isset($variables['elements']['#configuration']['view_mode'])) {
-    $view_mode = $variables['elements']['#configuration']['view_mode'];
-    $suggestions[] = 'block__' . $view_mode;
-  }
-  else {
-    $view_mode = NULL;
-  }
-
   // Region suggestions.
   if (isset($variables['elements']['#id']) && $block = Block::load($variables['elements']['#id'])) {
     $region = $block->getRegion();
@@ -253,17 +235,28 @@ function material_base_theme_suggestions_block_alter(array &$suggestions, array 
     $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['#id'];
   }
 
-  // Custom Blocks suggestions (Bundles and view mode).
+  // Custom Blocks suggestions.
   if ($variables['elements']['#base_plugin_id'] === 'block_content'
     && isset($variables['elements']['content']['#block_content'])) {
-    // Bundle type.
-    $bundle = $variables['elements']['content']['#block_content']->bundle();
-    $suggestions[] = 'block__' . $region . '__' . $bundle;
-    if ($view_mode = $variables['elements']['content']['#view_mode']) {
-      $suggestions[] = 'block__' . $region . '__' . $bundle . '__' . $view_mode;
-      $suggestions[] = 'block__' . $bundle . '__' . $view_mode;
-    }
+    $block_content = $variables['elements']['content']['#block_content'];
+    $bundle = $block_content->bundle();
     $suggestions[] = 'block__' . $bundle;
+    // Blocks used in layout builder don't have configuration entity so don't have region defined.
+    if (!empty($region)) {
+      $suggestions[] = 'block__' . $region . '__' . $bundle;
+    }
+    
+    // View mode suggestion.
+    if ($view_mode = $variables['elements']['content']['#view_mode']) {
+      $suggestions[] = 'block__' . $bundle . '__' . $view_mode;
+      if (!empty($region)) {
+        $suggestions[] = 'block__' . $region . '__' . $bundle . '__' . $view_mode;
+      }
+    }
+
+    // Block title suggetion, default one isn't working for page manager blocks.
+    $block_description = preg_replace('/\W+/','_',strtolower($block_content->label()));
+    $suggestions[] = 'block__' . $block_description;
   }
 
 }
@@ -271,7 +264,7 @@ function material_base_theme_suggestions_block_alter(array &$suggestions, array 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function material_base_theme_suggestions_status_messages_alter(&$suggestions, &$variables) {
+function material_base_theme_suggestions_status_messages_alter(array &$suggestions, array &$variables) {
 
   if (theme_get_setting('messages_fixed') == TRUE) {
     $suggestions[] = 'status_messages__fixed';
@@ -284,14 +277,21 @@ function material_base_theme_suggestions_status_messages_alter(&$suggestions, &$
  */
 function material_base_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
-  $form['actions']['submit']['#attributes']['class'][] = 'mdc-button--raised';
+  $is_layout_buider_form = FALSE;
+  if ($form_id == 'entity_view_display_layout_builder_form') $is_layout_buider_form = TRUE;
+  else if (substr($form_id, -20) == '_layout_builder_form') $is_layout_buider_form = TRUE;
+
+  if ($is_layout_buider_form) {
+    $form['actions']['#attributes']['class'][] = 'full-width';
+    $form['actions']['preview_toggle']['#attributes']['class'][] = 'full-width';
+  }
 
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function material_base_theme_suggestions_menu_alter(&$suggestions, array $variables) {
+function material_base_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
 
   // Provide region based menu suggestions.
   if (isset($variables['attributes']['region'])) {
