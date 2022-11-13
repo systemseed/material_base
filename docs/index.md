@@ -37,7 +37,7 @@ Just enable it and make it default via Appearance settings or Drush, as usual.
 Upgrate from v2 beta to stable version
 --------------------------------------
 
-In v2 beta versions, Material Base used "Stable" as its own base theme but in 2.0 it was changed to "Stable 9". The copy of "Stable 9" from Drupal Core 9.4.8 was added to Material Base as "Material Stable 9". Due to following the new approach of subtheming, it is recommended to copy base theme files instead of referring them.
+In v2 beta versions, Material Base used "Stable" as a base theme but in 2.0 it was changed to "Stable 9". The copy of "Stable 9" from Drupal Core 9.4.8 was added to Material Base as "Material Stable 9". Following the new approach of subtheming, we are using our own copy of the base theme instead of referring to it.
 
 Full documentation
 ------------------

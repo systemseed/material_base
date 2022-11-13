@@ -2,9 +2,13 @@ Material Base v2 development changes
 ====================================
 
 Not released
-----------
+------------
 
-* Use "stable9" instead of "stable" as base theme.
+* Changed template for textarea fields because of accessibility reasons. In case of any issues, see `themes/material_base_mdc/templates/form/form-element--textarea.html.twig` for reverting options.
+* Moved subthemes to "themes" folder for proper twig template discovery working.
+* #3316638 Fixed password field issues.
+* #3316643 Improved support of layout builder.
+* #3316641 Changed base theme from "Stable" to "Stable 9" (using own copy made from Drupal code 9.4.8).
 
 06.08.2022
 ----------

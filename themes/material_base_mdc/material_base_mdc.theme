@@ -61,7 +61,12 @@ function material_base_mdc_preprocess_form_element(array &$variables) {
   $element = $variables['element'];
 
   if (isset($element['#attributes'])) {
-    $variables['input_attributes'] = new Attribute($element['#attributes']);
+    $input_attributes = $element['#attributes'];
+    if ($element['#type'] == 'password') {
+      // Make password fields the same width as other text fields.
+      $input_attributes['size'] = 60;
+    }
+    $variables['input_attributes'] = new Attribute($input_attributes);
   }
 
   // Copied from core's template_preprocess_textarea

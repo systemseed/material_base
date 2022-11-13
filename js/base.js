@@ -136,6 +136,22 @@ requireAll(require.context('../images/', true, /\.(png|jpg|jpeg|webp|svg)$/));
   Drupal.behaviors.materialBaseFunctions = {
     attach: function(context, settings) {
 
+      // Common form item focused
+      $(context).find('.form-item > label > input').focus(function() {
+        $(this).parent().parent().addClass('form-item--focused');
+      });
+      $(context).find('.form-item > label > input').blur(function() {
+        $(this).parent().parent().removeClass('form-item--focused');
+      });
+
+      // Textarea form item focused
+      $(context).find('.form-item > div > textarea').focus(function() {
+        $(this).parent().parent().addClass('form-item--focused');
+      });
+      $(context).find('.form-item > div > textarea').blur(function() {
+        $(this).parent().parent().removeClass('form-item--focused');
+      });
+
       // Handling clear button for text fields.
       $(context).find('.input-clear').click(function() {
         var input = $(this).closest('.form-item').find('input');

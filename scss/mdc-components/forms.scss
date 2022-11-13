@@ -35,7 +35,28 @@ details > summary {
   }
 }
 
-// Make all text fields (password, text etc) the same width.
-.mdc-text-field {
-  width: 100%;
+.form-item {
+  // Support of full width fields was removed from MDC, but we can do it ourself.
+  .mdc-text-field--fullwidth {
+    width: 100%;
+
+    .cke_chrome {
+      width: 100%;
+    }
+  }
+
+  // There is no easy way to know is CKEeditor enabled for the field or not.
+  // Placing CKEeditor above floatng label by default.
+  .mdc-text-field--textarea {
+    .cke_chrome {
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+
+.form-item__label {
+  .form-item--focused &.label-not-floating {
+    color: $theme-primary;
+  }
 }

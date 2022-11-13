@@ -21,11 +21,14 @@ Rest of form elements uses default appearance provided by Drupal.
 
 Some options provided by MDC library can not be configured via Drupal interface.
 
-Outlined and Full width MDC options for text field could be achieved by passing corresponding values to `form-element--textfield.html.twig` template, by preprocess function, or overridding/including the template in your custom theme.
+Outlined MDC option for text field could be achieved by passing corresponding value to `form-element--textfield.html.twig` template, by preprocess function, or overridding/including the template in your custom theme.
 
-Full width MDC option for textarea could be achieved by passing `full_width = true` to `form-element--textarea.html.twig` template, by preprocess function, or overridding/including the template in your custom theme.
+MDC doesn't provide "static label" option for textarea, only floating label. But it isn't working well with Drupal in some cases, for example when CKEditor is applied.
+Material Base provides an alternative implementation which is enabled by default due to accessability reasons. For pure MDC experience, replace alternative template by original one in `form-element--textarea.html.twig`.
 
 Character counter, prefix and suffix text, leading and trailing icons weren't implemented, however they could be easily added on template level.
+
+Full width option for text fields and textarea was removed from MDC. But it is still supported by custom implementation.
 
 ### Clear input button
 
