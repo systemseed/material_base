@@ -1,10 +1,10 @@
 mdc:
   css:
     theme:
-      ../dist/css/mdc.css: {}
+      ../../dist/css/mdc.css: {}
   js:
     https://unpkg.com/material-components-web@14.0.0/dist/material-components-web.min.js: { type: external, minified: true, weight: -1 }
-    ../dist/js/mdc.js: {}
+    ../../dist/js/mdc.js: {}
   dependencies:
     - core/drupal
     - core/jquery

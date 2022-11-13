@@ -9,11 +9,11 @@ Files and folders of Material Base:
 * `📁 icons` - source folder for building SVG icons sprite
 * `📁 images` - source folder for CSS used images like backgrounds
 * `📁 js` - source folder for JS files
-* `📁 material_base_mdc` - "Material Base MDC" theme folder
-* `📁 material_base_subtheme` - example kit for creating your custom subtheme
-* `📁 material_stable9` - "Material Stable 9" theme folder
 * `📁 scss` - source folder for Sass files
 * `📁 templates` - contains Twig templates for Drupal elements and theme components
+* `📁 themes/material_base_mdc` - "Material Base MDC" theme folder
+* `📁 themes/material_base_subtheme` - example kit for creating your custom subtheme
+* `📁 themes/material_stable9` - "Material Stable 9" theme folder
 * `📄 .gitignore` - contains exclusions for Git repository
 * `📄 CHANGELOG.txt` - contains development changes log
 * `📄 composer.json` - contains technical information about theme
@@ -31,4 +31,4 @@ Files and folders of Material Base:
 * `📄 webpack.config.js` - contains build tasks configuration
 * `📄 yarn.lock` - contains technical information about installed versions of build tools
 
-Pretty much the same structure could be used for your custom theme but not including `docs`, `material_base_mdc` and `material_base_subtheme` folders.
+Pretty much the same structure could be used for your custom theme but not including `docs` and `themes` folders.

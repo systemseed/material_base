@@ -13,7 +13,7 @@ libraries:
 libraries-override:
   user/drupal.user:
     js:
-      user.js: '../dist/js/user.js'
+      user.js: '../../dist/js/user.js'
 
 regions:
   navbar: 'Navbar'

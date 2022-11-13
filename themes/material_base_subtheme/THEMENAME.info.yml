@@ -27,7 +27,7 @@ libraries-override:
   material_base_mdc/mdc:                          # Contains default MDC defenition, replaced by project MDC defenition except mdc.js
     css:
       theme:
-        ../dist/css/mdc.css: false
+        ../../dist/css/mdc.css: false
 
 regions:
   navbar: 'Navbar'

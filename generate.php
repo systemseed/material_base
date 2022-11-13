@@ -5,7 +5,7 @@
  * Contains a Subtheme generation script.
  */
 
-define('GENERATOR_TEMPLATE_FOLDER', 'material_base_subtheme');
+define('GENERATOR_TEMPLATE_FOLDER', 'themes/material_base_subtheme');
 define('GENERATOR_PLACEHOLDER', 'THEMENAME');
 
 define('GENERATOR_DEFAULT_THEMENAME', 'material_top');
