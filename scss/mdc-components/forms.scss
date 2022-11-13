@@ -34,3 +34,8 @@ details > summary {
     display: block;
   }
 }
+
+// Make all text fields (password, text etc) the same width.
+.mdc-text-field {
+  width: 100%;
+}

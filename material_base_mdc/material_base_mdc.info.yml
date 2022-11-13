@@ -10,6 +10,11 @@ screenshot: screenshot.svg
 libraries:
   - material_base_mdc/mdc
 
+libraries-override:
+  user/drupal.user:
+    js:
+      user.js: '../dist/js/user.js'
+
 regions:
   navbar: 'Navbar'
   header: 'Header'

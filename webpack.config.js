@@ -38,7 +38,8 @@ module.exports = [{
   entry: {
     base: ['./js/base.js', './scss/base.scss'],
     mdc: ['./js/mdc.js', './scss/mdc.scss'],
-    // CSS witout JS needs to add to 'SuppressChunksPlugin' config
+    user: './js/user.js',
+    // CSS without JS needs to add to 'SuppressChunksPlugin' config
     grid: './scss/grid.scss',
     fonts: './scss/fonts.scss',
     'icons-font': './scss/icons-font.scss',
