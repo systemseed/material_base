@@ -65,7 +65,7 @@ CSS part of this library intended to be overridden by implementation in your cus
 
 More information about MDC in Material Base [here](mdc.md).
 
-**`THEMENAME/theme`** (library template from `material_base_subtheme` folder)
+**`THEMENAME/theme`** (library template from `themes/material_base_subtheme` folder)
 
 Contains scaffolding for main library of your custom theme.
 

@@ -34,10 +34,36 @@ It is not recommended to use Material Base theme as a site theme, the best pract
 
 Just enable it and make it default via Appearance settings or Drush, as usual.
 
-Upgrate from v2 beta to stable version
---------------------------------------
+Upgrate from 2.x-beta to 2.0 version
+------------------------------------
 
-In v2 beta versions, Material Base used "Stable" as a base theme but in 2.0 it was changed to "Stable 9". The copy of "Stable 9" from Drupal Core 9.4.8 was added to Material Base as "Material Stable 9". Following the new approach of subtheming, we are using our own copy of the base theme instead of referring to it.
+In 2.x beta versions, Material Base used "Stable" as a base theme but in 2.0 it was changed to "Stable 9". The copy of "Stable 9" from Drupal Core 9.4.8 was added to Material Base as "Material Stable 9". Following the new approach of subtheming, Material Base using own copy of the base theme instead of referring to it.
+Switching from "Stable" to "Stable 9" shouldn't make big difference but in case of regression issues, it will be the first place to check. Don't forget to run the update script after the update.
+
+In 2.0 child themes were moved to the `themes` folder, to make the template discovery work correctly. If you created a subtheme based on the `material_base_subtheme` template, most likely you will need to update the path for `material_base_mdc/mdc` library files in `YOURTHEME.info.yml`, from `../dist/` to `../../dist/`.
+
+**Before:**
+
+```
+libraries-override:
+  material_base_mdc/mdc:
+    css:
+      theme:
+        ../dist/css/mdc.css: false
+```
+
+**After:**
+
+```
+libraries-override:
+  material_base_mdc/mdc:
+    css:
+      theme:
+        ../../dist/css/mdc.css: false
+```
+
+In 2.0 default template for the Textarea field was changed. Alternative version with no floating label used by default due to compatibility with CKEditor. Original MDC implementation still available, see `themes/material_base_mdc/templates/form/form-element--textarea.html.twig` for reverting options.
+
 
 Full documentation
 ------------------

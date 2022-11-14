@@ -6,7 +6,7 @@ Subtheme template structure
 
 Subtheme template is placed in `themes/material_base_subtheme` folder.
 
-Subtheme template uses pretty much the same file [structure](folder-structure.md) as a base theme (excluding itself, MDC subtheme, docs, and some other files).
+Subtheme template uses pretty much the same file [structure](folder-structure.md) as a base theme (excluding `themes` and `docs` folders, and some other files).
 
 Creating subtheme from template
 -------------------------------

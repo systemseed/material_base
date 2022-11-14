@@ -11,7 +11,7 @@ For more information info about subtheming see this [page](https://www.drupal.or
 
 You could create your subtheme from scratch or use a template included in MB (recommended).
 
-Folder `material_base_subtheme` contains the template for creating your custom theme.
+Folder `themes/material_base_subtheme` contains the template for creating your custom theme.
 
 For detailed information about how to create subtheme from template see [Custom subtheme template](subtheme-template.md).
 

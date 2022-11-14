@@ -9,7 +9,7 @@ Installing dependencies
 
 For installing build tools and it's dependences you needs to have [Yarn](https://yarnpkg.com/) globally installed. Using Yarn is recommended but NPM also should work.
 
-1. Make sure you have all files copied from `material_base_subtheme` folder to your custom theme folder.
+1. Make sure you have all files copied from `themes/material_base_subtheme` folder to your custom theme folder.
 2. Optional: adjust values in `webpack.config.js`.
 3. From your custom theme folder run:
 
