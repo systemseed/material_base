@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Settings for material_base theme.
+ */
+
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -11,17 +16,17 @@ function material_base_form_system_theme_settings_alter(&$form, FormStateInterfa
     return;
   }
 
-  $form['layout'] = array(
+  $form['layout'] = [
     '#type' => 'details',
     '#title' => t('Layout'),
     '#open' => TRUE,
-  );
+  ];
 
-  $form['layout']['navbar_fixed'] = array(
+  $form['layout']['navbar_fixed'] = [
     '#type' => 'checkbox',
     '#title' => t('Sticky navbar'),
     '#default_value' => theme_get_setting('navbar_fixed'),
-  );
+  ];
 
   $form['layout']['navbar_style'] = [
     '#type' => 'select',
@@ -65,9 +70,9 @@ function material_base_form_system_theme_settings_alter(&$form, FormStateInterfa
     '#default_value' => theme_get_setting('footer_style'),
   ];
 
-  $form['layout']['messages_fixed'] = array(
+  $form['layout']['messages_fixed'] = [
     '#type' => 'checkbox',
     '#title' => t('Messages in overlay'),
     '#default_value' => theme_get_setting('messages_fixed'),
-  );
+  ];
 }

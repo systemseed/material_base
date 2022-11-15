@@ -69,7 +69,7 @@ function material_base_mdc_preprocess_form_element(array &$variables) {
     $variables['input_attributes'] = new Attribute($input_attributes);
   }
 
-  // Copied from core's template_preprocess_textarea
+  // Copied from core's template_preprocess_textarea.
   if ($element['#type'] == 'textarea') {
     $attributes = [
       'id',
@@ -115,13 +115,11 @@ function material_base_mdc_theme_suggestions_node_alter(array &$suggestions, arr
     // Support using example node templates.
     $current_path = \Drupal::service('path.current')->getPath();
     $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
-    $current_alias = preg_replace('/\W+/','_',strtolower(ltrim($current_alias, '/')));
+    $current_alias = preg_replace('/\W+/', '_', strtolower(ltrim($current_alias, '/')));
     $suggestions[] = 'node__' . $current_alias . '__example';
 
-    $node = $variables['elements']['#node'];
-
     if (isset($variables['elements']['#view_mode'])) {
-      $suggestions[] = 'node__' . $current_alias . '__' .$variables['elements']['#view_mode'] . '__example';
+      $suggestions[] = 'node__' . $current_alias . '__' . $variables['elements']['#view_mode'] . '__example';
     }
   }
 
@@ -132,8 +130,8 @@ function material_base_mdc_theme_suggestions_node_alter(array &$suggestions, arr
  */
 function material_base_mdc_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
 
-  // Prepend suggestions array for supporting modules like Themable forms
-  array_unshift($suggestions , 'form_element__' . $variables['element']['#type']);
+  // Prepend suggestions array for supporting modules like Themable forms.
+  array_unshift($suggestions, 'form_element__' . $variables['element']['#type']);
 
   // Add suggestion for off canvas elements.
   if (!empty($variables['element']['#off_canvas']) && $variables['element']['#off_canvas']) {
@@ -164,5 +162,5 @@ function material_base_mdc_theme_suggestions_input_alter(array &$suggestions, ar
   if (!empty($variables['element']['#off_canvas']) && $variables['element']['#off_canvas']) {
     $suggestions[] = 'input__submit__off_canvas';
   }
-  
+
 }

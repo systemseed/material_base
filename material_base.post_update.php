@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Update functions for material_base theme.
+ */
+
+/**
  * Install material_stable9 theme.
  */
 function material_base_post_update_9001() {

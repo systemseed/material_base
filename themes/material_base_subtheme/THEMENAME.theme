@@ -37,6 +37,9 @@ function THEMENAME_preprocess_html(&$variables) {
     ],
   ];
 
-  $variables['page']['#attached']['html_head'][] = [$preload_font_montserrat_roboto, 'preload_font_montserrat_roboto'];
+  $variables['page']['#attached']['html_head'][] = [
+    $preload_font_montserrat_roboto,
+    'preload_font_montserrat_roboto',
+  ];
 
 }
