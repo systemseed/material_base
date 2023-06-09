@@ -3,7 +3,7 @@ type: theme
 description: Base theme inspirited by Material Design concept.
 core_version_requirement: ^9 || ^10
 
-base theme: material_stable9
+base theme: stable9
 
 screenshot: screenshot.svg
 
@@ -13,11 +13,6 @@ libraries:
   - material_base/grid
   - material_base/fonts
   - material_base/icons-font
-
-component-libraries:
-  material_base:
-    paths:
-      - ./components
 
 regions:
   navbar: 'Navbar'
