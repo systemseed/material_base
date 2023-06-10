@@ -1,0 +1,14 @@
+{#
+  Historically Drupal uses <input type="submit"> element for buttons.
+  The modern way is to use <button> element because it allows putting
+  nested markup and using advanced styling. For compatibility with
+  contrib modules Material Base comes with <input> element by default.
+  But if you want to have <button> element for buttons, copy this template
+  to your custom theme and rename to `input--submit.html.twig`.
+
+  Have to use full template path because button.html.twig is not defined
+  in templates registry yet.
+  
+  See https://www.drupal.org/project/drupal/issues/1671190
+#}
+{% extends "@material_base_mdc/form/button.html.twig" %}

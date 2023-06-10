@@ -11,7 +11,10 @@
  */
 #}
 
-{% set button_attributes = create_attribute() %}
+{% set button_attributes = create_attribute({
+  'for': attributes.id,
+  'id': attributes.id ~ '-label'
+}) %}
 
 {% set button_classes = [
   'mdc-button',
@@ -28,8 +31,8 @@
   {% set button_attributes = button_attributes.setAttribute('disabled', 1) %}
 {% endif %}
 
-<button{{ button_attributes.addClass(button_classes) }}>
+<label{{ button_attributes.addClass(button_classes) }}>
   <div class="mdc-button__ripple"></div>
   <span class="mdc-button__label">{{ attributes.value|render }}</span>
   <input{{ attributes|without('class').addClass('button-submit__input') }} />
-</button>
+</label>{{ children }}
