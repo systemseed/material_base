@@ -11,6 +11,8 @@ The theme was made as basic styles and a set of components, which can be easily 
 
 Material Base v2 has been completely rewritten since version 1.x and there is no upgrade path from v1 to v2.
 
+Material Base 3.0 is a semantic version release of Material Base v2, no breaking compatibility changes have been made. 
+
 Material Base — is the theme for themers. It requires knowledge of Drupal theming system and CSS/SASS.
 
 Happy theming!
@@ -85,21 +87,25 @@ Full documentation
     * [Helpers and extends](helpers-extends.md)
     * [Icon fonts](icon-fonts.md)
     * [SVG icons sprite](svg-icons.md)
+    * [Style guide](style-guide.md)
 * **[Components](components.md)**
-    * [Icon](components/icon.md)
-    * [Button](components/button.md)
-    * [Icon button](components/icon-button.md)
-    * [Card](components/card.md)
-    * [Form](components/form.md)
-    * [Search](components/search.md)
-    * [Text list](components/text-list.md)
     * [Accordion](components/accordion.md)
-    * [Dropdown](components/dropdown.md)
-    * [Menu dropdown](components/menu-dropdown.md)
-    * [Tooltip](components/tooltip.md)
+    * [Button](components/button.md)
+    * [Card](components/card.md)
     * [Chip](components/chip.md)
     * [Copy target](components/copy-target.md)
-    * [Slick](components/slick.md)
+    * [Drawer](components/drawer.md)
+    * [Dropdown](components/dropdown.md)
+    * [Footer](components/footer.md)
+    * [Form](components/form.md)
+    * [Icon button](components/icon-button.md)
+    * [Icon](components/icon.md)
+    * [Menu dropdown](components/menu-dropdown.md)
+    * [Messages](components/messages.md)
     * [Navbar](components/navbar.md)
     * [Overlay](components/overlay.md)
-    * [Messages](components/messages.md)
+    * [Search](components/search.md)
+    * [Share button](components/share-button.md)
+    * [Slick](components/slick.md)
+    * [Text list](components/text-list.md)
+    * [Tooltip](components/tooltip.md)

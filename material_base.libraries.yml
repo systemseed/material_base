@@ -1,9 +1,9 @@
 base:
   css:
     base:
-      dist/css/base.css: {}
+      dist/css/base.css: { minified: true }
   js:
-    dist/js/base.js: {}
+    dist/js/base.js: { minified: true }
   dependencies:
     - core/drupal
     - core/jquery
@@ -13,17 +13,17 @@ base:
 grid:
   css:
     layout:
-      dist/css/grid.css: {}
+      dist/css/grid.css: { minified: true }
 
 fonts:
   css:
     component:
-      dist/css/fonts.css: {}
+      dist/css/fonts.css: { minified: true }
 
 icons-font:
   css:
     component:
-      dist/css/icons-font.css: {}
+      dist/css/icons-font.css: { minified: true }
 
 clipboard-js:
   js:

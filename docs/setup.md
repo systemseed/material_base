@@ -21,7 +21,7 @@ Enabling theme
 For enabling theme there are two options:
 
 1. In site administrative interface, page Appearance
-2. by Drush command `drush en THEMENAME`
+2. by Drush command `drush then THEMENAME`
 
 Starting usage and further theme development
 --------------------------------------------

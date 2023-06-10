@@ -16,6 +16,7 @@ Implemented MDC components:
 * Text field (including textarea, helper text, and floating label)
 * Checkbox
 * Radio button
+* Submit button
 
 Rest of form elements uses default appearance provided by Drupal.
 
@@ -23,12 +24,19 @@ Some options provided by MDC library can not be configured via Drupal interface.
 
 Outlined MDC option for text field could be achieved by passing corresponding value to `form-element--textfield.html.twig` template, by preprocess function, or overridding/including the template in your custom theme.
 
-MDC doesn't provide "static label" option for textarea, only floating label. But it isn't working well with Drupal in some cases, for example when CKEditor is applied.
-Material Base provides an alternative implementation which is enabled by default due to accessability reasons. For pure MDC experience, replace alternative template by original one in `form-element--textarea.html.twig`.
-
 Character counter, prefix and suffix text, leading and trailing icons weren't implemented, however they could be easily added on template level.
 
 Full width option for text fields and textarea was removed from MDC. But it is still supported by custom implementation.
+
+### Floating label for textarea
+
+MDC doesn't provide "static label" option for textarea, only floating label. But it isn't working well with Drupal in some cases, for example when CKEditor is applied.
+Material Base provides an alternative implementation which is enabled by default due to accessability reasons. For pure MDC experience, replace alternative template by original one in `form-element--textarea.html.twig`.
+
+### Button elemennt instead of input
+
+Historically Drupal uses <input type="submit"> element for buttons. The modern way is to use <button> element because it allows putting nested markup and using advanced styling. For compatibility with contrib modules Material Base comes with <input> element by default.
+But if you want to have <button> element for buttons, it can be can achieved by copying `material_base/themes/material_base_mdc/templates/form/input--submit--button.html.twig` and pasting it as `input--submit.html.twig` to your custom theme's `templates/form` folder.
 
 ### Clear input button
 

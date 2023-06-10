@@ -13,7 +13,7 @@ Supported overlay items:
 * Overlay open button (as navbar item)
 * Overlay close button (built in template)
 * Branding (Drupal site branding block)
-* Menu, including 2 level submenus (Drupal menu block)
+* Menu, including 2nd level submenus (Drupal menu block)
 
 Custom items could be added on template level by overridding/including `region--overlay.html.twig` template in your custom theme.
 

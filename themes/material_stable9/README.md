@@ -2,7 +2,7 @@ What is this?
 =============
 
 This is a definition of a theme that was used as a base theme for Material
-Base before. So far we are keeping the `material_stable.info.yml` file for
+Base before. So far we are keeping the `material_stable9.info.yml` file for
 smooth uninstalling during the update. It will be removed in further versions.
 
 How did it happen?

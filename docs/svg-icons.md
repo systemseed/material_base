@@ -1,12 +1,12 @@
 SVG Icons sprite
 ================
 
-Build script of Material Base and Material Base Subtheme contains a function for automatic generation SVG sprite from icons (or any other SVG images) placed in `icons`.
+Build script of Material Base and Material Base Subtheme contains a function for automatic generation SVG sprite from icons (or any other SVG images) placed in `icons` folder.
 
 Adding icons to the sprite
 --------------------------
 
-For adding new icons to a sprite file needs to place SVG files to `icons` and run [build](build.md) theme process. Built sprite will be available by path `dist\images\isons.svg` and will be imported on every page automatically. Sprite file and containing icons will not be visible on the pages, it needs to define usage somewhere for showing the icon.
+For adding new icons to a sprite file it needs to place SVG files to `icons` folder and run [build](build.md) theme process. Built sprite will be available by path `dist\images\isons.svg` and will be imported on every page automatically. Sprite file and containing icons will not be visible on the pages, it needs to define usage somewhere for showing the icon.
 
 Using icons
 -----------

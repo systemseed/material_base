@@ -1,6 +1,17 @@
 Material Base v2 development changes
 ====================================
 
+10.06.2023 - 3.0.0-beta1
+------------------------
+
+* Switched to semantic versioning model.
+* Changed base theme to "Stable 9" from Drupal Core.
+* Files of "Material Stable 9" theme (which was a copy "Stable 9" from Drupal Core) had been removed. Theme definition temporary kept for smooth update process.
+* Updated button template (`input--submit.html.twig`) to use <label> tag instead of <button> as a wrapper for <input> element. It's more semantic and accessible.
+* Introduced new button template (`button.html.twig`) which utilize <button> element instead of <input>.
+  It's not active by default until [#1671190](https://www.drupal.org/project/drupal/issues/1671190) will be fixed but if you want to have it now, you can override the "input" template in your custom theme, see `themes/material_base_mdc/templates/form/input--submit--button.html.twig`.
+* Improved documentation.
+
 14.11.2022 - 2.0
 ----------------
 
